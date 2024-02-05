@@ -1,0 +1,34 @@
+{
+    "name": "InputActions",
+    "maps": [
+        {
+            "name": "Camera",
+            "id": "43354d3c-efcf-47c3-bd07-7bf5023f7241",
+            "actions": [
+                {
+                    "name": "Control",
+                    "type": "Value",
+                    "id": "07779359-f3b3-40a5-9fc6-fc2e1d2d3275",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c308ff58-e46f-4981-bce6-9f9b994d6d51",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Control",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
