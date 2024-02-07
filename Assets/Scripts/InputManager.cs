@@ -4,29 +4,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InputManager : MonoBehaviour
+public class InputManager : MonoBehaviour, IInputService
 {
 
-    public static InputManager Instance { get; private set; }
+    InputActions _inputActions;
 
-    InputActions inputActions;
+    private Vector2 _mousePosition;
+    private float _mouseScroll;
 
-    private Vector2 mousePosition;
+    public event EventHandler OnMouseScrollScrolled;
 
     private void Awake()
     {
-        Instance = this;
+        _inputActions = new InputActions();
+        _inputActions.Enable();
 
-        inputActions=new InputActions();
-        inputActions.Enable();
+        _inputActions.Camera.Control.performed += Control_performed;
+        _inputActions.Camera.Zoom.performed += Zoom_performed;
+    }
 
-        inputActions.Camera.Control.performed += Control_performed;
+    private void Zoom_performed(InputAction.CallbackContext obj)
+    {
+        _mouseScroll=obj.ReadValue<float>();
 
+        OnMouseScrollScrolled?.Invoke(this, EventArgs.Empty);
     }
 
     private void Control_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        mousePosition = obj.ReadValue<Vector2>();
+        _mousePosition = obj.ReadValue<Vector2>();
     }
 
 
@@ -36,7 +42,7 @@ public class InputManager : MonoBehaviour
     /// <returns></returns>
     public Vector2 GetMousePositionInCamera()
     {
-        Vector2 position = new Vector2(mousePosition.x / Camera.main.pixelWidth, mousePosition.y/Camera.main.pixelHeight);
+        Vector2 position = new Vector2(_mousePosition.x / Camera.main.pixelWidth, _mousePosition.y / Camera.main.pixelHeight);
         position.x -= .5f;
         position.y -= .5f;
 
@@ -44,5 +50,10 @@ public class InputManager : MonoBehaviour
         position.y *= 2;
 
         return position;
+    }
+
+    public float GetMouseScrollValue()
+    {
+        return _mouseScroll;
     }
 }
