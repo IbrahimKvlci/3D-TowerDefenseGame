@@ -6,13 +6,13 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour, IInputService
 {
+    public event EventHandler OnMouseScrollScrolled;
+    public event EventHandler OnLockKeyDown;
 
     InputActions _inputActions;
 
     private Vector2 _mousePosition;
     private float _mouseScroll;
-
-    public event EventHandler OnMouseScrollScrolled;
 
     private void Awake()
     {
@@ -21,6 +21,12 @@ public class InputManager : MonoBehaviour, IInputService
 
         _inputActions.Camera.Control.performed += Control_performed;
         _inputActions.Camera.Zoom.performed += Zoom_performed;
+        _inputActions.Camera.Lock.performed += Lock_performed;
+    }
+
+    private void Lock_performed(InputAction.CallbackContext obj)
+    {
+        OnLockKeyDown?.Invoke(this, EventArgs.Empty);
     }
 
     private void Zoom_performed(InputAction.CallbackContext obj)

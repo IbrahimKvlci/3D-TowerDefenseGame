@@ -44,6 +44,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Lock"",
+                    ""type"": ""Button"",
+                    ""id"": ""dd299f8e-d3d9-4db6-aa3a-0bae7a63f7da"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -68,6 +77,17 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Zoom"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6d960554-4066-43ad-a8d7-620250f1132f"",
+                    ""path"": ""<Keyboard>/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Lock"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -78,6 +98,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
         m_Camera_Control = m_Camera.FindAction("Control", throwIfNotFound: true);
         m_Camera_Zoom = m_Camera.FindAction("Zoom", throwIfNotFound: true);
+        m_Camera_Lock = m_Camera.FindAction("Lock", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -141,12 +162,14 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private List<ICameraActions> m_CameraActionsCallbackInterfaces = new List<ICameraActions>();
     private readonly InputAction m_Camera_Control;
     private readonly InputAction m_Camera_Zoom;
+    private readonly InputAction m_Camera_Lock;
     public struct CameraActions
     {
         private @InputActions m_Wrapper;
         public CameraActions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Control => m_Wrapper.m_Camera_Control;
         public InputAction @Zoom => m_Wrapper.m_Camera_Zoom;
+        public InputAction @Lock => m_Wrapper.m_Camera_Lock;
         public InputActionMap Get() { return m_Wrapper.m_Camera; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -162,6 +185,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Zoom.started += instance.OnZoom;
             @Zoom.performed += instance.OnZoom;
             @Zoom.canceled += instance.OnZoom;
+            @Lock.started += instance.OnLock;
+            @Lock.performed += instance.OnLock;
+            @Lock.canceled += instance.OnLock;
         }
 
         private void UnregisterCallbacks(ICameraActions instance)
@@ -172,6 +198,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Zoom.started -= instance.OnZoom;
             @Zoom.performed -= instance.OnZoom;
             @Zoom.canceled -= instance.OnZoom;
+            @Lock.started -= instance.OnLock;
+            @Lock.performed -= instance.OnLock;
+            @Lock.canceled -= instance.OnLock;
         }
 
         public void RemoveCallbacks(ICameraActions instance)
@@ -193,5 +222,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     {
         void OnControl(InputAction.CallbackContext context);
         void OnZoom(InputAction.CallbackContext context);
+        void OnLock(InputAction.CallbackContext context);
     }
 }

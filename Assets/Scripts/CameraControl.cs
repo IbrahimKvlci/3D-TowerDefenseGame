@@ -8,6 +8,8 @@ public class CameraControl : MonoBehaviour
     [SerializeField] private float camMovementSpeed=1f;
     [SerializeField] private float zoomSpeed=5f;
 
+    private bool cameraLocked;
+
     IInputService _inputService;
 
     [Inject]
@@ -19,6 +21,14 @@ public class CameraControl : MonoBehaviour
     private void Start()
     {
         _inputService.OnMouseScrollScrolled += inputService_OnMouseScrollScrolled;
+        _inputService.OnLockKeyDown += inputService_OnLockKeyDown;
+
+        cameraLocked= false;
+    }
+
+    private void inputService_OnLockKeyDown(object sender, System.EventArgs e)
+    {
+        cameraLocked=!cameraLocked;
     }
 
     private void inputService_OnMouseScrollScrolled(object sender, System.EventArgs e)
@@ -30,8 +40,10 @@ public class CameraControl : MonoBehaviour
 
     private void Update()
     {
-        HandleCameraMovement();
-
+        if(!cameraLocked)
+        {
+            HandleCameraMovement();
+        }
     }
 
     private void HandleCameraMovement()
