@@ -15,3 +15,4 @@ MonoBehaviour:
   prefab: {fileID: 3472182564185262402, guid: eaac7c46e3b01b849aabc767e3e30bed, type: 3}
   icon: {fileID: 0}
   title: Mine
+  healthMax: 10

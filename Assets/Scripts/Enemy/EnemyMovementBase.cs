@@ -3,12 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
+using Zenject;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public abstract class EnemyMovementBase : MonoBehaviour
 {
     private PlayerObjectsBase target;
     private NavMeshAgent agent;
+
+    private IPlayerObjectPoolingSystem _playerObjectPoolingSystem;
+
+    private bool canMove;
+
+    [Inject]
+    public void Construct(IPlayerObjectPoolingSystem playerObjectPoolingSystem)
+    {
+        _playerObjectPoolingSystem = playerObjectPoolingSystem;
+    }
 
     private void Awake()
     {
@@ -17,14 +28,14 @@ public abstract class EnemyMovementBase : MonoBehaviour
 
     private void Start()
     {
-        PlayerObjectPoolingSystem.Instance.OnObjectRemovedFromList += PlayerObjectPoolingSystem_OnObjectRemovedFromList;
+        SetCanMove(true);
+        _playerObjectPoolingSystem.OnObjectRemovedFromList += playerObjectPoolingSystem_OnObjectRemovedFromList;
     }
 
-    private void PlayerObjectPoolingSystem_OnObjectRemovedFromList(object sender, PlayerObjectPoolingSystem.OnObjectRemovedFromListEventArgs e)
+    private void playerObjectPoolingSystem_OnObjectRemovedFromList(object sender, IPlayerObjectPoolingSystem.OnObjectRemovedFromListEventArgs e)
     {
         if (target == e.playerObject)
         {
-            Debug.Log("esit");
             target = GetClosestPlayerObject();
         }
     }
@@ -36,6 +47,7 @@ public abstract class EnemyMovementBase : MonoBehaviour
 
     protected virtual void HandleMovement()
     {
+
         if (target == null)
         {
             target = GetClosestPlayerObject();
@@ -43,12 +55,14 @@ public abstract class EnemyMovementBase : MonoBehaviour
         else
         {
             agent.destination = target.transform.position;
+
         }
+
     }
 
     protected virtual PlayerObjectsBase GetClosestPlayerObject()
     {
-        List<PlayerObjectsBase> playerObjects = PlayerObjectPoolingSystem.Instance.GetPlayerObjects();
+        List<PlayerObjectsBase> playerObjects = _playerObjectPoolingSystem.GetPlayerObjects();
         if (playerObjects.Count == 0)
         {
             return null;
@@ -59,7 +73,7 @@ public abstract class EnemyMovementBase : MonoBehaviour
             float distanceEnemyAndFirstDamageable = Vector3.Distance(this.transform.position, playerObjectToFollow.transform.position);
             float distanceEnemyAndSecondDamageable = Vector3.Distance(this.transform.position, playerObjects[i].transform.position);
 
-            if(distanceEnemyAndSecondDamageable < distanceEnemyAndFirstDamageable)
+            if (distanceEnemyAndSecondDamageable < distanceEnemyAndFirstDamageable)
             {
                 //New closest player object was found
                 playerObjectToFollow = playerObjects[i];
@@ -67,5 +81,17 @@ public abstract class EnemyMovementBase : MonoBehaviour
         }
 
         return playerObjectToFollow;
+    }
+
+    public bool GetCanMove()
+    {
+        return canMove;
+    }
+
+    public void SetCanMove(bool value)
+    {
+        canMove = value;
+
+        agent.isStopped = !canMove;
     }
 }

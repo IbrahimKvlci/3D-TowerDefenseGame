@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208664997c3ed2841a8d568435659760, type: 3}
   m_Name: Gold
   m_EditorClassIdentifier: 
-  prefab: {fileID: 9023739581993028419, guid: 8805e8dfd7f7ec148af59164d1b68f11, type: 3}
+  prefab: {fileID: 562887575785107679, guid: 564196238e27c5449a4b53eefe650730, type: 3}
   icon: {fileID: 0}
   miningTimerMax: 5
   title: Gold

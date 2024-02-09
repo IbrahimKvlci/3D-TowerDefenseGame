@@ -8,5 +8,7 @@ public class GameInstaller : MonoInstaller
     public override void InstallBindings()
     {
         Container.Bind<IInputService>().To<InputManager>().FromComponentInNewPrefab(inputManager).AsSingle();
+
+        Container.Bind<IPlayerObjectPoolingSystem>().To<PlayerObjectPoolingManager>().AsSingle();
     }
 }

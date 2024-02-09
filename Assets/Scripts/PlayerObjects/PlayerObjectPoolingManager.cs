@@ -4,22 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class PlayerObjectPoolingSystem : MonoBehaviour
+public class PlayerObjectPoolingManager:IPlayerObjectPoolingSystem 
 {
-    public event EventHandler<OnObjectRemovedFromListEventArgs> OnObjectRemovedFromList;
-    public class OnObjectRemovedFromListEventArgs : EventArgs
-    {
-        public PlayerObjectsBase playerObject;
-    }
+    public event EventHandler<IPlayerObjectPoolingSystem.OnObjectRemovedFromListEventArgs> OnObjectRemovedFromList;
 
-    public static PlayerObjectPoolingSystem Instance { get; set; }
 
     private List<PlayerObjectsBase> playerObjects = new List<PlayerObjectsBase>();
 
-    private void Awake()
-    {
-        Instance = this;
-    }
 
     public void AddPlayerObjectToList(PlayerObjectsBase playerObject)
     {
@@ -33,7 +24,7 @@ public class PlayerObjectPoolingSystem : MonoBehaviour
     {
         playerObjects.Remove(playerObject);
 
-        OnObjectRemovedFromList?.Invoke(this, new OnObjectRemovedFromListEventArgs
+        OnObjectRemovedFromList?.Invoke(this, new IPlayerObjectPoolingSystem.OnObjectRemovedFromListEventArgs
         {
             playerObject = playerObject
         });

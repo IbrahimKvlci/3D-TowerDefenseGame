@@ -8,5 +8,5 @@ public class MineSO : ScriptableObject
     public Transform prefab;
     public Sprite icon;
     public string title;
-
+    public float healthMax;
 }

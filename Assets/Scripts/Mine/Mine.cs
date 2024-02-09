@@ -7,6 +7,7 @@ public class Mine : PlayerObjectsBase
 {
 
     [SerializeField] private MineObjectSO mineObjectSO;
+    [SerializeField] private MineSO mineSO;
 
     private float miningTimer;
 
