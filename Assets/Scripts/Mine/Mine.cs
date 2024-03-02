@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mine : PlayerObjectsBase
+public class Mine : PlayerObject
 {
 
     [SerializeField] private MineObjectSO mineObjectSO;

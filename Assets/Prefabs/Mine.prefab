@@ -10,9 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3472182564185262402}
   - component: {fileID: 4572344017767209366}
-  - component: {fileID: 3153581584679608535}
   - component: {fileID: 1736903755872540028}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,19 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mineObjectSO: {fileID: 11400000, guid: abe0253d89c51624fb4fc2c351801bd3, type: 2}
-  mineSO: {fileID: 11400000, guid: 7b05a20da6102d94fa5c7067af2e1d4c, type: 2}
---- !u!114 &3153581584679608535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1650095518643522251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 031c7d70eeee0b34f8285ba18d38231a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   mineSO: {fileID: 11400000, guid: 7b05a20da6102d94fa5c7067af2e1d4c, type: 2}
 --- !u!65 &1736903755872540028
 BoxCollider:
