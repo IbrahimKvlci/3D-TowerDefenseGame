@@ -19,3 +19,4 @@ MonoBehaviour:
   attackRange: 5
   attackSpeed: 1
   damage: 10
+  attackAnimationToAttackTimerMax: 1
