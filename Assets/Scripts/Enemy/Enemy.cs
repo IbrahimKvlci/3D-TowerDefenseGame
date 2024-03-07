@@ -9,6 +9,7 @@ public abstract class Enemy : MonoBehaviour
     [field:SerializeField] public EnemyTriggerController EnemyTriggerController { get; set; }
 
     public PlayerObject PlayerObjectTarget { get; set; }
+    public EnemyMovement EnemyMovement { get; set; }
 
     public IEnemyStateService EnemyStateService { get; set; }
     public IEnemyDetectPlayerObjectService EnemyTriggerService { get; set; }
@@ -21,6 +22,8 @@ public abstract class Enemy : MonoBehaviour
 
     private void Awake()
     {
+        EnemyMovement=new EnemyMovement();
+
         EnemyTriggerService = new EnemyDetectPlayerObjectManager();
         EnemyStateService = new EnemyStateManager();
         EnemyMovementService = new EnemyMovementManager(GetComponent<NavMeshAgent>());

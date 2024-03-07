@@ -5,4 +5,5 @@ using UnityEngine;
 public interface IEnemyMovementService
 {
     void HandleMovement(PlayerObject target);
+    void SetCanMove(bool canMove);
 }

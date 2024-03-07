@@ -20,6 +20,7 @@ public class EnemyMoveState : EnemyStateBase
         _enemy.EnemyMovementService.HandleMovement(_enemy.PlayerObjectTarget);
         if (_enemy.EnemyTriggerController.IsPlayerObjectTriggeredToBeAttacked())
         {
+            Debug.Log("triggered");
             _enemyStateService.SwitchState(_enemy.EnemyAttackState);
         }
     }
@@ -27,6 +28,7 @@ public class EnemyMoveState : EnemyStateBase
     public override void ExitState()
     {
         base.ExitState();
+        _enemy.EnemyMovement.CanMove=false;
     }
 
 

@@ -11,6 +11,7 @@ public class EnemyAttackState : EnemyStateBase
     public override void EnterState()
     {
         base.EnterState();
+        Debug.Log("AttackState");
     }
 
     public override void UpdateState()
