@@ -6,11 +6,16 @@ public class PlayerObjectHealthManager : IPlayerObjectHealthService
 {
     public void DestroySelf(PlayerObject playerObject)
     {
+        PlayerObjectPooling.Instance.PlayerObjectList.Remove(playerObject);
         GameObject.Destroy(playerObject.gameObject);
     }
 
-    public void TakeDamage(PlayerObjectHealth playerObjectHealth, float damage)
+    public void TakeDamage(PlayerObject playerObject, float damage)
     {
-        playerObjectHealth.Health-=damage;
+        playerObject.PlayerObjectHealth.Health-=damage;
+        if(playerObject.PlayerObjectHealth.Health <= 0 )
+        {
+            DestroySelf(playerObject);
+        }
     }
 }

@@ -4,31 +4,36 @@ using UnityEngine;
 
 public class EnemyMoveState : EnemyStateBase
 {
-    public EnemyMoveState(Enemy enemy, IEnemyStateService enemyStateService) : base(enemy, enemyStateService)
+    private readonly IEnemyMovementService _enemyMovementService;
+
+    public EnemyMoveState(Enemy enemy, IEnemyStateService enemyStateService, IEnemyMovementService enemyMovementService) : base(enemy, enemyStateService)
     {
+        _enemyMovementService = enemyMovementService;
     }
 
     public override void EnterState()
     {
         base.EnterState();
+        _enemyMovementService.SetCanMove(_enemy, true);
     }
 
     public override void UpdateState()
     {
         base.UpdateState();
-
-        _enemy.EnemyMovementService.HandleMovement(_enemy.PlayerObjectTarget);
+        if(_enemy.PlayerObjectTarget != null)
+        {
+            _enemyMovementService.HandleMovement(_enemy, _enemy.PlayerObjectTarget);
+        }
         if (_enemy.EnemyTriggerController.IsPlayerObjectTriggeredToBeAttacked())
         {
-            Debug.Log("triggered");
-            _enemyStateService.SwitchState(_enemy.EnemyAttackState);
+            _enemyStateService.SwitchState(_enemy.EnemyPrepareAttackState);
         }
     }
 
     public override void ExitState()
     {
         base.ExitState();
-        _enemy.EnemyMovement.CanMove=false;
+        _enemyMovementService.SetCanMove(_enemy,false);
     }
 
 

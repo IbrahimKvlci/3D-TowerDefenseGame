@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IEnemyMovementService
 {
-    void HandleMovement(PlayerObject target);
-    void SetCanMove(bool canMove);
+    void HandleMovement(Enemy enemy,PlayerObject target);
+    void SetCanMove(Enemy enemy,bool canMove);
 }

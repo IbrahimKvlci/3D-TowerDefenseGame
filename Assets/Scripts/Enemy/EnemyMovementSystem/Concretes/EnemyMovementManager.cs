@@ -5,20 +5,16 @@ using UnityEngine.AI;
 
 public class EnemyMovementManager : IEnemyMovementService
 {
-    private NavMeshAgent _navMeshAgent;
 
-    public EnemyMovementManager(NavMeshAgent navMeshAgent)
+    public void HandleMovement(Enemy enemy, PlayerObject target)
     {
-        _navMeshAgent = navMeshAgent;
+        enemy.EnemyMovement.NavMeshAgent.destination = target.transform.position;
     }
 
-    public void HandleMovement(PlayerObject target)
+    public void SetCanMove(Enemy enemy, bool canMove)
     {
-        _navMeshAgent.destination = target.transform.position;
-    }
-
-    public void SetCanMove(bool canMove)
-    {
-        
+        enemy.EnemyMovement.CanMove = canMove;
+        enemy.EnemyMovement.NavMeshAgent.isStopped = !canMove;
+        enemy.EnemyMovement.NavMeshAgent.ResetPath();
     }
 }

@@ -6,6 +6,7 @@ public class EnemyAttackManager : IEnemyAttackService
 {
     public void Attack(PlayerObject playerObject, float damage)
     {
-        playerObject.PlayerObjectHealthService.TakeDamage(playerObject.PlayerObjectHealth, damage);
+        playerObject.PlayerObjectHealthService.TakeDamage(playerObject, damage);
+        Debug.Log(playerObject.PlayerObjectHealth.Health);
     }
 }
