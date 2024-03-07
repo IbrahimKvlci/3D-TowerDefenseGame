@@ -17,4 +17,8 @@ public class EnemyMovementManager : IEnemyMovementService
         _navMeshAgent.destination = target.transform.position;
     }
 
+    public void SetCanMove(bool canMove)
+    {
+        
+    }
 }
