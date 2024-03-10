@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu()]
-public class MineSO : ScriptableObject
+public class MineSO : PlayerObjectSO
 {
     public Transform prefab;
     public Sprite icon;
     public string title;
-    public float healthMax;
+
 }

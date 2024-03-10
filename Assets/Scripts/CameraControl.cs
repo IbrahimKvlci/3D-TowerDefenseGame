@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class CameraControl : MonoBehaviour
 {
     [SerializeField] private float camMovementSpeed=1f;
     [SerializeField] private float zoomSpeed=5f;
+    [SerializeField] private int maxZoom,minZoom;
 
     private bool cameraLocked;
 
@@ -59,9 +61,19 @@ public class CameraControl : MonoBehaviour
         }
     }
 
-    private void HandleZoom(Vector3 zoomVector,float speed)
+    private void HandleZoom(Vector3 zoomVector, float speed)
     {
-        Vector3 vector = zoomVector * Time.deltaTime * speed;
-        transform.Translate(vector);
+        if (GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize+ zoomVector.z * speed * -1 >= maxZoom)
+        {
+            GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = maxZoom;
+        } else if (GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize+ zoomVector.z * speed * -1 <= minZoom)
+        {
+            GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = minZoom;
+        }
+        else
+        {
+            GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize += zoomVector.z * speed * -1;
+
+        }
     }
 }
