@@ -9,5 +9,6 @@ public interface IInputService
     public event EventHandler OnLockKeyDown;
 
     public Vector2 GetMousePositionInCamera();
+    public Vector3 GetMousePositionOnAPlane(LayerMask planeLayer);
     public float GetMouseScrollValue();
 }

@@ -62,4 +62,19 @@ public class InputManager : MonoBehaviour, IInputService
     {
         return _mouseScroll;
     }
+
+    public Vector3 GetMousePositionOnAPlane(LayerMask planeLayer)
+    {
+        Vector3 mousePos = _mousePosition;
+        Vector3 lastPos = mousePos;
+
+        mousePos.z = Camera.main.nearClipPlane;
+        Ray ray=Camera.main.ScreenPointToRay(mousePos);
+        if(Physics.Raycast(ray,out RaycastHit hitInfo, 10000, planeLayer))
+        {
+            lastPos = hitInfo.point;
+        }
+
+        return lastPos;
+    }
 }
