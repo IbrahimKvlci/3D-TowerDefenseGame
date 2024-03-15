@@ -10,5 +10,8 @@ public interface IInputService
 
     public Vector2 GetMousePositionInCamera();
     public Vector3 GetMousePositionOnAPlane(LayerMask planeLayer);
+
     public float GetMouseScrollValue();
+
+    public bool MouseLeftKeyDown();
 }

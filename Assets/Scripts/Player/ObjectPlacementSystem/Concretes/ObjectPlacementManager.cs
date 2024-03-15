@@ -4,23 +4,43 @@ using UnityEngine;
 
 public class ObjectPlacementManager : IObjectPlacementService
 {
-    public void PlaceObject(ObjectPlacement objectToPlace)
+    private IInputService _inputService;
+
+    public ObjectPlacementManager(IInputService inputService)
     {
-        throw new System.NotImplementedException();
+        _inputService = inputService;
     }
 
-    public void SetObjectToPlace(ref ObjectPlacement objectToPlaceBase,ObjectPlacement objectToPlaceNew)
+    public void PlaceObject(ref PlayerObject objectToPlace)
     {
-        if(objectToPlaceBase != null)
+        ClearObjectToPlaceBase(ref objectToPlace);
+    }
+
+    /// <summary>
+    /// Give new objectToPlace to player
+    /// </summary>
+    /// <param name="objectToPlaceBase"></param>
+    /// <param name="objectToPlaceNew"></param>
+    public void SetObjectToPlace(ref PlayerObject objectToPlaceBase, PlayerObject objectToPlaceNew)
+    {
+        if (objectToPlaceBase != null)
         {
             //Player has object
             ClearObjectToPlaceBase(ref objectToPlaceBase);
         }
-        objectToPlaceBase= objectToPlaceNew;
+        objectToPlaceBase = objectToPlaceNew;
     }
 
-    private void ClearObjectToPlaceBase(ref ObjectPlacement objectToPlaceBase)
+    public void HandlePlacingObjectPlacement(PlayerObject playerObjectToPlace,Vector3 position,LayerMask planeLayer)
     {
-        objectToPlaceBase=null;
+
+        playerObjectToPlace.transform.position = position;
+
+    }
+
+    private void ClearObjectToPlaceBase(ref PlayerObject objectToPlaceBase)
+    {
+        Debug.Log(objectToPlaceBase);
+        objectToPlaceBase = null;
     }
 }

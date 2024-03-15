@@ -77,4 +77,9 @@ public class InputManager : MonoBehaviour, IInputService
 
         return lastPos;
     }
+
+    public bool MouseLeftKeyDown()
+    {
+        return _inputActions.Player.Place.IsPressed();
+    }
 }

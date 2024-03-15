@@ -68,6 +68,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Player",
+            "id": "e2bbc2a6-daa8-4bd0-bc6c-f47665bb1057",
+            "actions": [
+                {
+                    "name": "Place",
+                    "type": "Button",
+                    "id": "6b7b61ff-9d4c-4e0e-830e-263d97ec4c7e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "36dcc196-b44e-42db-a795-2189512fdad8",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Place",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
