@@ -17,6 +17,7 @@ public class PlayerObjectPlacedState : PlayerObjectStateBase
     public override void UpdateState()
     {
         base.UpdateState();
+        _playerObject.PlayerObjectWorkingService.RunTask(_playerObject);
     }
 
     public override void ExitState()

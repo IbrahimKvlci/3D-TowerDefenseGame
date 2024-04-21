@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7898de6fdac01f5429ea5d83bae5bdea, type: 3}
   m_Name: Mine
   m_EditorClassIdentifier: 
+  healthMax: 10
+  placingTime: 3
   prefab: {fileID: 3472182564185262402, guid: eaac7c46e3b01b849aabc767e3e30bed, type: 3}
   icon: {fileID: 0}
   title: Mine
-  healthMax: 10

@@ -13,6 +13,7 @@ public class ObjectPlacementManager : IObjectPlacementService
 
     public void PlaceObject(ref PlayerObject objectToPlace)
     {
+        objectToPlace.PlayerObjectStateService.SwitchState(objectToPlace.PlayerObjectPlacingState);
         ClearObjectToPlaceBase(ref objectToPlace);
     }
 

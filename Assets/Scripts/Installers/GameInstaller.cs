@@ -12,8 +12,10 @@ public class GameInstaller : MonoInstaller
         Container.Bind<IEnemyMovementService>().To<EnemyMovementManager>().AsSingle();
         Container.Bind<IEnemyDetectPlayerObjectService>().To<EnemyDetectPlayerObjectManager>().AsSingle();
         Container.Bind<IEnemyAttackService>().To<EnemyAttackManager>().AsSingle();
+
         Container.Bind<IObjectPlacementService>().To<ObjectPlacementManager>().AsSingle();
         Container.Bind<IGridPlacementService>().To<GridPlacementManager>().AsSingle();
 
+        Container.Bind<IMineWorkingService>().To<MineWorkingManager>().AsSingle();
     }
 }

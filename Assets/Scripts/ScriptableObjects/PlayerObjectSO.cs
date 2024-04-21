@@ -5,4 +5,5 @@ using UnityEngine;
 public class PlayerObjectSO : ScriptableObject
 {
     public float healthMax;
+    public float placingTime;
 }

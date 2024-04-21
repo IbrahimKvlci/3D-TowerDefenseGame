@@ -46,8 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 460ba7250389d324ca2d29b0849cef25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <PlayerObjectSO>k__BackingField: {fileID: 11400000, guid: 7b05a20da6102d94fa5c7067af2e1d4c,
+    type: 2}
   mineObjectSO: {fileID: 11400000, guid: abe0253d89c51624fb4fc2c351801bd3, type: 2}
-  mineSO: {fileID: 11400000, guid: 7b05a20da6102d94fa5c7067af2e1d4c, type: 2}
 --- !u!65 &1736903755872540028
 BoxCollider:
   m_ObjectHideFlags: 0

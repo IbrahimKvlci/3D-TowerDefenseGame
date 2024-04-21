@@ -6,11 +6,13 @@ using Zenject;
 public abstract class PlayerObject : MonoBehaviour
 {
 
+    [field:SerializeField] public PlayerObjectSO PlayerObjectSO { get; set; }
+
     public PlayerObjectHealth PlayerObjectHealth { get; set; }
 
     public IPlayerObjectHealthService PlayerObjectHealthService { get; private set; }
-
     public IPlayerObjectStateService PlayerObjectStateService { get; set; }
+    public IPlayerObjectWorkingService PlayerObjectWorkingService { get; set; }
 
     public IPlayerObjectState PlayerObjectHoldingState { get; set; }
     public IPlayerObjectState PlayerObjectPlacingState { get; set; }
@@ -35,7 +37,7 @@ public abstract class PlayerObject : MonoBehaviour
         PlayerObjectStateService.Initialize(PlayerObjectHoldingState);
     }
 
-    private void Update()
+    public virtual void Update()
     {
         PlayerObjectStateService.CurrentPlayerObjectState.UpdateState();
     }
