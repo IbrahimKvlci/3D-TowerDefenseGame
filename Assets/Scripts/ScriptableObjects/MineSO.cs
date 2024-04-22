@@ -6,7 +6,6 @@ using UnityEngine;
 public class MineSO : PlayerObjectSO
 {
     public Transform prefab;
-    public Sprite icon;
-    public string title;
+    
 
 }

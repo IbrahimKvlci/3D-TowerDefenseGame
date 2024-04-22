@@ -5,4 +5,5 @@ using UnityEngine;
 public class PlayerObjectHealth
 {
     public float Health { get; set; }
+    public bool IsDead { get; set; }
 }

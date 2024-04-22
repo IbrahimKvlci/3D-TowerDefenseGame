@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class EnemyAttackManager : IEnemyAttackService
 {
+    protected private IPlayerObjectHealthService _playerObjectHealthService;
+
+    public EnemyAttackManager(IPlayerObjectHealthService playerObjectHealthService)
+    {
+        _playerObjectHealthService=playerObjectHealthService;
+    }
+
     public void Attack(PlayerObject playerObject, float damage)
     {
-        playerObject.PlayerObjectHealthService.TakeDamage(playerObject, damage);
+        _playerObjectHealthService.TakeDamage(playerObject, damage);
         Debug.Log(playerObject.PlayerObjectHealth.Health);
     }
+
+
 }

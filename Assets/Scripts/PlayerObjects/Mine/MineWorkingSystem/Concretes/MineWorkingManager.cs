@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MineWorkingManager : IMineWorkingService
 {
+
+
     public void RunTask(PlayerObject playerObject)
     {
         Debug.Log("Mine work!");

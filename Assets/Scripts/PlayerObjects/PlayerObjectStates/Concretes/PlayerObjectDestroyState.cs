@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class PlayerObjectDestroyState : PlayerObjectStateBase
 {
-    public PlayerObjectDestroyState(PlayerObject playerObject, IPlayerObjectStateService playerObjectStateService) : base(playerObject, playerObjectStateService)
+    protected private IPlayerObjectHealthService _playerObjectHealthService; 
+
+    public PlayerObjectDestroyState(PlayerObject playerObject, IPlayerObjectStateService playerObjectStateService, IPlayerObjectHealthService playerObjectHealthService) : base(playerObject, playerObjectStateService)
     {
+        _playerObjectHealthService = playerObjectHealthService;
     }
 
     public override void EnterState()
     {
         base.EnterState();
+        _playerObjectHealthService.DestroySelf(_playerObject);
     }
 
     public override void UpdateState()

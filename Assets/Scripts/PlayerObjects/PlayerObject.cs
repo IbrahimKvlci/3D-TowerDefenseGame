@@ -10,7 +10,8 @@ public abstract class PlayerObject : MonoBehaviour
 
     public PlayerObjectHealth PlayerObjectHealth { get; set; }
 
-    public IPlayerObjectHealthService PlayerObjectHealthService { get; private set; }
+    private IPlayerObjectHealthService _playerObjectHealthService;
+
     public IPlayerObjectStateService PlayerObjectStateService { get; set; }
     public IPlayerObjectWorkingService PlayerObjectWorkingService { get; set; }
 
@@ -20,24 +21,33 @@ public abstract class PlayerObject : MonoBehaviour
     public IPlayerObjectState PlayerObjectDestroyState { get; set; }
 
 
-    private void Awake()
+    [Inject]
+    public void Construct(IPlayerObjectHealthService playerObjectHealthService)
     {
+        _playerObjectHealthService = playerObjectHealthService;
+    }
+
+    protected virtual void Awake()
+    { 
         PlayerObjectHealth = new PlayerObjectHealth();
-        PlayerObjectHealthService = new PlayerObjectHealthManager();
+        PlayerObjectStateService=new PlayerObjectStateManager();
+
         PlayerObjectStateService = new PlayerObjectStateManager();
-
         PlayerObjectHoldingState = new PlayerObjectHoldingState(this,PlayerObjectStateService);
-        PlayerObjectPlacingState = new PlayerObjectPlacingState(this,PlayerObjectStateService);
-        PlayerObjectPlacedState = new PlayerObjectPlacedState(this,PlayerObjectStateService);
-        PlayerObjectDestroyState = new PlayerObjectDestroyState(this,PlayerObjectStateService);
+        PlayerObjectPlacingState = new PlayerObjectPlacingState(this, PlayerObjectStateService);
+        PlayerObjectPlacedState = new PlayerObjectPlacedState(this, PlayerObjectStateService);
+        PlayerObjectDestroyState = new PlayerObjectDestroyState(this, PlayerObjectStateService,_playerObjectHealthService);
     }
 
-    private void Start()
+    protected virtual void Start()
     {
-        PlayerObjectStateService.Initialize(PlayerObjectHoldingState);
+        PlayerObjectHealth.Health = PlayerObjectSO.healthMax;
+        PlayerObjectHealth.IsDead = false;
+
+        PlayerObjectStateService.Initialize(PlayerObjectPlacedState);
     }
 
-    public virtual void Update()
+    protected virtual void Update()
     {
         PlayerObjectStateService.CurrentPlayerObjectState.UpdateState();
     }

@@ -15,7 +15,7 @@ public class PlayerObjectHealthManager : IPlayerObjectHealthService
         playerObject.PlayerObjectHealth.Health-=damage;
         if(playerObject.PlayerObjectHealth.Health <= 0 )
         {
-            DestroySelf(playerObject);
+            playerObject.PlayerObjectHealth.IsDead = true;
         }
     }
 }

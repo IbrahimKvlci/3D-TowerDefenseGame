@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerObjectStateBase : IPlayerObjectState
+public class PlayerObjectStateBase : IPlayerObjectState 
 {
     protected PlayerObject _playerObject;
     protected IPlayerObjectStateService _playerObjectStateService;
@@ -23,6 +23,12 @@ public class PlayerObjectStateBase : IPlayerObjectState
 
     public virtual void UpdateState()
     {
-
+        if(this is not PlayerObjectDestroyState)
+        {
+            if (_playerObject.PlayerObjectHealth.IsDead)
+            {
+                _playerObjectStateService.SwitchState(_playerObject.PlayerObjectDestroyState);
+            }
+        }
     }
 }

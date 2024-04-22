@@ -96,10 +96,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy1
       objectReference: {fileID: 0}
+    - target: {fileID: 546762977410941719, guid: 43a3d45a3241fe14fad6eccbe95531b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1145946245905281339, guid: 43a3d45a3241fe14fad6eccbe95531b9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1145946245905281339, guid: 43a3d45a3241fe14fad6eccbe95531b9,
         type: 3}
@@ -183,6 +188,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7056225264021617858}
+    - targetCorrespondingSourceObject: {fileID: 546762977410941719, guid: 43a3d45a3241fe14fad6eccbe95531b9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8286058755551768977}
   m_SourcePrefab: {fileID: 100100000, guid: 43a3d45a3241fe14fad6eccbe95531b9, type: 3}
 --- !u!1 &1514592265480875777 stripped
 GameObject:
@@ -205,6 +214,29 @@ MonoBehaviour:
   <EnemySO>k__BackingField: {fileID: 11400000, guid: 7a83fd641a4df0a488e1becfef8feb49,
     type: 2}
   <EnemyTriggerController>k__BackingField: {fileID: 3067115477182581490}
+--- !u!136 &8286058755551768977
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514592265480875777}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.5
+  m_Height: 10
+  m_Direction: 1
+  m_Center: {x: 0, y: 5, z: 0}
 --- !u!4 &2122795943945362733 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1145946245905281339, guid: 43a3d45a3241fe14fad6eccbe95531b9,
