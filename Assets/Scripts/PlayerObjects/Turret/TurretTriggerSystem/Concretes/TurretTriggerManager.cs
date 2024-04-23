@@ -5,8 +5,26 @@ using UnityEngine;
 
 public class TurretTriggerManager : ITurretTriggerService
 {
-    public Enemy GetTriggeredEnemy(TurretTriggerController turretTriggerController,float range, LayerMask layerMask)
+    public Enemy GetTriggeredEnemy(TurretTrigger turretTriggerController,float range, LayerMask layerMask)
     {
-        return Physics.OverlapSphere(turretTriggerController.transform.position, range, layerMask).Length>0? Physics.OverlapSphere(turretTriggerController.transform.position, range, layerMask)[0].GetComponent<Enemy>():null;
+        return GetAllTriggeredEnemies(turretTriggerController,range,layerMask).Count>0? GetAllTriggeredEnemies(turretTriggerController, range, layerMask)[0]:null;
+    }
+
+    public bool IsEnemyStillTriggered(TurretTrigger turretTrigger,Enemy enemy, float range, LayerMask layerMask)
+    {
+        return GetAllTriggeredEnemies(turretTrigger,range,layerMask).Contains(enemy);
+    }
+
+    private List<Enemy> GetAllTriggeredEnemies(TurretTrigger turretTrigger,float range,LayerMask layerMask)
+    {
+        List<Enemy> result = new List<Enemy>();
+        List<Collider> triggeredEnemiesCollider = Physics.OverlapSphere(turretTrigger.transform.position, range, layerMask).ToList();
+
+        foreach (var enemy in triggeredEnemiesCollider)
+        {
+            result.Add(enemy.GetComponent<Enemy>());
+        }
+
+        return result;
     }
 }

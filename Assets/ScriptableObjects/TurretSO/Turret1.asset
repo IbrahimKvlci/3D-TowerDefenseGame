@@ -16,6 +16,6 @@ MonoBehaviour:
   title: Turret1
   healthMax: 20
   placingTime: 3
-  damage: 5
-  fireDuration: 2
-  range: 20
+  damage: 3
+  fireDuration: 0.2
+  range: 40

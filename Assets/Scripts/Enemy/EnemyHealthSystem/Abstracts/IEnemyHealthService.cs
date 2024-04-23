@@ -5,5 +5,5 @@ using UnityEngine;
 public interface IEnemyHealthService
 {
     void DestroySelf(Enemy enemy);
-    void TakeDamage(EnemyHealth enemyHealth, float damage);
+    void TakeDamage(Enemy enemy, float damage);
 }

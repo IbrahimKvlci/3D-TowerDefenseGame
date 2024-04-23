@@ -4,5 +4,7 @@ using UnityEngine;
 
 public interface ITurretTriggerService
 {
-    Enemy GetTriggeredEnemy(TurretTriggerController turretTriggerController, float range,LayerMask layerMask);
+    Enemy GetTriggeredEnemy(TurretTrigger turretTriggerController, float range,LayerMask layerMask);
+
+    bool IsEnemyStillTriggered(TurretTrigger turretTrigger, Enemy enemy, float range, LayerMask layerMask);
 }

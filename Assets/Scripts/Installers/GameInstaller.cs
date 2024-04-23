@@ -12,6 +12,7 @@ public class GameInstaller : MonoInstaller
         Container.Bind<IEnemyMovementService>().To<EnemyMovementManager>().AsSingle();
         Container.Bind<IEnemyDetectPlayerObjectService>().To<EnemyDetectPlayerObjectManager>().AsSingle();
         Container.Bind<IEnemyAttackService>().To<EnemyAttackManager>().AsSingle();
+        Container.Bind<IEnemyHealthService>().To<EnemyHealthManager>().AsSingle();
 
         Container.Bind<IObjectPlacementService>().To<ObjectPlacementManager>().AsSingle();
         Container.Bind<IGridPlacementService>().To<GridPlacementManager>().AsSingle();
@@ -22,5 +23,7 @@ public class GameInstaller : MonoInstaller
         Container.Bind<IPlayerObjectStateService>().To<PlayerObjectStateManager>().AsSingle();
 
         Container.Bind<ITurretTriggerService>().To<TurretTriggerManager>().AsSingle();
+        Container.Bind<ITurretAttackService>().To<TurretAttackManager>().AsSingle();
+
     }
 }

@@ -23,7 +23,11 @@ public class EnemyStateBase : IEnemyState
 
     public virtual void UpdateState()
     {
-        if(_enemy.PlayerObjectTarget == null)
+        if (_enemy.EnemyHealth.IsDead)
+        {
+            _enemyStateService.SwitchState(_enemy.EnemyDestroyState);
+        }
+        else if(_enemy.PlayerObjectTarget == null)
         {
             _enemyStateService.SwitchState(_enemy.EnemyTriggerState);
         }

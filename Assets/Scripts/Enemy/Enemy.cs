@@ -11,6 +11,7 @@ public abstract class Enemy : MonoBehaviour
 
     public PlayerObject PlayerObjectTarget { get; set; }
     public EnemyMovement EnemyMovement { get; set; }
+    public EnemyHealth EnemyHealth { get; set; }
 
     public IEnemyStateService EnemyStateService { get; set; }
 
@@ -18,22 +19,26 @@ public abstract class Enemy : MonoBehaviour
     public IEnemyState EnemyMoveState { get; set; }
     public IEnemyState EnemyAttackState { get; set; }
     public IEnemyState EnemyPrepareAttackState { get; set; }
+    public IEnemyState EnemyDestroyState { get; set; }
 
-    private IEnemyMovementService _enemyMovementService;
-    private IEnemyDetectPlayerObjectService _enemyDetectPlayerObjectService;
-    private IEnemyAttackService _enemyAttackService;
+    protected private IEnemyMovementService _enemyMovementService;
+    protected private IEnemyDetectPlayerObjectService _enemyDetectPlayerObjectService;
+    protected private IEnemyAttackService _enemyAttackService;
+    protected private IEnemyHealthService _enemyHealthService;
 
     [Inject]
-    public void Construct(IEnemyMovementService enemyMovementService, IEnemyDetectPlayerObjectService enemyDetectPlayerObjectService,IEnemyAttackService enemyAttackService)
+    public void Construct(IEnemyMovementService enemyMovementService, IEnemyDetectPlayerObjectService enemyDetectPlayerObjectService,IEnemyAttackService enemyAttackService,IEnemyHealthService enemyHealthService)
     {
         _enemyMovementService = enemyMovementService;
         _enemyDetectPlayerObjectService = enemyDetectPlayerObjectService;
         _enemyAttackService = enemyAttackService;
+        _enemyHealthService = enemyHealthService;
     }
 
     private void Awake()
     {
         EnemyMovement=new EnemyMovement(GetComponent<NavMeshAgent>());
+        EnemyHealth = new EnemyHealth();
 
         EnemyStateService = new EnemyStateManager();
 
@@ -41,10 +46,14 @@ public abstract class Enemy : MonoBehaviour
         EnemyAttackState = new EnemyAttackState(this,EnemyStateService,_enemyAttackService);
         EnemyTriggerState = new EnemyTriggerState(this, EnemyStateService,_enemyDetectPlayerObjectService);
         EnemyPrepareAttackState = new EnemyPrepareAttackState(this, EnemyStateService);
+        EnemyDestroyState = new EnemyDestroyState(this, EnemyStateService,_enemyHealthService);
     }
 
     private void Start()
     {
+        EnemyHealth.IsDead = false;
+        EnemyHealth.Health = EnemySO.maxHealth;
+
         EnemyStateService.Initialize(EnemyTriggerState);
     }
 

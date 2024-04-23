@@ -5,4 +5,5 @@ using UnityEngine;
 public class EnemyHealth
 {
     public float Health { get; set; }
+    public bool IsDead { get; set; }
 }

@@ -9,8 +9,12 @@ public class EnemyHealthManager : IEnemyHealthService
         GameObject.Destroy(enemy.gameObject);
     }
 
-    public void TakeDamage(EnemyHealth enemyHealth, float damage)
+    public void TakeDamage(Enemy enemy, float damage)
     {
-        enemyHealth.Health -= damage;
+        enemy.EnemyHealth.Health -= damage;
+        if (enemy.EnemyHealth.Health <= 0)
+        {
+            enemy.EnemyHealth.IsDead = true;
+        }
     }
 }
