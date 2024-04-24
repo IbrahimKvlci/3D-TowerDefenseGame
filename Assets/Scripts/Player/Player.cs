@@ -5,4 +5,5 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [field:SerializeField] public ObjectPlacement ObjectPlacement { get; set; }
+    [field:SerializeField] public PlayerShopping PlayerShopping { get; set; }
 }

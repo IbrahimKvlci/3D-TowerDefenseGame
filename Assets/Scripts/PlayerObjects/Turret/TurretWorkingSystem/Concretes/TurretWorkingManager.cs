@@ -2,18 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MineWorkingManager : IMineWorkingService
+public class TurretWorkingManager : ITurretWorkingService
 {
-
-
     public void RunTask(PlayerObject playerObject)
     {
-        Debug.Log("Mine work!");
+        throw new System.NotImplementedException();
     }
 
     public void RunTask(PlayerObject playerObject, Player player)
     {
-        ((Mine)playerObject).MineStateService.SwitchState(((Mine)playerObject).MineMiningState);
-
+        ((Turret)playerObject).TurretStateService.SwitchState(((Turret)playerObject).TurretTargetState);
     }
 }

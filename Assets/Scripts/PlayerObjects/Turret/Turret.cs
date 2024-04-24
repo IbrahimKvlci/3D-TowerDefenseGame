@@ -19,9 +19,9 @@ public abstract class Turret : PlayerObject
 
 
     [Inject]
-    public void Construct(IMineWorkingService mineWorkingService,ITurretAttackService turretAttackService,ITurretTriggerService turretTriggerService)
+    public void Construct(ITurretWorkingService turretWorkingService,ITurretAttackService turretAttackService,ITurretTriggerService turretTriggerService)
     {
-        PlayerObjectWorkingService = mineWorkingService;
+        PlayerObjectWorkingService = turretWorkingService;
         _turretAttackService = turretAttackService;
         _turretTriggerService = turretTriggerService;
     }
@@ -39,9 +39,10 @@ public abstract class Turret : PlayerObject
 
     protected override void Start()
     {
+        TurretStateService.Initialize(TurretFreezingState);
+
         base.Start();
 
-        TurretStateService.Initialize(TurretTargetState);
     }
 
     protected override void Update()

@@ -7,6 +7,7 @@ public abstract class PlayerObject : MonoBehaviour
 {
 
     [field:SerializeField] public PlayerObjectSO PlayerObjectSO { get; set; }
+    [field:SerializeField] public Player Player {  get; set; }
 
     public PlayerObjectHealth PlayerObjectHealth { get; set; }
 

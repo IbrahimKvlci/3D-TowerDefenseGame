@@ -6,8 +6,8 @@ public class TurretFireState : TurretStateBase
 {
     private float timer;
 
-    protected private ITurretTriggerService _turretTriggerService;
-    protected private ITurretAttackService _turretAttackService;
+    private readonly ITurretTriggerService _turretTriggerService;
+    private readonly ITurretAttackService _turretAttackService;
 
     public TurretFireState(Turret turret, ITurretStateService turretStateService, ITurretAttackService turretAttackService,ITurretTriggerService turretTriggerService) : base(turret, turretStateService)
     {

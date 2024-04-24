@@ -12,12 +12,13 @@ public class PlayerObjectPlacedState : PlayerObjectStateBase
     {
         base.EnterState();
         PlayerObjectPooling.Instance.PlayerObjectPoolingService.AddPlayerObjectToList(_playerObject, PlayerObjectPooling.Instance.PlayerObjectList);
+        _playerObject.PlayerObjectWorkingService.RunTask(_playerObject, _playerObject.Player);
     }
 
     public override void UpdateState()
     {
         base.UpdateState();
-        _playerObject.PlayerObjectWorkingService.RunTask(_playerObject);
+        
     }
 
     public override void ExitState()

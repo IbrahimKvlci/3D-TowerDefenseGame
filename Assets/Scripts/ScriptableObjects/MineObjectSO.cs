@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu()]
 public class MineObjectSO : ScriptableObject
 {
+    public int id;
     public Transform prefab;
     public Sprite icon;
     public float miningTimerMax;
