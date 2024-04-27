@@ -26,5 +26,9 @@ public class GameInstaller : MonoInstaller
         Container.Bind<ITurretAttackService>().To<TurretAttackManager>().AsSingle();
         Container.Bind<ITurretWorkingService>().To<TurretWorkingManager>().AsSingle();
 
+        Container.Bind<IMinePointService>().To<MinePointManager>().AsSingle();
+
+        Container.Bind<IMineScannerService>().To<MineScannerManager>().AsSingle();
+
     }
 }

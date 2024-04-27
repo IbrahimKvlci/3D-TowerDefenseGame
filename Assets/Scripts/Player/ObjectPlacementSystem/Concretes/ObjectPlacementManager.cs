@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class ObjectPlacementManager : IObjectPlacementService
 {
-    private IInputService _inputService;
-
-    public ObjectPlacementManager(IInputService inputService)
-    {
-        _inputService = inputService;
-    }
-
     public void PlaceObject(ref PlayerObject objectToPlace)
     {
         objectToPlace.PlayerObjectStateService.SwitchState(objectToPlace.PlayerObjectPlacingState);

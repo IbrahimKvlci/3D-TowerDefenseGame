@@ -45,7 +45,7 @@ public abstract class PlayerObject : MonoBehaviour
         PlayerObjectHealth.Health = PlayerObjectSO.healthMax;
         PlayerObjectHealth.IsDead = false;
 
-        PlayerObjectStateService.Initialize(PlayerObjectPlacedState);
+        PlayerObjectStateService.Initialize(PlayerObjectHoldingState);
     }
 
     protected virtual void Update()
