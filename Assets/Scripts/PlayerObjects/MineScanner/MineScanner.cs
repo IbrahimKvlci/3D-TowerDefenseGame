@@ -7,18 +7,22 @@ public class MineScanner : MonoBehaviour
 {
     public MinePoint MinePoint {  get; set; }
 
-    [SerializeField] private MinePointController minePointController;
+    [field:SerializeField] public MinePointController MinePointController {  get; set; }
+    [field:SerializeField] public MineScannerMovementController MineScannerMovementController {  get; set; } 
 
     private IMineScannerService _mineScannerService;
+    private IMineScannerMovementService _mineScannerMovementService;
 
     [Inject]
-    public void Construct(IMineScannerService mineScannerService)
+    public void Construct(IMineScannerService mineScannerService,IMineScannerMovementService mineScannerMovementService)
     {
         _mineScannerService = mineScannerService;
+        _mineScannerMovementService = mineScannerMovementService;
     }
 
     private void Start()
     {
-        _mineScannerService.SetMinePointToScanner(this, minePointController.MinePointList);
+        _mineScannerService.SetMinePointToScanner(this, MinePointController.MinePointList);
+        MineScannerMovementController.MinePointPath = _mineScannerMovementService.CreateScannerPath(this, MinePointController.PointList, 3, 6);
     }
 }

@@ -28,7 +28,6 @@ public class MinePointManager : IMinePointService
         {
             int randomIndex = Random.Range(0, pointList.Count);
             MinePoint minePoint = pointList[randomIndex];
-            pointList.Remove(minePoint);
             minePointList.Add(minePoint);
             minePoint.gameObject.SetActive(true);
         }

@@ -21354,6 +21354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1778733941}
   - component: {fileID: 1778733940}
+  - component: {fileID: 1778733942}
   m_Layer: 0
   m_Name: MineScanner
   m_TagString: Untagged
@@ -21373,7 +21374,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 870b9d5111ce3844288e658b011a20de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minePointController: {fileID: 1543031916}
+  <MinePointController>k__BackingField: {fileID: 1543031916}
+  <MineScannerMovementController>k__BackingField: {fileID: 1778733942}
 --- !u!4 &1778733941
 Transform:
   m_ObjectHideFlags: 0
@@ -21390,6 +21392,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1778733942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778733939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa28946a40c1354fae4a057ffa74025, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 15
+  mineScanner: {fileID: 1778733940}
+  MinePointPath: []
 --- !u!114 &1778797109 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8650313555942292124, guid: 3c0f29fc88ba27d41ab83ef4b8df13e8,
