@@ -13,13 +13,18 @@ public class MineMiningState : MineStateBase
     public override void EnterState()
     {
         base.EnterState();
-
+        Debug.Log("Mining State");
     }
 
     public override void UpdateState()
     {
         base.UpdateState();
-        _mine.Player.PlayerShopping.MineObjects.Find(p => p.MineObjectSO.id == _mine.MineObject.MineObjectSO.id).Count++;
+        if(_mine.MinePoint.MineCount > 0)
+        {
+            _mine.Player.PlayerShopping.MineObjects.Find(p => p.MineObjectSO.id == _mine.MineObject.MineObjectSO.id).Count+=0.01f;
+            _mine.MinePoint.MineCount-=0.01f;
+        }
+        
 
     }
 

@@ -11,16 +11,12 @@ public class MinePointManager : IMinePointService
         {
             int randomIndex = Random.Range(0, minePointList.Count);
             minePoint = minePointList[randomIndex];
-        } while (minePoint.IsActive);
+        } while (minePoint.IsScanned);
 
-        minePoint.IsActive = true;
+        minePoint.IsScanned = true;
         return minePoint;
     }
 
-    public bool IsMineAtMinePoint()
-    {
-        throw new System.NotImplementedException();
-    }
 
     public void SetMinePointList(List<MinePoint> pointList, List<MinePoint> minePointList, int count)
     {
@@ -33,4 +29,8 @@ public class MinePointManager : IMinePointService
         }
     }
 
+    public void SetRandomMineCount(MinePoint minePoint, float minCount, float maxCount)
+    {
+        minePoint.MineCount=Random.Range(minCount, maxCount);
+    }
 }

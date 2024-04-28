@@ -18,6 +18,7 @@ public class GameInstaller : MonoInstaller
         Container.Bind<IGridPlacementService>().To<GridPlacementManager>().AsSingle();
 
         Container.Bind<IMineWorkingService>().To<MineWorkingManager>().AsSingle();
+        Container.Bind<IMineTriggerService>().To<MineTriggerManager>().AsSingle();
 
         Container.Bind<IPlayerObjectHealthService>().To<PlayerObjectHealthManager>().AsSingle();
         Container.Bind<IPlayerObjectStateService>().To<PlayerObjectStateManager>().AsSingle();

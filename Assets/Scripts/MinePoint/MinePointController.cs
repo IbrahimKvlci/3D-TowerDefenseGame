@@ -5,6 +5,9 @@ using Zenject;
 
 public class MinePointController : MonoBehaviour
 {
+    [SerializeField] private float minMineCount, maxMineCount;
+
+
     [field: SerializeField] public List<MinePoint> PointList { get; set; }
     [field: SerializeField] public List<MinePoint> MinePointList { get; set; }
 
@@ -19,5 +22,13 @@ public class MinePointController : MonoBehaviour
     private void Awake()
     {
         _minePointService.SetMinePointList(PointList, MinePointList, 10);
+    }
+
+    private void Start()
+    {
+        foreach (MinePoint minePoint in MinePointList)
+        {
+            _minePointService.SetRandomMineCount(minePoint, minMineCount, maxMineCount);
+        }
     }
 }

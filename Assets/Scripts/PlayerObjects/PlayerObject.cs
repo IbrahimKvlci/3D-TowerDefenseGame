@@ -10,6 +10,7 @@ public abstract class PlayerObject : MonoBehaviour
     [field:SerializeField] public Player Player {  get; set; }
 
     public PlayerObjectHealth PlayerObjectHealth { get; set; }
+    public bool IsPlaced { get; set; }
 
     private IPlayerObjectHealthService _playerObjectHealthService;
 
@@ -44,6 +45,7 @@ public abstract class PlayerObject : MonoBehaviour
     {
         PlayerObjectHealth.Health = PlayerObjectSO.healthMax;
         PlayerObjectHealth.IsDead = false;
+        IsPlaced = false;
 
         PlayerObjectStateService.Initialize(PlayerObjectHoldingState);
     }

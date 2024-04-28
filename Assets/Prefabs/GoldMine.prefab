@@ -194,8 +194,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PlayerObjectSO>k__BackingField: {fileID: 11400000, guid: 7b05a20da6102d94fa5c7067af2e1d4c,
     type: 2}
+  <Player>k__BackingField: {fileID: 0}
   <MineObject>k__BackingField: {fileID: -4004277721097816679, guid: 564196238e27c5449a4b53eefe650730,
     type: 3}
+  <LayerMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!65 &4823524861989626052
 BoxCollider:
   m_ObjectHideFlags: 0

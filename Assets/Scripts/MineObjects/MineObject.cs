@@ -5,5 +5,5 @@ using UnityEngine;
 public class MineObject : MonoBehaviour
 {
     [field:SerializeField] public MineObjectSO MineObjectSO { get; set; }
-    public int Count { get; set; }
+    public float Count { get; set; }
 }
