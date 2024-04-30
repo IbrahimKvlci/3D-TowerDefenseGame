@@ -20,7 +20,7 @@ public class TurretTargetState : TurretStateBase
     public override void UpdateState()
     {
         base.UpdateState();
-        _turret.TurretTrigger.TriggeredEnemy= _turretTriggerService.GetTriggeredEnemy(_turret.TurretTrigger, ((TurretSO)_turret.PlayerObjectSO).range, _turret.TurretTrigger.LayerMask);
+        _turret.TurretTrigger.TriggeredEnemy= _turretTriggerService.GetTriggeredEnemy(_turret.TurretTrigger, ((TurretSO)_turret.PlayerObjectSO).attackRange, _turret.TurretTrigger.LayerMask);
         if (_turret.TurretTrigger.TriggeredEnemy != null) _turretStateService.SwitchState(_turret.TurretFireState);
     }
 

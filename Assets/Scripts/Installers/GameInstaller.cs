@@ -32,6 +32,6 @@ public class GameInstaller : MonoInstaller
         Container.Bind<IMineScannerService>().To<MineScannerManager>().AsSingle();
         Container.Bind<IMineScannerMovementService>().To<MineScannerMovementManager>().AsSingle();
 
-
+        Container.Bind<IAttackSpaceShipMovementService>().To<AttackSpaceShipMovementManager>().AsSingle();
     }
 }

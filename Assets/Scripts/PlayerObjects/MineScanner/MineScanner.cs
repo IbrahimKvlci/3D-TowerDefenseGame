@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class MineScanner : MonoBehaviour
+public class MineScanner : PlayerObject
 {
     public MinePoint MinePoint {  get; set; }
 
@@ -20,8 +20,10 @@ public class MineScanner : MonoBehaviour
         _mineScannerMovementService = mineScannerMovementService;
     }
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
+
         _mineScannerService.SetMinePointToScanner(this, MinePointController.MinePointList);
         MineScannerMovementController.MinePointPath = _mineScannerMovementService.CreateScannerPath(this, MinePointController.PointList, 3, 6);
     }

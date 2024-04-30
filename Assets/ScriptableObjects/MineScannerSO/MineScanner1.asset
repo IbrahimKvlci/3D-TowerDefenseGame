@@ -9,13 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6421e51b8e168a40b62b59a25b1c75e, type: 3}
-  m_Name: Turret1
+  m_Script: {fileID: 11500000, guid: 5cb344db4cb7d394aa86ab32889f9bbf, type: 3}
+  m_Name: MineScanner1
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  title: Turret1
-  healthMax: 20
+  title: 
+  healthMax: 100
   placingTime: 3
-  damage: 3
-  fireDuration: 0.2
-  attackRange: 20

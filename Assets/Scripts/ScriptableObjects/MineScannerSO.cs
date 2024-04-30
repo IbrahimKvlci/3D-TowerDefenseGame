@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu()]
-public class TurretSO : AttackPlayerObjectSO
+public class MineScannerSO : PlayerObjectSO
 {
     
 }

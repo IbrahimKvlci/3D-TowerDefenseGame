@@ -26,7 +26,7 @@ public class TurretFireState : TurretStateBase
         base.UpdateState();
         timer += Time.deltaTime;
         
-        if(_turretTriggerService.IsEnemyStillTriggered(_turret.TurretTrigger, _turret.TurretTrigger.TriggeredEnemy, ((TurretSO)_turret.PlayerObjectSO).range, _turret.TurretTrigger.LayerMask))
+        if(_turretTriggerService.IsEnemyStillTriggered(_turret.TurretTrigger, _turret.TurretTrigger.TriggeredEnemy, ((TurretSO)_turret.PlayerObjectSO).attackRange, _turret.TurretTrigger.LayerMask))
         {
             if (timer > ((TurretSO)_turret.PlayerObjectSO).fireDuration)
             {
