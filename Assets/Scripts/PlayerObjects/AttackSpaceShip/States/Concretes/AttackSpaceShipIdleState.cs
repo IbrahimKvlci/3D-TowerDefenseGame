@@ -6,15 +6,18 @@ using UnityEngine.AI;
 public class AttackSpaceShipIdleState : AttackSpaceShipStateBase
 {
     private IAttackSpaceShipMovementService _attackSpaceShipMovementService;
+    private IAttackSpaceShipTriggerService _attackSpaceShipTriggerService;
 
-    public AttackSpaceShipIdleState(AttackSpaceShip attackSpaceShip, IAttackSpaceShipStateService attackSpaceShipStateService, IAttackSpaceShipMovementService attackSpaceShipMovementService) : base(attackSpaceShip, attackSpaceShipStateService)
+    public AttackSpaceShipIdleState(AttackSpaceShip attackSpaceShip, IAttackSpaceShipStateService attackSpaceShipStateService, IAttackSpaceShipMovementService attackSpaceShipMovementService,IAttackSpaceShipTriggerService attackSpaceShipTriggerService) : base(attackSpaceShip, attackSpaceShipStateService)
     {
         _attackSpaceShipMovementService = attackSpaceShipMovementService;
+        _attackSpaceShipTriggerService = attackSpaceShipTriggerService;
     }
 
     public override void EnterState()
     {
         base.EnterState();
+        _attackSpaceShip.AttackSpaceShipTrigger.TriggeredEnemy = null;
     }
 
     public override void UpdateState()
@@ -25,6 +28,13 @@ public class AttackSpaceShipIdleState : AttackSpaceShipStateBase
         {
             HandleMovement();
         }
+
+        if (_attackSpaceShipTriggerService.GetTriggeredEnemy(_attackSpaceShip,_attackSpaceShip.AttackSpaceShipTrigger.LayerMask)!=null)
+        {
+            _attackSpaceShip.AttackSpaceShipTrigger.TriggeredEnemy = _attackSpaceShipTriggerService.GetTriggeredEnemy(_attackSpaceShip, _attackSpaceShip.AttackSpaceShipTrigger.LayerMask);
+            _attackSpaceShipStateService.SwitchState(_attackSpaceShip.AttackSpaceShipChaseState);
+        }
+        
     }
 
     public override void ExitState()

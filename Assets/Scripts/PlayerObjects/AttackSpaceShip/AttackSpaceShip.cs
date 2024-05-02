@@ -5,6 +5,8 @@ using Zenject;
 
 public class AttackSpaceShip : PlayerObject
 {
+    [field: SerializeField] public AttackSpaceShipTrigger AttackSpaceShipTrigger {  get; set; }
+
     public IAttackSpaceShipState AttackSpaceShipAttackState { get; set; }
     public IAttackSpaceShipState AttackSpaceShipChaseState { get; set; }
     public IAttackSpaceShipState AttackSpaceShipFreezingState { get; set; }
@@ -12,11 +14,15 @@ public class AttackSpaceShip : PlayerObject
 
     private IAttackSpaceShipMovementService _attackSpaceShipMovementService;
     private IAttackSpaceShipStateService _attackSpaceShipStateService;
+    private IAttackSpaceShipTriggerService _attackSpaceShipTriggerService;
+    private IAttackSpaceShipAttackService _attackSpaceShipAttackService;
 
     [Inject]
-    public void Construct(IAttackSpaceShipMovementService attackSpaceShipMovementService)
+    public void Construct(IAttackSpaceShipMovementService attackSpaceShipMovementService,IAttackSpaceShipTriggerService attackSpaceShipTriggerService,IAttackSpaceShipAttackService attackSpaceShipAttackService)
     {
         _attackSpaceShipMovementService = attackSpaceShipMovementService;
+        _attackSpaceShipTriggerService = attackSpaceShipTriggerService;
+        _attackSpaceShipAttackService= attackSpaceShipAttackService;
     }
 
     protected override void Awake()
@@ -25,19 +31,18 @@ public class AttackSpaceShip : PlayerObject
 
         _attackSpaceShipStateService = new AttackSpaceShipStateManager();
 
-        AttackSpaceShipAttackState = new AttackSpaceShipAttackState(this,_attackSpaceShipStateService);
-        AttackSpaceShipChaseState = new AttackSpaceShipChaseState(this, _attackSpaceShipStateService);
+        AttackSpaceShipAttackState = new AttackSpaceShipAttackState(this,_attackSpaceShipStateService,_attackSpaceShipAttackService,_attackSpaceShipTriggerService);
+        AttackSpaceShipChaseState = new AttackSpaceShipChaseState(this, _attackSpaceShipStateService,_attackSpaceShipMovementService,_attackSpaceShipTriggerService);
         AttackSpaceShipFreezingState = new AttackSpaceShipFreezingState(this, _attackSpaceShipStateService);
-        AttackSpaceShipIdleState = new AttackSpaceShipIdleState(this, _attackSpaceShipStateService,_attackSpaceShipMovementService);
+        AttackSpaceShipIdleState = new AttackSpaceShipIdleState(this, _attackSpaceShipStateService,_attackSpaceShipMovementService,_attackSpaceShipTriggerService);
 
     }
 
     protected override void Start()
     {
         base.Start();
-        Debug.Log(AttackSpaceShipIdleState);
 
-        _attackSpaceShipStateService.Initialize(AttackSpaceShipIdleState);
+        _attackSpaceShipStateService.Initialize(AttackSpaceShipFreezingState);
     }
 
     protected override void Update()

@@ -18,8 +18,8 @@ MonoBehaviour:
   placingTime: 3
   damage: 12
   fireDuration: 3
-  attackRange: 6
+  attackRange: 10
   idleSpeed: 3
-  chaseSpeed: 5
-  targetRange: 15
+  chaseSpeed: 15
+  targetRange: 30
   maxMoveRange: 25
