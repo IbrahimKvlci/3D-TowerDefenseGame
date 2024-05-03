@@ -4,7 +4,8 @@ using UnityEngine;
 
 public interface IObjectPlacementService
 {
-    void SetObjectToPlace(ref PlayerObject objectToPlaceBase, PlayerObject objectToPlaceNew);
-    void PlaceObject(ref PlayerObject objectToPlace);
+    void SetObjectToPlace(Player player, PlayerObject objectToPlaceNew);
+    void PlaceObject(Player player, PlayerObject objectToPlace);
     void HandlePlacingObjectPlacement( PlayerObject playerObjectToPlace,Vector3 position, LayerMask planeLayer);
+    public void ClearObjectToPlaceBase(Player player);
 }

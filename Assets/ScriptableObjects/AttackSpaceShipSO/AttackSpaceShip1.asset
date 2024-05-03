@@ -16,6 +16,7 @@ MonoBehaviour:
   title: AttackSpaceShip1
   healthMax: 100
   placingTime: 3
+  Price: 0
   damage: 12
   fireDuration: 3
   attackRange: 10

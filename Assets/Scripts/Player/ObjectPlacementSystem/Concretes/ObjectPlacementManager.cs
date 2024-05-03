@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ObjectPlacementManager : IObjectPlacementService
 {
-    public void PlaceObject(ref PlayerObject objectToPlace)
+    public void PlaceObject(Player player, PlayerObject objectToPlace)
     {
         objectToPlace.PlayerObjectStateService.SwitchState(objectToPlace.PlayerObjectPlacingState);
-        ClearObjectToPlaceBase(ref objectToPlace);
+        player.ObjectPlacement.PlayerObjectToPlace = null;
     }
 
     /// <summary>
@@ -15,14 +15,14 @@ public class ObjectPlacementManager : IObjectPlacementService
     /// </summary>
     /// <param name="objectToPlaceBase"></param>
     /// <param name="objectToPlaceNew"></param>
-    public void SetObjectToPlace(ref PlayerObject objectToPlaceBase, PlayerObject objectToPlaceNew)
+    public void SetObjectToPlace(Player player, PlayerObject objectToPlaceNew)
     {
-        if (objectToPlaceBase != null)
+        if (player.ObjectPlacement.PlayerObjectToPlace != null)
         {
-            //Player has object
-            ClearObjectToPlaceBase(ref objectToPlaceBase);
+            ClearObjectToPlaceBase(player);
         }
-        objectToPlaceBase = objectToPlaceNew;
+        PlayerObject playerObject = GameObject.Instantiate(objectToPlaceNew);
+        player.ObjectPlacement.PlayerObjectToPlace = playerObject;
     }
 
     public void HandlePlacingObjectPlacement(PlayerObject playerObjectToPlace,Vector3 position,LayerMask planeLayer)
@@ -32,9 +32,9 @@ public class ObjectPlacementManager : IObjectPlacementService
 
     }
 
-    private void ClearObjectToPlaceBase(ref PlayerObject objectToPlaceBase)
+    public void ClearObjectToPlaceBase( Player player)
     {
-        Debug.Log(objectToPlaceBase);
-        objectToPlaceBase = null;
+        GameObject.Destroy(player.ObjectPlacement.PlayerObjectToPlace.gameObject);
+        player.ObjectPlacement.PlayerObjectToPlace = null;
     }
 }

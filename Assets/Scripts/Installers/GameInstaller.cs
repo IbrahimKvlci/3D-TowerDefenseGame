@@ -36,6 +36,7 @@ public class GameInstaller : MonoInstaller
         Container.Bind<IAttackSpaceShipTriggerService>().To<AttackSpaceShipTriggerManger>().AsSingle();
         Container.Bind<IAttackSpaceShipAttackService>().To<AttackSpaceShipAttackManager>().AsSingle();
 
+        Container.Bind<IShoppingInGameService>().To<ShoppingInGameManager>().AsSingle();
 
     }
 }

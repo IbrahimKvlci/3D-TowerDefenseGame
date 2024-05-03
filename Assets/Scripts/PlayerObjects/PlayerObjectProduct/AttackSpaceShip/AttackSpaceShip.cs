@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class AttackSpaceShip : PlayerObject
+public class AttackSpaceShip : PlayerObjectProduct
 {
     [field: SerializeField] public AttackSpaceShipTrigger AttackSpaceShipTrigger {  get; set; }
 

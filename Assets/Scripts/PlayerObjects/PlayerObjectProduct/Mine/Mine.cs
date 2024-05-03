@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class Mine : PlayerObject
+public class Mine : PlayerObjectProduct
 {
     [field:SerializeField] public MineObject MineObject { get; set; }
     [field:SerializeField] public MinePoint MinePoint { get; set; }

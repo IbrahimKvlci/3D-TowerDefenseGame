@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public abstract class Turret : PlayerObject
+public abstract class Turret : PlayerObjectProduct
 {
     [field:SerializeField] public TurretTrigger TurretTrigger { get; set; }
 

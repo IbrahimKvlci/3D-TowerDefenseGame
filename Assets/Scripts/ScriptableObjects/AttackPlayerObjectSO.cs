@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackPlayerObjectSO : PlayerObjectSO
+public class AttackPlayerObjectSO : PlayerObjectProductSO
 {
     public float damage;
     public float fireDuration;

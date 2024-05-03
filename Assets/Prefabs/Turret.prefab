@@ -249,25 +249,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret
       objectReference: {fileID: 0}
+    - target: {fileID: 3538098143141932452, guid: 758df5cd76e6da848a5ffce7b117eb29,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8450078134501330977, guid: 758df5cd76e6da848a5ffce7b117eb29,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8450078134501330977, guid: 758df5cd76e6da848a5ffce7b117eb29,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 16.59513
       objectReference: {fileID: 0}
     - target: {fileID: 8450078134501330977, guid: 758df5cd76e6da848a5ffce7b117eb29,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.0000019073486
       objectReference: {fileID: 0}
     - target: {fileID: 8450078134501330977, guid: 758df5cd76e6da848a5ffce7b117eb29,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 9.29044
       objectReference: {fileID: 0}
     - target: {fileID: 8450078134501330977, guid: 758df5cd76e6da848a5ffce7b117eb29,
         type: 3}
@@ -368,6 +373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PlayerObjectSO>k__BackingField: {fileID: 11400000, guid: 7946e76c270f5d8458d3efdcf571f5c7,
     type: 2}
+  <Player>k__BackingField: {fileID: 0}
   <TurretTrigger>k__BackingField: {fileID: 2585077386653261887}
 --- !u!4 &5655026534528204292 stripped
 Transform:

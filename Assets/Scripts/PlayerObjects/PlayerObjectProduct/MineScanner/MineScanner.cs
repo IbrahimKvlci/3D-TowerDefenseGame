@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class MineScanner : PlayerObject
+public class MineScanner : PlayerObjectProduct
 {
     public MinePoint MinePoint {  get; set; }
 
