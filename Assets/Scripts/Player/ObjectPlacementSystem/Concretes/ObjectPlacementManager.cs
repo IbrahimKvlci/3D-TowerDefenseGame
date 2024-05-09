@@ -25,7 +25,7 @@ public class ObjectPlacementManager : IObjectPlacementService
         player.ObjectPlacement.PlayerObjectToPlace = playerObject;
     }
 
-    public void HandlePlacingObjectPlacement(PlayerObject playerObjectToPlace,Vector3 position,LayerMask planeLayer)
+    public void HandlePlacingObjectPlacement(PlayerObject playerObjectToPlace,Vector3 position)
     {
 
         playerObjectToPlace.transform.position = position;

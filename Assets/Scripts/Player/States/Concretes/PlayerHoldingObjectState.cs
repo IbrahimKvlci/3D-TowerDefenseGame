@@ -31,15 +31,22 @@ public class PlayerHoldingObjectState : PlayerStateBase
         }
         else
         {
-            Vector3 playerObjectPos = _gridPlacementService.GetGridCellPositionByMousePosition(_player.ObjectPlacement.GridPlacement, _player.ObjectPlacement.PlaneLayer);
-            _objectPlacementService.HandlePlacingObjectPlacement(_player.ObjectPlacement.PlayerObjectToPlace, playerObjectPos, _player.ObjectPlacement.PlaneLayer);
-
-            Debug.Log(_inputService.MouseLeftKeyDown());
-            if (_inputService.MouseLeftKeyDown())
+            if (_inputService.IsMouseOnAPlane(_player.ObjectPlacement.PlaneLayer))
             {
-                //_objectPalcementService.PlaceObject(ref _playerObjectToPlace);
-                _shoppingInGameService.BuyPlayerObjectProduct(_player, (PlayerObjectProduct)_player.ObjectPlacement.PlayerObjectToPlace);
+                Vector3 playerObjectPos = _gridPlacementService.GetGridCellPositionByMousePosition(_player.ObjectPlacement.GridPlacement, _player.ObjectPlacement.PlaneLayer);
+                _objectPlacementService.HandlePlacingObjectPlacement(_player.ObjectPlacement.PlayerObjectToPlace, playerObjectPos);
+
+                if (_inputService.MouseLeftKeyDown())
+                {
+                    //_objectPalcementService.PlaceObject(ref _playerObjectToPlace);
+                    _shoppingInGameService.BuyPlayerObjectProduct(_player, (PlayerObjectProduct)_player.ObjectPlacement.PlayerObjectToPlace);
+                }
             }
+            else
+            {
+                _objectPlacementService.HandlePlacingObjectPlacement(_player.ObjectPlacement.PlayerObjectToPlace, _inputService.GetMousePositionOnWorldPoint());
+            }
+
 
         }
 

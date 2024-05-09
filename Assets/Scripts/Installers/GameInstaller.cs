@@ -38,5 +38,7 @@ public class GameInstaller : MonoInstaller
 
         Container.Bind<IShoppingInGameService>().To<ShoppingInGameManager>().AsSingle();
 
+        Container.Bind<IGameControllerService>().To<GameControllerManager>().AsSingle();
+
     }
 }

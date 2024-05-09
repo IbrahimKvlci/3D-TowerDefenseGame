@@ -10,4 +10,6 @@ public class GridPlacement : MonoBehaviour
     {
         Grid = GetComponent<Grid>();
     }
+
+
 }

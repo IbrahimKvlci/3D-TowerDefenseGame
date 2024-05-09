@@ -82,4 +82,22 @@ public class InputManager : MonoBehaviour, IInputService
     {
         return _inputActions.Player.Place.IsPressed();
     }
+
+    public bool IsMouseOnAPlane(LayerMask layerMask)
+    {
+        Vector3 mousePos = _mousePosition;
+        mousePos.z = Camera.main.nearClipPlane;
+
+        Ray ray = Camera.main.ScreenPointToRay(mousePos);
+        if (Physics.Raycast(ray, 10000, layerMask))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public Vector3 GetMousePositionOnWorldPoint()
+    {
+        return Camera.main.ScreenToWorldPoint(_mousePosition);
+    }
 }

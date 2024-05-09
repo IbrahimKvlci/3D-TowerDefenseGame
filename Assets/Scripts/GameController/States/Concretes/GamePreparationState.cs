@@ -2,17 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GamePreparationState : MonoBehaviour
+public class GamePreparationState : GameStateBase
 {
-    // Start is called before the first frame update
-    void Start()
+    public GamePreparationState(GameController gameController, IGameStateService gameStateService) : base(gameController, gameStateService)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
