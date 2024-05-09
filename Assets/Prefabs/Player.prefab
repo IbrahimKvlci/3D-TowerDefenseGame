@@ -44,11 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dbb5cd75b602ce41b28ffaf97d527a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planeLayer:
+  <PlaneLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 256
   playerObject: {fileID: 0}
-  gridPlacement: {fileID: 0}
+  <GridPlacement>k__BackingField: {fileID: 0}
+  player: {fileID: 115712384050609512}
 --- !u!1 &1489210221987986855
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,7 +129,7 @@ Transform:
   - {fileID: 3648481686952455324}
   - {fileID: 8367949205466661637}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &115712384050609512
 MonoBehaviour:

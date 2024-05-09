@@ -1676,29 +1676,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5513540758006199167, guid: 5f355b5236c59224cb3df556daf97e9d,
         type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1549963534}
-    - target: {fileID: 5513540758006199167, guid: 5f355b5236c59224cb3df556daf97e9d,
-        type: 3}
       propertyPath: playerObject
       value: 
       objectReference: {fileID: 1166493503}
     - target: {fileID: 5513540758006199167, guid: 5f355b5236c59224cb3df556daf97e9d,
         type: 3}
-      propertyPath: gridPlacement
-      value: 
-      objectReference: {fileID: 924915225}
-    - target: {fileID: 5513540758006199167, guid: 5f355b5236c59224cb3df556daf97e9d,
-        type: 3}
       propertyPath: <GridPlacement>k__BackingField
       value: 
       objectReference: {fileID: 924915225}
-    - target: {fileID: 5513540758006199167, guid: 5f355b5236c59224cb3df556daf97e9d,
-        type: 3}
-      propertyPath: <PlaneLayer>k__BackingField.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
     - target: {fileID: 8918331577799267154, guid: 5f355b5236c59224cb3df556daf97e9d,
         type: 3}
       propertyPath: m_Name
