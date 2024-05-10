@@ -15,3 +15,4 @@ MonoBehaviour:
   price: 10
   icon: {fileID: 0}
   title: Planet1
+  scene: 0
