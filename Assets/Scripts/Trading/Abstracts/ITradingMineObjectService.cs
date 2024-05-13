@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface ITradingMineObjectService
 {
-    void SetMineObjectPriceUSDParityPercently(MineObject mineObject,float percent);
-    void SetRandomMineObjectPriceUSDParityPercently(MineObject mineObject, float percentRange);
-
+    void SetMineObjectPriceUSDParityPercently(MineObjectTrader mineObjectTrader, float percent);
+    void SetRandomMineObjectPriceUSDParityPercently(MineObjectTrader mineObjectTrader, float percentRange);
+    void SellMineObject<T>(Player player,float sellingCount,float price);
 }

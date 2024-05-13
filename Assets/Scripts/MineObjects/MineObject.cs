@@ -6,5 +6,5 @@ public class MineObject : MonoBehaviour
 {
     [field:SerializeField] public MineObjectSO MineObjectSO { get; set; }
     public float Count { get; set; }
-    public float USDParity { get; set; } = 100;
+
 }

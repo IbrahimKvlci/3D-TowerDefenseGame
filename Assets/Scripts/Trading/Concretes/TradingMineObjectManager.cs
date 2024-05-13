@@ -1,17 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class TradingMineObjectManager : ITradingMineObjectService
 {
-    public void SetMineObjectPriceUSDParityPercently(MineObject mineObject, float percent)
+    public void SellMineObject<T>( Player player,float sellingCount,float price)
     {
-        mineObject.USDParity += mineObject.USDParity * percent / 100;
+        if (player.PlayerShopping.GetMineObjectFromListByType<T>().Count >= sellingCount)
+        {
+            player.PlayerShopping.Cash += (int)(sellingCount * price);
+            player.PlayerShopping.GetMineObjectFromListByType<T>().Count-=sellingCount;
+        }
     }
 
-    public void SetRandomMineObjectPriceUSDParityPercently(MineObject mineObject, float percentRange)
+    public void SetMineObjectPriceUSDParityPercently(MineObjectTrader mineObjectTrader, float percent)
+    {
+        mineObjectTrader.USDParity += mineObjectTrader.USDParity * percent / 100;
+    }
+
+    public void SetRandomMineObjectPriceUSDParityPercently(MineObjectTrader mineObjectTrader, float percentRange)
     {
         float randomPercent=Random.Range(-percentRange, percentRange);
-        SetMineObjectPriceUSDParityPercently(mineObject, randomPercent);
+        SetMineObjectPriceUSDParityPercently(mineObjectTrader, randomPercent);
     }
 }
