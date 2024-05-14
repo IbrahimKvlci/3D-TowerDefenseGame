@@ -29,7 +29,7 @@ public class AttackSpaceShipAttackState : AttackSpaceShipStateBase
         if (timer > ((AttackSpaceShipSO)_attackSpaceShip.PlayerObjectSO).fireDuration)
         {
             timer = 0f;
-            _attackSpaceShipAttackService.Attack(_attackSpaceShip.AttackSpaceShipTrigger.TriggeredEnemy, ((AttackSpaceShipSO)_attackSpaceShip.PlayerObjectSO).damage);
+            _attackSpaceShipAttackService.Attack(_attackSpaceShip.AttackSpaceShipTrigger.TriggeredEnemy, ((AttackSpaceShipSO)_attackSpaceShip.PlayerObjectSO).damage*_attackSpaceShip.Player.PlayerUpgrading.ObjectDamageMultiplier);
         }
 
         if (!_attackSpaceShipTriggerService.IsEnemyTriggeredToBeAttacked(_attackSpaceShip, _attackSpaceShip.AttackSpaceShipTrigger.TriggeredEnemy))

@@ -29,7 +29,7 @@ public class MineScannerMovementController : MonoBehaviour
     {
         if(lastPointIndex < MinePointPath.Count)
         {
-            _mineScannerMovementService.MoveToPoint(mineScanner, MinePointPath[lastPointIndex].transform,speed);
+            _mineScannerMovementService.MoveToPoint(mineScanner, MinePointPath[lastPointIndex].transform,speed*mineScanner.Player.PlayerUpgrading.MineScannerSpeedMultiplier);
             if (_mineScannerMovementService.CheckMineScannerAtPoint(mineScanner, MinePointPath[lastPointIndex].transform))
                 lastPointIndex++;
             Debug.Log(lastPointIndex);

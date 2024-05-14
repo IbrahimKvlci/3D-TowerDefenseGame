@@ -20,7 +20,7 @@ public class PlayerObjectPlacingState : PlayerObjectStateBase
     {
         base.UpdateState();
         timer+= Time.deltaTime;
-        if (timer > _playerObject.PlayerObjectSO.placingTime)
+        if (timer > _playerObject.PlayerObjectSO.placingTime / _playerObject.Player.PlayerUpgrading.PlacingSpeedMultiplier)
         {
             timer = 0;
             _playerObjectStateService.SwitchState(_playerObject.PlayerObjectPlacedState);
