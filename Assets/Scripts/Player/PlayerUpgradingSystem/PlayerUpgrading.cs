@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerUpgrading : MonoBehaviour
 {
+    [field: SerializeField] public List<PlayerUpgradeSO> PlayerUpgradeSOList;
     public float MiningSpeedMultiplier { get; set; } = 1f;
     public float ObjectDamageMultiplier { get; set; }=1f;
     public float MineScannerSpeedMultiplier { get; set; } = 1f;
