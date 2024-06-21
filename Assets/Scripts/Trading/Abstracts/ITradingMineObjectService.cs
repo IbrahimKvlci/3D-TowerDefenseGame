@@ -6,5 +6,8 @@ public interface ITradingMineObjectService
 {
     void SetMineObjectPriceUSDParityPercently(MineObjectTrader mineObjectTrader, float percent);
     void SetRandomMineObjectPriceUSDParityPercently(MineObjectTrader mineObjectTrader, float percentRange);
-    void SellMineObject<T>(Player player,float sellingCount,float price);
+    void SetMineObjectTraderNextDay(MineObjectTrader mineObjectTrader);
+    void SetMineObjectPriceUSDParityAccordingToEvent(MineObjectTrader mineObjectTrader);
+    void SetMineObjectPriceUSDParityAccordingToSupplyDemand(MineObjectTrader mineObjectTrader);
+    void SellMineObject<T>(MineObjectTrader mineObjectTrader, Player player,float sellingCount);
 }
