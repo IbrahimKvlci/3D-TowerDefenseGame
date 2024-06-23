@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerShopping : MonoBehaviour
 {
     [field:SerializeField] public List<MineObject> MineObjects { get; set; }
-    public int Cash { get; set; }
+    public int Cash { get; set; } = 100;
 
     public MineObject GetMineObjectFromListByType<T>()
     {

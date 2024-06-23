@@ -5,6 +5,8 @@ using Zenject;
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance { get; private set; }
+
     [field:SerializeField] public ObjectPlacement ObjectPlacement { get; set; }
     [field:SerializeField] public PlayerShopping PlayerShopping { get; set; }
     [field: SerializeField] public PlayerUpgrading PlayerUpgrading { get; set; }
@@ -31,6 +33,12 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null) { 
+            Destroy(this);
+        }
+        Instance= this;
+        DontDestroyOnLoad(this.gameObject);
+
         _playerStateService = new PlayerStateManager();
 
         PlayerIdleState = new PlayerIdleState(this, _playerStateService);

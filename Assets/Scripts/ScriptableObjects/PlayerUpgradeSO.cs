@@ -5,8 +5,8 @@ using UnityEngine;
 [CreateAssetMenu()]
 public class PlayerUpgradeSO : ScriptableObject
 {
-    public int id;
+    public PlayerUpgrading.PlayerUpgradeEnum PlayerUpgradeEnum;
     public Sprite icon;
     public string text;
-
+    public int[] levelPrices;
 }

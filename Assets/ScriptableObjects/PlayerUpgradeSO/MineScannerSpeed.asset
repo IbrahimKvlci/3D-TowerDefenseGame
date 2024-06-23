@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e981eb23f4c7add47982094d91c1a84f, type: 3}
   m_Name: MineScannerSpeed
   m_EditorClassIdentifier: 
-  id: 0
+  PlayerUpgradeEnum: 1
   icon: {fileID: 21300000, guid: 06309a65cbcdd6843b4a3110de9ec5a5, type: 3}
   text: Mine Scanner Speed
+  levelPrices: 0f0000001400000023000000

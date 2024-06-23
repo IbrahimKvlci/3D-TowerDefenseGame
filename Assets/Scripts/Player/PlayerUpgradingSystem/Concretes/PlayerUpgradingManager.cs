@@ -4,46 +4,33 @@ using UnityEngine;
 
 public class PlayerUpgradingManager : IPlayerUpgradingService
 {
-    private IPlayerShoppingService _playerShoppingService;
 
-    public PlayerUpgradingManager(IPlayerShoppingService playerShoppingService)
+
+    public void UpgradeMineScannerSpeed(Player player, int price, float multiplier = 1)
     {
-        _playerShoppingService=playerShoppingService;
+
+            player.PlayerUpgrading.MineScannerSpeedMultiplier+=multiplier;
+
     }
 
-    public void UpgradeMineScannerSpeed(Player player, float multiplier, int price)
+    public void UpgradeMiningSpeed(Player player,  int price,float multiplier= 1)
     {
-        if (_playerShoppingService.CheckPlayerCash(player,price))
-        {
-            _playerShoppingService.Purchase(player, price);
-            player.PlayerUpgrading.MineScannerSpeedMultiplier=multiplier;
-        }
+
+            player.PlayerUpgrading.MiningSpeedMultiplier += multiplier;
+
     }
 
-    public void UpgradeMiningSpeed(Player player, float multiplier, int price)
+    public void UpgradeObjectDamage(Player player, int price, float multiplier = 1)
     {
-        if (_playerShoppingService.CheckPlayerCash(player, price))
-        {
-            _playerShoppingService.Purchase(player, price);
-            player.PlayerUpgrading.MiningSpeedMultiplier = multiplier;
-        }
+
+            player.PlayerUpgrading.ObjectDamageMultiplier += multiplier;
+
     }
 
-    public void UpgradeObjectDamage(Player player, float multiplier, int price)
+    public void UpgradePlacingSpeed(Player player, int price, float multiplier = 1)
     {
-        if (_playerShoppingService.CheckPlayerCash(player, price))
-        {
-            _playerShoppingService.Purchase(player, price);
-            player.PlayerUpgrading.ObjectDamageMultiplier = multiplier;
-        }
-    }
 
-    public void UpgradePlacingSpeed(Player player, float multiplier, int price)
-    {
-        if (_playerShoppingService.CheckPlayerCash(player, price))
-        {
-            _playerShoppingService.Purchase(player, price);
-            player.PlayerUpgrading.PlacingSpeedMultiplier = multiplier;
-        }
+            player.PlayerUpgrading.PlacingSpeedMultiplier += multiplier;
+
     }
 }

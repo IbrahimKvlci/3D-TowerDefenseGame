@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using Zenject;
 
 public class UpgradeUI : MonoBehaviour
 {
@@ -10,15 +12,18 @@ public class UpgradeUI : MonoBehaviour
     [SerializeField] private Transform upgradeTemplate;
     [SerializeField] private Transform container;
 
+    [Inject] private UpgradeSingleUI.Factory _upgradeSingleUIFactory;
+
     private void Start()
     {
+        upgradeTemplate.gameObject.SetActive(false);
         upgradePanel.SetActive(false);
     }
 
     public void OpenUpgradePanelUI()
     {
         upgradePanel.SetActive(true);
-
+        UpdateVisual();
     }
 
     public void CloseUpgradePanelUI()
@@ -36,9 +41,12 @@ public class UpgradeUI : MonoBehaviour
 
         foreach (PlayerUpgradeSO playerUpgradeSO in player.PlayerUpgrading.PlayerUpgradeSOList)
         {
-            Transform playerUpgradeTransform = Instantiate(upgradeTemplate, container);
+            UpgradeSingleUI playerUpgradeTransform = _upgradeSingleUIFactory.Create();
+            playerUpgradeTransform.gameObject.transform.SetParent(container);
             playerUpgradeTransform.gameObject.SetActive(true);
-            //playerUpgradeTransform.GetComponent<DeliveryManagerSingleUI>().SetRecipeSO(recipeSO);
+            playerUpgradeTransform.GetComponent<UpgradeSingleUI>().SetUpgrade(playerUpgradeSO, player);
         }
     }
+
+    
 }
