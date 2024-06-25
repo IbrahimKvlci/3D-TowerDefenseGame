@@ -122,8 +122,6 @@ public class WindowGraph : MonoBehaviour
             {
                 newIndex = 0;
             }
-            tradeUI.CurrentMineObjectTrader = tradeUI.MineObjectTraderList[newIndex];
-            ShowGraph(tradeUI.CurrentMineObjectTrader.PriceHistory);
         }
         else
         {
