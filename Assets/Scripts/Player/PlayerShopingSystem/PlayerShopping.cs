@@ -13,4 +13,9 @@ public class PlayerShopping : MonoBehaviour
     {
         return MineObjects.FirstOrDefault(obj => obj.GetType() == typeof(T));
     }
+
+    public MineObject GetMineObjectFromListByObject(MineObject mineObject)
+    {
+        return MineObjects.FirstOrDefault(obj => obj.GetType() == mineObject.GetType());
+    }
 }

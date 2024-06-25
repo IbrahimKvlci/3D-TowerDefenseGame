@@ -9,5 +9,6 @@ public interface ITradingMineObjectService
     void SetMineObjectTraderNextDay(MineObjectTrader mineObjectTrader);
     void SetMineObjectPriceUSDParityAccordingToEvent(MineObjectTrader mineObjectTrader);
     void SetMineObjectPriceUSDParityAccordingToSupplyDemand(MineObjectTrader mineObjectTrader);
-    void SellMineObject<T>(MineObjectTrader mineObjectTrader, Player player,float sellingCount);
+    void SellMineObject<T>(MineObjectTrader mineObjectTrader, Player player,int sellingCount);
+    void SellMineObject(MineObjectTrader mineObjectTrader,MineObject mineObject, Player player, int sellingCount);
 }

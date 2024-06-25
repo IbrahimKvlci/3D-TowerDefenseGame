@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class WindowGraph : MonoBehaviour
 {
-    [SerializeField] private List<MineObjectTrader> mineObjectTraderList;
+    [SerializeField] private TradeUI tradeUI;   
     [SerializeField] private Sprite circleSprite;
     [SerializeField] private RectTransform graphContainer;
     [SerializeField] private RectTransform labelXTemplate;
@@ -15,7 +15,7 @@ public class WindowGraph : MonoBehaviour
     [SerializeField] private Image backgroundImg;
     [SerializeField] private Button rightBtn, leftBtn;
 
-    public MineObjectTrader CurrentMineObjectTrader { get; set; }
+    
 
     private void Awake()
     {
@@ -30,8 +30,7 @@ public class WindowGraph : MonoBehaviour
 
     private void Start()
     {
-        CurrentMineObjectTrader = mineObjectTraderList[0];
-        ShowGraph(CurrentMineObjectTrader.PriceHistory);
+        ShowGraph(tradeUI.CurrentMineObjectTrader.PriceHistory);
     }
 
     private GameObject CreateCircle(Vector2 anchoredPosition)
@@ -117,26 +116,28 @@ public class WindowGraph : MonoBehaviour
 
         if (goRight)
         {
-            newIndex = mineObjectTraderList.IndexOf(CurrentMineObjectTrader) + 1;
+            newIndex = tradeUI.MineObjectTraderList.IndexOf(tradeUI.CurrentMineObjectTrader) + 1;
 
-            if(newIndex >= mineObjectTraderList.Count)
+            if(newIndex >= tradeUI.MineObjectTraderList.Count)
             {
                 newIndex = 0;
             }
-            CurrentMineObjectTrader = mineObjectTraderList[newIndex];
-            ShowGraph(CurrentMineObjectTrader.PriceHistory);
+            tradeUI.CurrentMineObjectTrader = tradeUI.MineObjectTraderList[newIndex];
+            ShowGraph(tradeUI.CurrentMineObjectTrader.PriceHistory);
         }
         else
         {
-            newIndex = mineObjectTraderList.IndexOf(CurrentMineObjectTrader) - 1;
+            newIndex = tradeUI.MineObjectTraderList.IndexOf(tradeUI.CurrentMineObjectTrader) - 1;
 
             if (newIndex < 0)
             {
-                newIndex = mineObjectTraderList.Count-1;
+                newIndex = tradeUI.MineObjectTraderList.Count-1;
             }
         }
 
-        CurrentMineObjectTrader = mineObjectTraderList[newIndex];
-        ShowGraph(CurrentMineObjectTrader.PriceHistory);
+        tradeUI.CurrentMineObjectTrader = tradeUI.MineObjectTraderList[newIndex];
+        ShowGraph(tradeUI.CurrentMineObjectTrader.PriceHistory);
+
+        tradeUI.ChangeCurrentMineObjectIcon(tradeUI.CurrentMineObjectTrader.MineObject.MineObjectSO.icon);
     }
 }
