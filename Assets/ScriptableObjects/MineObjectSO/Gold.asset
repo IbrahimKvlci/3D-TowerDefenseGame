@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   prefab: {fileID: 562887575785107679, guid: 564196238e27c5449a4b53eefe650730, type: 3}
-  icon: {fileID: 0}
+  icon: {fileID: 21300064, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
   miningTimerMax: 5
   title: Gold

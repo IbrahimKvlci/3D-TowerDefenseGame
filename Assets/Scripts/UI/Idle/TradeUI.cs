@@ -15,6 +15,7 @@ public class TradeUI : MonoBehaviour
     [SerializeField] private Image currentMineObjectIcon;
     [SerializeField] private TMP_InputField countInputField;
     [SerializeField] private Button sellBtn;
+    [SerializeField] private MineObjectsUI mineObjectsUI;
 
     private ITradingMineObjectService _tradingMineObjectService;
 
@@ -59,5 +60,7 @@ public class TradeUI : MonoBehaviour
         int sellingCount = Int32.Parse(countInputField.text);
 
         _tradingMineObjectService.SellMineObject(CurrentMineObjectTrader,mineObject, player, sellingCount);
+
+        mineObjectsUI.UpdateVisual();
     }
 }

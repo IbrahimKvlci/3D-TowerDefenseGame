@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208664997c3ed2841a8d568435659760, type: 3}
   m_Name: Diamond
   m_EditorClassIdentifier: 
-  id: 0
-  prefab: {fileID: 0}
-  icon: {fileID: 0}
-  miningTimerMax: 0
-  title: 
+  id: 2
+  prefab: {fileID: 8351983108669446386, guid: afd88881ca981884a87e627e54d25d0f, type: 3}
+  icon: {fileID: 21300030, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
+  miningTimerMax: 3
+  title: Diamond
