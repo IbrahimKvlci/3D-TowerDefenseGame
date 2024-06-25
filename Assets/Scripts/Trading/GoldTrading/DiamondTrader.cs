@@ -1,15 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
-public class GoldTrader : MineObjectTrader
+public class DiamondTrader : MineObjectTrader
 {
     protected override void Start()
     {
         base.Start();
-        PriceHistory.Add(120);
-        PriceHistory.Add(115);
-        PriceHistory.Add(96);
+        PriceHistory.Add(160);
+        PriceHistory.Add(250);
+        PriceHistory.Add(75);
     }
 }

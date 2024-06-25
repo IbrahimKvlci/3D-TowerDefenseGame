@@ -42,6 +42,7 @@ public class TradingMineObjectManager : ITradingMineObjectService
     public void SetMineObjectTraderNextDay(MineObjectTrader mineObjectTrader)
     {
         SetMineObjectPriceUSDParityAccordingToSupplyDemand(mineObjectTrader);
+        mineObjectTrader.PriceHistory.Add(mineObjectTrader.USDParity);
         ResetMineObjectTrader(mineObjectTrader);
     }
 
