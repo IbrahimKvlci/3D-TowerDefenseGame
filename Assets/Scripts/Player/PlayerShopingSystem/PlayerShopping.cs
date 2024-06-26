@@ -6,8 +6,16 @@ using UnityEngine;
 
 public class PlayerShopping : MonoBehaviour
 {
+    public event EventHandler OnCashChanged;
+
     [field:SerializeField] public List<MineObject> MineObjects { get; set; }
-    public int Cash { get; set; } = 100;
+
+    private int cash = 100;
+    public int Cash
+    {
+        get { return cash; }
+        set { cash = value; OnCashChanged?.Invoke(this, EventArgs.Empty); }
+    }
 
     public MineObject GetMineObjectFromListByType<T>()
     {
