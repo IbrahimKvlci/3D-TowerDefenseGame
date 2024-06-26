@@ -219,6 +219,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 870b9d5111ce3844288e658b011a20de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <PlayerObjectSO>k__BackingField: {fileID: 11400000, guid: a745abc99bbee734abe6f28f933f7c4f,
+    type: 2}
+  <Player>k__BackingField: {fileID: 0}
   <MinePointController>k__BackingField: {fileID: 0}
   <MineScannerMovementController>k__BackingField: {fileID: 4422107391469748606}
 --- !u!114 &4422107391469748606
@@ -233,6 +236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa28946a40c1354fae4a057ffa74025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 7
   mineScanner: {fileID: 213742030029933444}
   MinePointPath: []

@@ -99,7 +99,7 @@ PrefabInstance:
     - target: {fileID: 8450078134501330977, guid: 758df5cd76e6da848a5ffce7b117eb29,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8450078134501330977, guid: 758df5cd76e6da848a5ffce7b117eb29,
         type: 3}
@@ -197,6 +197,7 @@ MonoBehaviour:
   <Player>k__BackingField: {fileID: 0}
   <MineObject>k__BackingField: {fileID: -4004277721097816679, guid: 564196238e27c5449a4b53eefe650730,
     type: 3}
+  <MinePoint>k__BackingField: {fileID: 0}
   <LayerMask>k__BackingField:
     serializedVersion: 2
     m_Bits: 1024

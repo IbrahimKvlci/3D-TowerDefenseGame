@@ -11,5 +11,6 @@ public class PlanetSO : ScriptableObject
     public int price;
     public Sprite icon;
     public string title;
+    public MineObject mineObject;
     public SceneLoader.Scene scene;
 }

@@ -15,4 +15,6 @@ MonoBehaviour:
   price: 10
   icon: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   title: Planet1
+  mineObject: {fileID: -4004277721097816679, guid: 564196238e27c5449a4b53eefe650730,
+    type: 3}
   scene: 0

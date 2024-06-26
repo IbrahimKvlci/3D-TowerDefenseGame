@@ -9,6 +9,8 @@ public class GridPlacement : MonoBehaviour
     private void Awake()
     {
         Grid = GetComponent<Grid>();
+
+        Player.Instance.ObjectPlacement.GridPlacement = this;
     }
 
 
