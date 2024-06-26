@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     public static Player Instance { get; private set; }
 
+    [field:SerializeField] public PlayerInfo PlayerInfo { get; set; }
     [field:SerializeField] public ObjectPlacement ObjectPlacement { get; set; }
     [field:SerializeField] public PlayerShopping PlayerShopping { get; set; }
     [field: SerializeField] public PlayerUpgrading PlayerUpgrading { get; set; }
