@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,14 +9,10 @@ public class GameManager : MonoBehaviour
 
     private ITradingMineObjectService _tradingMineObjectService;
 
-    [Inject]
-    public void Construct(ITradingMineObjectService tradingMineObjectService)
-    {
-        _tradingMineObjectService = tradingMineObjectService;
-    }
-
     private void Awake()
     {
+        _tradingMineObjectService = TradingIoC.Instance.TradingMineObjectService;
+
         MineObjectTraderList = new List<MineObjectTrader> { GoldTrader.Instance};
     }
 

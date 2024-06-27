@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
 public class UpgradeSingleUI : MonoBehaviour
 {
@@ -20,15 +19,11 @@ public class UpgradeSingleUI : MonoBehaviour
 
     private IShoppingUpgradeService _shoppingUpgradeService;
 
-    [Inject]
-    public void Construct(IShoppingUpgradeService shoppingUpgradeService)
-    {
-        _shoppingUpgradeService = shoppingUpgradeService;
-    }
 
     private void Awake()
     {
         //player = Player.Instance;
+        _shoppingUpgradeService = IdleIoC.Instance.ShoppingUpgradeService;
 
         upgradeBtn.onClick.AddListener(() =>
         {
@@ -120,5 +115,4 @@ public class UpgradeSingleUI : MonoBehaviour
 
     }
 
-    public class Factory : PlaceholderFactory<UpgradeSingleUI> { }
 }

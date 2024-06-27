@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
 public class MinePointController : MonoBehaviour
 {
@@ -13,14 +12,11 @@ public class MinePointController : MonoBehaviour
 
     private IMinePointService _minePointService;
 
-    [Inject]
-    public void Construct(IMinePointService minePointService)
-    {
-        _minePointService=minePointService;
-    }
-
+    
     private void Awake()
     {
+        _minePointService = InGameIoC.Instance.MinePointService;
+
         _minePointService.SetMinePointList(PointList, MinePointList, 10);
     }
 

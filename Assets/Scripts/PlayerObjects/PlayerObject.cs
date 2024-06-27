@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
 public abstract class PlayerObject : MonoBehaviour
 {
@@ -23,17 +22,12 @@ public abstract class PlayerObject : MonoBehaviour
     public IPlayerObjectState PlayerObjectDestroyState { get; set; }
 
 
-    //[Inject]
-    //public void Construct(IPlayerObjectHealthService playerObjectHealthService)
-    //{
-    //    _playerObjectHealthService = playerObjectHealthService;
-    //}
 
     protected virtual void Awake()
     {
         Player = Player.Instance;
 
-        _playerObjectHealthService = new PlayerObjectHealthManager();
+        _playerObjectHealthService = InGameIoC.Instance.PlayerObjectHealthService;
 
         PlayerObjectHealth = new PlayerObjectHealth();
         PlayerObjectStateService=new PlayerObjectStateManager();

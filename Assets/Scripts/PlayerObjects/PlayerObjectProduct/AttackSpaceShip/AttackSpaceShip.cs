@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
 public class AttackSpaceShip : PlayerObjectProduct
 {
@@ -17,16 +16,13 @@ public class AttackSpaceShip : PlayerObjectProduct
     private IAttackSpaceShipTriggerService _attackSpaceShipTriggerService;
     private IAttackSpaceShipAttackService _attackSpaceShipAttackService;
 
-    [Inject]
-    public void Construct(IAttackSpaceShipMovementService attackSpaceShipMovementService,IAttackSpaceShipTriggerService attackSpaceShipTriggerService,IAttackSpaceShipAttackService attackSpaceShipAttackService)
-    {
-        _attackSpaceShipMovementService = attackSpaceShipMovementService;
-        _attackSpaceShipTriggerService = attackSpaceShipTriggerService;
-        _attackSpaceShipAttackService= attackSpaceShipAttackService;
-    }
 
     protected override void Awake()
     {
+        _attackSpaceShipAttackService=InGameIoC.Instance.AttackSpaceShipAttackService;
+        _attackSpaceShipTriggerService = InGameIoC.Instance.AttackSpaceShipTriggerService;
+        _attackSpaceShipMovementService = InGameIoC.Instance.AttackSpaceShipMovementService;
+
         base.Awake();
 
         _attackSpaceShipStateService = new AttackSpaceShipStateManager();

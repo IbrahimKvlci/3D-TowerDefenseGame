@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
 public class StartUI : MonoBehaviour
 {
@@ -20,14 +19,12 @@ public class StartUI : MonoBehaviour
 
     private IShoppingPlanetService _shoppingPlanetService;
 
-    [Inject]
-    public void Construct(IShoppingPlanetService shoppingPlanetService)
-    {
-        _shoppingPlanetService = shoppingPlanetService;
-    }
+    
 
     private void Awake()
     {
+        _shoppingPlanetService = PlanetIoC.Instance.ShoppingPlanetService;
+
         rightBtn.onClick.AddListener(() =>
         {
             ChangePage(true);

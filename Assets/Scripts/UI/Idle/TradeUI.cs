@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
 public class TradeUI : MonoBehaviour
 {
@@ -19,14 +18,10 @@ public class TradeUI : MonoBehaviour
 
     private ITradingMineObjectService _tradingMineObjectService;
 
-    [Inject]
-    public void Construct(ITradingMineObjectService tradingMineObjectService)
-    {
-        _tradingMineObjectService = tradingMineObjectService;
-    }
-
     private void Awake()
     {
+        _tradingMineObjectService = TradingIoC.Instance.TradingMineObjectService;
+
         sellBtn.onClick.AddListener(() =>
         {
             SellMineObject(Player.Instance, CurrentMineObjectTrader.MineObject);

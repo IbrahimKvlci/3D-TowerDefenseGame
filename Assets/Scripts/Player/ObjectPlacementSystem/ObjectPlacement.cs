@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
 public class ObjectPlacement:MonoBehaviour
 {
@@ -22,18 +21,14 @@ public class ObjectPlacement:MonoBehaviour
     private IInputService _inputService;
     private IShoppingInGameService _shoppingInGameService;
 
-    [Inject]
-    public void Construct(IObjectPlacementService objectPlacementService,IGridPlacementService gridPlacementService,IInputService inputService, IShoppingInGameService shoppingInGameService)
-    {
-        _objectPlacementService = objectPlacementService;
-        _gridPlacementService = gridPlacementService;
-        _inputService = inputService;
-        _shoppingInGameService = shoppingInGameService;
-
-    }
 
     private void Awake()
     {
+        _objectPlacementService = InGameIoC.Instance.ObjectPlacementService;
+        _gridPlacementService= InGameIoC.Instance.GridPlacementService;
+        _inputService= InGameIoC.Instance.InputService;
+        _shoppingInGameService= InGameIoC.Instance.ShoppingInGameService;
+
         GridPlacement = GridPlacement.Instance;
         PlayerObjectToPlace = playerObject;
         player = Player.Instance;
@@ -43,7 +38,6 @@ public class ObjectPlacement:MonoBehaviour
         player.ObjectPlacement = this;
     }
 
-    public class Factory : PlaceholderFactory<ObjectPlacement> { }
 
 
 

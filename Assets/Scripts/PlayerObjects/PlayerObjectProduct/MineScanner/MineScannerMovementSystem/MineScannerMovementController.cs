@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
 public class MineScannerMovementController : MonoBehaviour
 {
@@ -14,11 +13,13 @@ public class MineScannerMovementController : MonoBehaviour
 
     private IMineScannerMovementService _mineScannerMovementService;
 
-    [Inject]
-    public void Construct(IMineScannerMovementService mineScannerMovementService)
+
+
+    private void Awake()
     {
-        _mineScannerMovementService = mineScannerMovementService;
+        _mineScannerMovementService = InGameIoC.Instance.MineScannerMovementService;
     }
+
     private void Start()
     {
         lastPointIndex = 0;

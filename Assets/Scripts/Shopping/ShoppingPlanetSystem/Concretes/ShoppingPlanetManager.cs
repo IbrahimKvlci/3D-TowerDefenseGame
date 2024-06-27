@@ -9,6 +9,7 @@ public class ShoppingPlanetManager : IShoppingPlanetService
     public ShoppingPlanetManager(IPlanetTravelService planetTravelService)
     {
         _planetTravelService= planetTravelService;
+        Debug.Log(_planetTravelService);
     }
 
     public void PayToTravelThePlanet(Player player, Planet planet)

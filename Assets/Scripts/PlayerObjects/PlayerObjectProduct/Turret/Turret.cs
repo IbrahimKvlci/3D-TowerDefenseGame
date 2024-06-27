@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
 public abstract class Turret : PlayerObjectProduct
 {
@@ -18,17 +17,12 @@ public abstract class Turret : PlayerObjectProduct
     private protected ITurretTriggerService _turretTriggerService;
 
 
-    [Inject]
-    public void Construct(ITurretWorkingService turretWorkingService,ITurretAttackService turretAttackService,ITurretTriggerService turretTriggerService)
-    {
-        PlayerObjectWorkingService = turretWorkingService;
-        _turretAttackService = turretAttackService;
-        _turretTriggerService = turretTriggerService;
-    }
-
-
     protected override void Awake()
     {
+        PlayerObjectWorkingService = InGameIoC.Instance.TurretWorkingService;
+        _turretAttackService=InGameIoC.Instance.TurretAttackService;
+        _turretTriggerService = InGameIoC.Instance.TurretTriggerService;
+
         base.Awake();
         TurretStateService = new TurretStateManager();
         TurretFireState = new TurretFireState(this, TurretStateService,_turretAttackService,_turretTriggerService);

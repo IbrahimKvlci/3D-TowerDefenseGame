@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using Zenject;
 
 public abstract class Enemy : MonoBehaviour
 {
@@ -26,17 +25,15 @@ public abstract class Enemy : MonoBehaviour
     protected private IEnemyAttackService _enemyAttackService;
     protected private IEnemyHealthService _enemyHealthService;
 
-    [Inject]
-    public void Construct(IEnemyMovementService enemyMovementService, IEnemyDetectPlayerObjectService enemyDetectPlayerObjectService,IEnemyAttackService enemyAttackService,IEnemyHealthService enemyHealthService)
-    {
-        _enemyMovementService = enemyMovementService;
-        _enemyDetectPlayerObjectService = enemyDetectPlayerObjectService;
-        _enemyAttackService = enemyAttackService;
-        _enemyHealthService = enemyHealthService;
-    }
 
     private void Awake()
     {
+        _enemyMovementService = InGameIoC.Instance.EnemyMovementService;
+        _enemyDetectPlayerObjectService=InGameIoC.Instance.EnemyDetectPlayerObjectService;
+        _enemyAttackService=InGameIoC.Instance.EnemyAttackService;
+        _enemyHealthService = InGameIoC.Instance.EnemyHealthService;
+
+
         EnemyMovement=new EnemyMovement(GetComponent<NavMeshAgent>());
         EnemyHealth = new EnemyHealth();
 

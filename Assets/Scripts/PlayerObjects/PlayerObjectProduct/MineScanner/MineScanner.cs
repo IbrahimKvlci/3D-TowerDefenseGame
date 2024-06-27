@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
 public class MineScanner : PlayerObjectProduct
 {
@@ -13,11 +12,12 @@ public class MineScanner : PlayerObjectProduct
     private IMineScannerService _mineScannerService;
     private IMineScannerMovementService _mineScannerMovementService;
 
-    [Inject]
-    public void Construct(IMineScannerService mineScannerService,IMineScannerMovementService mineScannerMovementService)
+
+    protected override void Awake()
     {
-        _mineScannerService = mineScannerService;
-        _mineScannerMovementService = mineScannerMovementService;
+        base.Awake();
+        _mineScannerService = InGameIoC.Instance.MineScannerService;
+        _mineScannerMovementService=InGameIoC.Instance.MineScannerMovementService;
     }
 
     protected override void Start()

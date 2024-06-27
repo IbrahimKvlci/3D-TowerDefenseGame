@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
 public class GameController : MonoBehaviour
 {
@@ -12,10 +11,9 @@ public class GameController : MonoBehaviour
 
     private IGameControllerService _gameControllerService;
 
-    [Inject]
-    public void Construct(IGameControllerService gameControllerService)
+    private void Awake()
     {
-        _gameControllerService = gameControllerService;
+        _gameControllerService = InGameIoC.Instance.GameControllerService;
     }
 
     private void Start()

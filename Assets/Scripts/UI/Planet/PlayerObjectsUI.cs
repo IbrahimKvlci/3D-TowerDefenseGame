@@ -1,15 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
 public class PlayerObjectsUI : MonoBehaviour
 {
     [SerializeField] private List<PlayerObjectProduct> playerObjectList;
     [SerializeField] private Transform playerObjectTemplate;
     [SerializeField] private Transform container;
-
-    [Inject] private PlayerObjectSingleUI.Factory _playerObjectSingleUIFactory;
 
     private void Start()
     {
@@ -27,8 +24,7 @@ public class PlayerObjectsUI : MonoBehaviour
 
         foreach (PlayerObjectProduct playerObject in playerObjectList)
         {
-            PlayerObjectSingleUI playerObjectTransform = _playerObjectSingleUIFactory.Create();
-            playerObjectTransform.transform.SetParent(container, false);
+            Transform playerObjectTransform = Instantiate(playerObjectTemplate, container);
             playerObjectTransform.gameObject.SetActive(true);
             playerObjectTransform.GetComponent<PlayerObjectSingleUI>().SetPlayerObjectUI(playerObject);
         }

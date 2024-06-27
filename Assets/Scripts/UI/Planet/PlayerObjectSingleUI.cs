@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
 public class PlayerObjectSingleUI : MonoBehaviour
 {
@@ -16,14 +15,11 @@ public class PlayerObjectSingleUI : MonoBehaviour
 
     private IShoppingInGameService _shoppingInGameService;
 
-    [Inject]
-    public void Construct(IShoppingInGameService shoppingInGameService)
-    {
-        _shoppingInGameService = shoppingInGameService;
-    }
 
     private void Awake()
     {
+        _shoppingInGameService = InGameIoC.Instance.ShoppingInGameService;
+
         playerObjectProductBtn.onClick.AddListener(() =>
         {
             _shoppingInGameService.GivePlayerObjectProductToPlayer(Player.Instance, PlayerObject);
@@ -38,5 +34,4 @@ public class PlayerObjectSingleUI : MonoBehaviour
         priceText.text = $"${((PlayerObjectProductSO)playerObject.PlayerObjectSO).Price}";
     }
 
-    public class Factory : PlaceholderFactory<PlayerObjectSingleUI> { }
 }

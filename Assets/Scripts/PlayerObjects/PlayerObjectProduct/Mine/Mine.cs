@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
 public class Mine : PlayerObjectProduct
 {
@@ -17,15 +16,11 @@ public class Mine : PlayerObjectProduct
 
     private IMineTriggerService _mineTriggerService;
 
-    [Inject]
-    public void Construct(IMineWorkingService mineWorkingService,IMineTriggerService mineTriggerService)
-    {
-        PlayerObjectWorkingService= mineWorkingService;
-        _mineTriggerService= mineTriggerService;    
-    }
-
     protected override void Awake()
     {
+        PlayerObjectWorkingService = InGameIoC.Instance.MineWorkingService;
+        _mineTriggerService = InGameIoC.Instance.MineTriggerService;
+
         base.Awake();
         MineStateService = new MineStateManager();
 

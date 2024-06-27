@@ -14,8 +14,12 @@ public class InputManager : MonoBehaviour, IInputService
     private Vector2 _mousePosition;
     private float _mouseScroll;
 
+    public static InputManager Instance { get; set; }
+
     private void Awake()
     {
+        Instance = this;
+
         _inputActions = new InputActions();
         _inputActions.Enable();
 

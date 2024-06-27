@@ -2,7 +2,6 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
 public class CameraControl : MonoBehaviour
 {
@@ -14,10 +13,9 @@ public class CameraControl : MonoBehaviour
 
     IInputService _inputService;
 
-    [Inject]
-    public void Construct(IInputService inputService)
+    private void Awake()
     {
-        _inputService = inputService;
+        _inputService=InGameIoC.Instance.InputService;
     }
 
     private void Start()
