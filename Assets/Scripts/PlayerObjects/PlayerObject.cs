@@ -7,7 +7,7 @@ public abstract class PlayerObject : MonoBehaviour
 {
 
     [field:SerializeField] public PlayerObjectSO PlayerObjectSO { get; set; }
-    [field:SerializeField] public Player Player {  get; set; }
+    [field: SerializeField] public Player Player { get; set; }
 
     public PlayerObjectHealth PlayerObjectHealth { get; set; }
     public bool IsPlaced { get; set; }
@@ -23,14 +23,18 @@ public abstract class PlayerObject : MonoBehaviour
     public IPlayerObjectState PlayerObjectDestroyState { get; set; }
 
 
-    [Inject]
-    public void Construct(IPlayerObjectHealthService playerObjectHealthService)
-    {
-        _playerObjectHealthService = playerObjectHealthService;
-    }
+    //[Inject]
+    //public void Construct(IPlayerObjectHealthService playerObjectHealthService)
+    //{
+    //    _playerObjectHealthService = playerObjectHealthService;
+    //}
 
     protected virtual void Awake()
-    { 
+    {
+        Player = Player.Instance;
+
+        _playerObjectHealthService = new PlayerObjectHealthManager();
+
         PlayerObjectHealth = new PlayerObjectHealth();
         PlayerObjectStateService=new PlayerObjectStateManager();
 

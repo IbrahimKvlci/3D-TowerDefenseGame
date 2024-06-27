@@ -17,12 +17,35 @@ public class ObjectPlacement:MonoBehaviour
         set { _playerObjectToPlace = value; }
     }
 
-    private void Awake()
+    private IObjectPlacementService _objectPlacementService;
+    private IGridPlacementService _gridPlacementService;
+    private IInputService _inputService;
+    private IShoppingInGameService _shoppingInGameService;
+
+    [Inject]
+    public void Construct(IObjectPlacementService objectPlacementService,IGridPlacementService gridPlacementService,IInputService inputService, IShoppingInGameService shoppingInGameService)
     {
-        PlayerObjectToPlace = playerObject;
+        _objectPlacementService = objectPlacementService;
+        _gridPlacementService = gridPlacementService;
+        _inputService = inputService;
+        _shoppingInGameService = shoppingInGameService;
+
     }
 
+    private void Awake()
+    {
+        GridPlacement = GridPlacement.Instance;
+        PlayerObjectToPlace = playerObject;
+        player = Player.Instance;
+
+        player.PlayerHoldingObjectState = new PlayerHoldingObjectState(player, player.PlayerStateService, _gridPlacementService, _objectPlacementService, _inputService, _shoppingInGameService);
+
+        player.ObjectPlacement = this;
+    }
+
+    public class Factory : PlaceholderFactory<ObjectPlacement> { }
 
 
-    
+
+
 }

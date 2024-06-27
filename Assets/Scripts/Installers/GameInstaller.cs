@@ -5,10 +5,14 @@ public class GameInstaller : MonoInstaller
 {
     [SerializeField] private InputManager inputManager;
     [SerializeField] private PlayerObjectSingleUI playerObjectSingleUIPrefab;
+    [SerializeField] private ObjectPlacement objectPlacementPrefab;
+
 
     public override void InstallBindings()
     {
         Container.BindFactory<PlayerObjectSingleUI, PlayerObjectSingleUI.Factory>().FromComponentInNewPrefab(playerObjectSingleUIPrefab);
+        Container.BindFactory<ObjectPlacement, ObjectPlacement.Factory>().FromComponentInNewPrefab(objectPlacementPrefab);
+
 
         Container.Bind<IInputService>().To<InputManager>().FromComponentInNewPrefab(inputManager).AsSingle();
 
