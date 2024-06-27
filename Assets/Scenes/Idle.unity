@@ -1666,6 +1666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputManager: {fileID: 7344562208331614302, guid: c14cbf6d3b5962844aea0c3c7228e99f,
     type: 3}
+  playerObjectSingleUIPrefab: {fileID: 0}
 --- !u!114 &454458673
 MonoBehaviour:
   m_ObjectHideFlags: 0

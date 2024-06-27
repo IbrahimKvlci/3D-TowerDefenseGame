@@ -4,9 +4,12 @@ using Zenject;
 public class GameInstaller : MonoInstaller
 {
     [SerializeField] private InputManager inputManager;
+    [SerializeField] private PlayerObjectSingleUI playerObjectSingleUIPrefab;
 
     public override void InstallBindings()
     {
+        Container.BindFactory<PlayerObjectSingleUI, PlayerObjectSingleUI.Factory>().FromComponentInNewPrefab(playerObjectSingleUIPrefab);
+
         Container.Bind<IInputService>().To<InputManager>().FromComponentInNewPrefab(inputManager).AsSingle();
 
         Container.Bind<IEnemyMovementService>().To<EnemyMovementManager>().AsSingle();

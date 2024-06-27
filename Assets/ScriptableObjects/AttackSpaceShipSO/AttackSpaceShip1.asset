@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4d7574b6f9e4f8438ea319b7e04abb5, type: 3}
   m_Name: AttackSpaceShip1
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300066, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
   title: AttackSpaceShip1
   healthMax: 100
   placingTime: 3
-  Price: 0
+  Price: 12
   damage: 12
   fireDuration: 3
   attackRange: 10
