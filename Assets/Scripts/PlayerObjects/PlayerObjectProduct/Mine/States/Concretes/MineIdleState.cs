@@ -5,11 +5,12 @@ using UnityEngine;
 public class MineIdleState : MineStateBase
 {
     private readonly IMineTriggerService _mineTriggerService;
+    private readonly IMineScannerService _mineScannerService;
 
-    public MineIdleState(Mine mine, IMineStateService mineStateService, IMineTriggerService mineTriggerService) : base(mine, mineStateService)
+    public MineIdleState(Mine mine, IMineStateService mineStateService, IMineTriggerService mineTriggerService, IMineScannerService mineScannerService) : base(mine, mineStateService)
     {
         _mineTriggerService = mineTriggerService;
-        
+        _mineScannerService = mineScannerService;
     }
 
     public override void EnterState()
@@ -19,7 +20,7 @@ public class MineIdleState : MineStateBase
         {
             if (minePoint.MineScanner != null)
             {
-                GameObject.Destroy(minePoint.MineScanner.gameObject);
+               _mineScannerService.DestroyMineScanner(minePoint.MineScanner);
             }
             _mine.MinePoint=minePoint;
             _mineStateService.SwitchState(_mine.MineMiningState);

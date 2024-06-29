@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu()]
 public class MineScannerSO : PlayerObjectProductSO
 {
-    
+    public float speed;
 }

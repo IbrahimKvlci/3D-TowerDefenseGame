@@ -10,20 +10,40 @@ public class MineScanner : PlayerObjectProduct
 
     private IMineScannerService _mineScannerService;
     private IMineScannerMovementService _mineScannerMovementService;
+  
 
+    public IMineScannerState MineScannerFreezingState { get; set; }
+    public IMineScannerState MineScannerIdleState { get; set; }
+    public IMineScannerState MineScannerScanningState { get; set; }
+    public IMineScannerState MineScannerWaitingState { get; set; }
+
+    private IMineScannerStateService _mineScannerStateService;
 
     protected override void Awake()
     {
         base.Awake();
         _mineScannerService = InGameIoC.Instance.MineScannerService;
         _mineScannerMovementService=InGameIoC.Instance.MineScannerMovementService;
+
+        _mineScannerStateService = new MineScannerStateManager();
+
+        MineScannerFreezingState = new MineScannerFreezingState(this, _mineScannerStateService);
+        MineScannerIdleState=new MineScannerIdleState(this, _mineScannerStateService,_mineScannerService);
+        MineScannerScanningState = new MineScannerScanningState(this, _mineScannerStateService,_mineScannerMovementService,_mineScannerService);
+        MineScannerWaitingState = new MineScannerWaitingState(this, _mineScannerStateService);
     }
 
     protected override void Start()
     {
         base.Start();
 
-        _mineScannerService.SetMinePointToScanner(this, MinePointController.Instance.MinePointList);
-        MineScannerMovementController.MinePointPath = _mineScannerMovementService.CreateScannerPath(this, MinePointController.Instance.PointList, 3, 6);
+        _mineScannerStateService.Initialize(MineScannerFreezingState);
+
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        _mineScannerStateService.CurrentMineScannerState.UpdateState();
     }
 }

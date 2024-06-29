@@ -10,7 +10,10 @@ public class MineScannerManager : IMineScannerService
         _minePointService = minePointService;
     }
 
-    
+    public void DestroyMineScanner(MineScanner mineScanner)
+    {
+        GameObject.Destroy(mineScanner.gameObject);
+    }
 
     public void SetMinePointToScanner(MineScanner mineScanner, List<MinePoint> minePointList)
     {

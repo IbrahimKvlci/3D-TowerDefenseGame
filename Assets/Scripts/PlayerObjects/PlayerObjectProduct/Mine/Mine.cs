@@ -15,18 +15,20 @@ public class Mine : PlayerObjectProduct
     public IMineState MineIdleState { get; set; }
 
     private IMineTriggerService _mineTriggerService;
+    private IMineScannerService _mineScannerService;
 
     protected override void Awake()
     {
         PlayerObjectWorkingService = InGameIoC.Instance.MineWorkingService;
         _mineTriggerService = InGameIoC.Instance.MineTriggerService;
+        _mineScannerService=InGameIoC.Instance.MineScannerService;
 
         base.Awake();
         MineStateService = new MineStateManager();
 
         MineFreezingState = new MineFreezingState(this, MineStateService);
         MineMiningState=new MineMiningState(this,MineStateService);
-        MineIdleState = new MineIdleState(this, MineStateService,_mineTriggerService);
+        MineIdleState = new MineIdleState(this, MineStateService,_mineTriggerService, _mineScannerService);
 
     }
 

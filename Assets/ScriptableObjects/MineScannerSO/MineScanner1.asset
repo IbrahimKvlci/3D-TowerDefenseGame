@@ -15,5 +15,6 @@ MonoBehaviour:
   icon: {fileID: 21300066, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
   title: 
   healthMax: 100
-  placingTime: 3
+  placingTime: 1
   Price: 133
+  speed: 13.45
