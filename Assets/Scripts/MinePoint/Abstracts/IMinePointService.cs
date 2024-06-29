@@ -8,4 +8,6 @@ public interface IMinePointService
     void SetRandomMineCount(MinePoint minePoint, float minCount, float maxCount);
 
     MinePoint GetRandomMinePointFromList(List<MinePoint> minePointList);
+
+    //bool IsThereAnyFreeMinePoint(List<MinePoint> minePointList);
 }

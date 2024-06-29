@@ -25,7 +25,7 @@ public class MinePointController : MonoBehaviour
 
         _minePointService = InGameIoC.Instance.MinePointService;
 
-        _minePointService.SetMinePointList(PointList, MinePointList, 10);
+        _minePointService.SetMinePointList(PointList, MinePointList, 1);
     }
 
     private void Start()

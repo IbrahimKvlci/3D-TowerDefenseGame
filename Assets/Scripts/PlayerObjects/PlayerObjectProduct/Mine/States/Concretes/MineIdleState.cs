@@ -17,6 +17,10 @@ public class MineIdleState : MineStateBase
         base.EnterState();
         if (_mineTriggerService.IsMineAtMinePoint(_mine, _mine.LayerMask,out MinePoint minePoint))
         {
+            if (minePoint.MineScanner != null)
+            {
+                GameObject.Destroy(minePoint.MineScanner.gameObject);
+            }
             _mine.MinePoint=minePoint;
             _mineStateService.SwitchState(_mine.MineMiningState);
         }

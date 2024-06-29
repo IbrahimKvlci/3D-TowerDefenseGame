@@ -38,11 +38,14 @@ public class MineScannerMovementManager : IMineScannerMovementService
             }
         } while (pointPathList.Count < randomPointCount);
 
-        if (pointPathList.Contains(mineScanner.MinePoint))
+        if (mineScanner.MinePoint != null)
         {
-            pointPathList.Remove(mineScanner.MinePoint);
+            if (pointPathList.Contains(mineScanner.MinePoint))
+            {
+                pointPathList.Remove(mineScanner.MinePoint);
+            }
+            pointPathList.Add((mineScanner.MinePoint));
         }
-        pointPathList.Add((mineScanner.MinePoint));
 
         return pointPathList;
     }

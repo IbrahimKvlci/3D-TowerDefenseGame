@@ -35,6 +35,10 @@ public class MineScannerMovementController : MonoBehaviour
                 lastPointIndex++;
             Debug.Log(lastPointIndex);
         }
+        else if (mineScanner.MinePoint == null)
+        {
+            Destroy(mineScanner.gameObject);
+        }
         
     }
 

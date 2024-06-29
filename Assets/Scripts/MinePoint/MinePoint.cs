@@ -9,6 +9,7 @@ public class MinePoint : MonoBehaviour
 
     public bool IsScanned { get; set; }
     public float MineCount { get; set; }
+    public MineScanner MineScanner { get; set; }
 
     private void Awake()
     {

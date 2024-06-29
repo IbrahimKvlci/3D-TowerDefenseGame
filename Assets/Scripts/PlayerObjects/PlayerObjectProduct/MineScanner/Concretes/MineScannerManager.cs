@@ -14,6 +14,9 @@ public class MineScannerManager : IMineScannerService
 
     public void SetMinePointToScanner(MineScanner mineScanner, List<MinePoint> minePointList)
     {
-        mineScanner.MinePoint = _minePointService.GetRandomMinePointFromList(minePointList);
+        MinePoint minePoint = _minePointService.GetRandomMinePointFromList(minePointList);
+        mineScanner.MinePoint = minePoint;
+        if(minePoint != null )
+            minePoint.MineScanner= mineScanner; 
     }
 }

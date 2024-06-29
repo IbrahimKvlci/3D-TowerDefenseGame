@@ -6,17 +6,30 @@ public class MinePointManager : IMinePointService
 {
     public MinePoint GetRandomMinePointFromList(List<MinePoint> minePointList)
     {
-        MinePoint minePoint;
-        do
+        if (IsThereAnyFreeMinePoint(minePointList))
         {
-            int randomIndex = Random.Range(0, minePointList.Count);
-            minePoint = minePointList[randomIndex];
-        } while (minePoint.IsScanned);
+            MinePoint minePoint;
 
-        minePoint.IsScanned = true;
-        return minePoint;
+            do
+            {
+                int randomIndex = Random.Range(0, minePointList.Count);
+                minePoint = minePointList[randomIndex];
+            } while (minePoint.IsScanned);
+            minePoint.IsScanned = true;
+
+            return minePoint;
+        }
+        return null;
     }
 
+    private bool IsThereAnyFreeMinePoint(List<MinePoint> minePointList)
+    {
+        foreach (MinePoint minePoint in minePointList)
+        {
+            if (!minePoint.IsScanned) return true;
+        }
+        return false;
+    }
 
     public void SetMinePointList(List<MinePoint> pointList, List<MinePoint> minePointList, int count)
     {
