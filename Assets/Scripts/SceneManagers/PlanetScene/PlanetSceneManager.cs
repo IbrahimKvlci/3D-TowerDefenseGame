@@ -10,6 +10,6 @@ public class PlanetSceneManager : MonoBehaviour
     {
         Instantiate(objectPlacement,Player.Instance.transform);
 
-        Player.Instance.PlayerStateService.SwitchState(Player.Instance.PlayerIdleState);
+        Player.Instance.PlayerNewDay();
     }
 }

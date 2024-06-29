@@ -12,9 +12,17 @@ public class MinePointController : MonoBehaviour
 
     private IMinePointService _minePointService;
 
-    
+    public static MinePointController Instance { get; set; }
+
+
     private void Awake()
     {
+        if (Instance != null)
+        {
+            Destroy(Instance.gameObject);
+        }
+        Instance= this;
+
         _minePointService = InGameIoC.Instance.MinePointService;
 
         _minePointService.SetMinePointList(PointList, MinePointList, 10);

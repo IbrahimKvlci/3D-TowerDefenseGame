@@ -42,4 +42,10 @@ public class Player : MonoBehaviour
     {
         PlayerStateService.CurrentPlayerState.UpdateState();
     }
+
+    public void PlayerNewDay()
+    {
+        PlayerStateService.SwitchState(PlayerIdleState);
+        PlayerShopping.PlayerShoppingNewDay();
+    }
 }

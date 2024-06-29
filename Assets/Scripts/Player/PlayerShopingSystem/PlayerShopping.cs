@@ -26,4 +26,12 @@ public class PlayerShopping : MonoBehaviour
     {
         return MineObjects.FirstOrDefault(obj => obj.GetType() == mineObject.GetType());
     }
+
+    public void PlayerShoppingNewDay()
+    {
+        foreach (MineObject mineObject in MineObjects)
+        {
+            InGameIoC.Instance.MineObjectService.ResetMineObjectCurrentCount(mineObject);
+        }
+    }
 }

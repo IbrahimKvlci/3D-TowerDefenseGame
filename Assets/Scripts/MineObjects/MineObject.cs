@@ -17,7 +17,7 @@ public class MineObject : MonoBehaviour
         set { _count = value; OnMineObjectCountChanged?.Invoke(this, EventArgs.Empty); }
     }
 
-    private float _currentCollectedCount = 10;
+    private float _currentCollectedCount;
     public float CurrentCollectedCount
     {
         get { return _currentCollectedCount; }

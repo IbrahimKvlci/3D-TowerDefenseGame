@@ -6,7 +6,6 @@ public class MineScanner : PlayerObjectProduct
 {
     public MinePoint MinePoint {  get; set; }
 
-    [field:SerializeField] public MinePointController MinePointController {  get; set; }
     [field:SerializeField] public MineScannerMovementController MineScannerMovementController {  get; set; } 
 
     private IMineScannerService _mineScannerService;
@@ -24,7 +23,7 @@ public class MineScanner : PlayerObjectProduct
     {
         base.Start();
 
-        _mineScannerService.SetMinePointToScanner(this, MinePointController.MinePointList);
-        MineScannerMovementController.MinePointPath = _mineScannerMovementService.CreateScannerPath(this, MinePointController.PointList, 3, 6);
+        _mineScannerService.SetMinePointToScanner(this, MinePointController.Instance.MinePointList);
+        MineScannerMovementController.MinePointPath = _mineScannerMovementService.CreateScannerPath(this, MinePointController.Instance.PointList, 3, 6);
     }
 }

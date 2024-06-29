@@ -28,6 +28,7 @@ public class InGameIoC : MonoBehaviour
     public IAttackSpaceShipAttackService AttackSpaceShipAttackService { get; set; }
     public IShoppingInGameService ShoppingInGameService { get; set; }
     public IGameControllerService GameControllerService { get; set; }
+    public IMineObjectService MineObjectService { get; set; }
 
     private void Awake()
     {
@@ -37,12 +38,12 @@ public class InGameIoC : MonoBehaviour
         EnemyMovementService = new EnemyMovementManager();
         EnemyDetectPlayerObjectService = new EnemyDetectPlayerObjectManager();
         EnemyHealthService = new EnemyHealthManager();
-        EnemyAttackService = new EnemyAttackManager(PlayerObjectHealthService);
         ObjectPlacementService = new ObjectPlacementManager();
         GridPlacementService = new GridPlacementManager(InputService);
         MineWorkingService = new MineWorkingManager();
         MineTriggerService = new MineTriggerManager();
         PlayerObjectHealthService = new PlayerObjectHealthManager();
+        EnemyAttackService = new EnemyAttackManager(PlayerObjectHealthService);
         PlayerObjectStateService = new PlayerObjectStateManager();
         TurretTriggerService = new TurretTriggerManager();
         TurretAttackService = new TurretAttackManager(EnemyHealthService);
@@ -55,6 +56,7 @@ public class InGameIoC : MonoBehaviour
         AttackSpaceShipAttackService = new AttackSpaceShipAttackManager(EnemyHealthService);
         ShoppingInGameService = new ShoppingInGameManager(ObjectPlacementService);
         GameControllerService = new GameControllerManager();
+        MineObjectService= new MineObjectManager();
     }
 
 
