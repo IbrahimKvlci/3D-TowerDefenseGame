@@ -22,7 +22,7 @@ public class UpgradeSingleUI : MonoBehaviour
 
     private void Awake()
     {
-        //player = Player.Instance;
+        player = Player.Instance;
         _shoppingUpgradeService = IdleIoC.Instance.ShoppingUpgradeService;
 
         upgradeBtn.onClick.AddListener(() =>

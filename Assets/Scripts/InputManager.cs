@@ -104,4 +104,9 @@ public class InputManager : MonoBehaviour, IInputService
     {
         return Camera.main.ScreenToWorldPoint(_mousePosition);
     }
+
+    public bool IsSpeedUpKeyDown()
+    {
+        return _inputActions.Player.SpeedUpTheGame.IsPressed();
+    }
 }

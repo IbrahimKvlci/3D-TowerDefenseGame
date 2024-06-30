@@ -103,6 +103,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SpeedUpTheGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""3e160a1f-938e-4fc2-ad64-6b0d0000e03b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -114,6 +123,17 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Place"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""de391eff-2c00-4f2f-a6a4-2e2cb6f948c3"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SpeedUpTheGame"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -130,6 +150,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Place = m_Player.FindAction("Place", throwIfNotFound: true);
+        m_Player_SpeedUpTheGame = m_Player.FindAction("SpeedUpTheGame", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -254,11 +275,13 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Place;
+    private readonly InputAction m_Player_SpeedUpTheGame;
     public struct PlayerActions
     {
         private @InputActions m_Wrapper;
         public PlayerActions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Place => m_Wrapper.m_Player_Place;
+        public InputAction @SpeedUpTheGame => m_Wrapper.m_Player_SpeedUpTheGame;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -271,6 +294,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Place.started += instance.OnPlace;
             @Place.performed += instance.OnPlace;
             @Place.canceled += instance.OnPlace;
+            @SpeedUpTheGame.started += instance.OnSpeedUpTheGame;
+            @SpeedUpTheGame.performed += instance.OnSpeedUpTheGame;
+            @SpeedUpTheGame.canceled += instance.OnSpeedUpTheGame;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -278,6 +304,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Place.started -= instance.OnPlace;
             @Place.performed -= instance.OnPlace;
             @Place.canceled -= instance.OnPlace;
+            @SpeedUpTheGame.started -= instance.OnSpeedUpTheGame;
+            @SpeedUpTheGame.performed -= instance.OnSpeedUpTheGame;
+            @SpeedUpTheGame.canceled -= instance.OnSpeedUpTheGame;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -304,5 +333,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnPlace(InputAction.CallbackContext context);
+        void OnSpeedUpTheGame(InputAction.CallbackContext context);
     }
 }

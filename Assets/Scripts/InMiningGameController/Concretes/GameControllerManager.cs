@@ -1,17 +1,30 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameControllerManager : IGameControllerService
 {
-    public void CountTheDay(GameController gameController, float daySpeed)
+    private IMineObjectService _mineObjectService;
+
+    public GameControllerManager(IMineObjectService mineObjectService)
     {
-        gameController.Day += Time.deltaTime * daySpeed;
+        _mineObjectService = mineObjectService;
     }
 
-    public void FinishTheGame()
+    public event EventHandler OnGameOver;
+
+    public void CountTheHour(GameController gameController, float hourSpeed)
     {
-        //Finish
+        gameController.Hour += Time.deltaTime * hourSpeed;
+    }
+
+    public void FinishTheGame(GameController gameController,MineObject mineObject, Player player)
+    {
+        OnGameOver?.Invoke(this, EventArgs.Empty);
+
+        gameController.IsGameOver = true;
+        _mineObjectService.GiveCollectedMineObjectToPlayer(mineObject, player);
     }
 
     public void PauseTheGame(GameController gameController)

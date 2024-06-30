@@ -8,6 +8,7 @@ public class SceneLoader
     public enum Scene
     {
         SampleScene,
+        Idle,
     }
 
     public static void LoadScene(Scene scene)

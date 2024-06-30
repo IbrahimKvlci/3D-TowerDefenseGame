@@ -55,8 +55,9 @@ public class InGameIoC : MonoBehaviour
         AttackSpaceShipTriggerService = new AttackSpaceShipTriggerManger();
         AttackSpaceShipAttackService = new AttackSpaceShipAttackManager(EnemyHealthService);
         ShoppingInGameService = new ShoppingInGameManager(ObjectPlacementService);
-        GameControllerService = new GameControllerManager();
         MineObjectService= new MineObjectManager();
+        GameControllerService = new GameControllerManager(MineObjectService);
+
     }
 
 

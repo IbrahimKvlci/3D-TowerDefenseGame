@@ -15,6 +15,7 @@ public class ShoppingInGameManager : IShoppingInGameService
         if (player.PlayerShopping.Cash >= ((PlayerObjectProductSO)product.PlayerObjectSO).Price)
         {
             player.PlayerShopping.Cash -= ((PlayerObjectProductSO)product.PlayerObjectSO).Price;
+            player.PlayerShopping.Cost += ((PlayerObjectProductSO)product.PlayerObjectSO).Price;
             _objectPlacementService.PlaceObject( player,player.ObjectPlacement.PlayerObjectToPlace);
         }
         else

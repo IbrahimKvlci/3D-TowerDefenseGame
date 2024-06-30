@@ -5,4 +5,5 @@ using UnityEngine;
 public interface IMineObjectService
 {
     void ResetMineObjectCurrentCount(MineObject mineObject);
+    void GiveCollectedMineObjectToPlayer(MineObject mineObject,Player player);
 }

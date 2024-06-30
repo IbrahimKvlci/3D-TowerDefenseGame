@@ -11,6 +11,10 @@ public class UpgradeUI : MonoBehaviour
     [SerializeField] private Transform upgradeTemplate;
     [SerializeField] private Transform container;
 
+    private void Awake()
+    {
+        player = Player.Instance;
+    }
 
     private void Start()
     {

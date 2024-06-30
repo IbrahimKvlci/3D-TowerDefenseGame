@@ -13,14 +13,14 @@ public class GameStateBase : IGameState
         _gameStateService = gameStateService;
     }
 
-    public void EnterState()
+    public virtual void EnterState()
     {
     }
-    public void ExitState()
+    public virtual void ExitState()
     {
     }
 
-    public void UpdateState()
+    public virtual void UpdateState()
     {
     }
 }

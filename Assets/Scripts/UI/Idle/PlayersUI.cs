@@ -8,6 +8,10 @@ public class PlayersUI : MonoBehaviour
     [SerializeField] private Transform playerContainer;
     [SerializeField] private Transform playerTemplate;
 
+    private void Awake()
+    {
+        playerList = new List<Player> { Player.Instance};
+    }
     private void Start()
     {
         UpdateVisual();

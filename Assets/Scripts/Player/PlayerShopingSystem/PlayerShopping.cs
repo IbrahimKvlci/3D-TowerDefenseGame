@@ -10,6 +10,8 @@ public class PlayerShopping : MonoBehaviour
 
     [field:SerializeField] public List<MineObject> MineObjects { get; set; }
 
+    public int Cost { get; set; }
+
     private int cash = 100;
     public int Cash
     {
@@ -33,5 +35,6 @@ public class PlayerShopping : MonoBehaviour
         {
             InGameIoC.Instance.MineObjectService.ResetMineObjectCurrentCount(mineObject);
         }
+        Cost = 0;
     }
 }

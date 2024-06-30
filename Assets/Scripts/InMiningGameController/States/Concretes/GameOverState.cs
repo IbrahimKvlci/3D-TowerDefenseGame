@@ -4,7 +4,27 @@ using UnityEngine;
 
 public class GameOverState : GameStateBase
 {
-    public GameOverState(GameController gameController, IGameStateService gameStateService) : base(gameController, gameStateService)
+    private IGameControllerService _gameControllerService;
+
+    public GameOverState(GameController gameController, IGameStateService gameStateService, IGameControllerService gameControllerService) : base(gameController, gameStateService)
     {
+        _gameControllerService = gameControllerService;
+    }
+
+    public override void EnterState()
+    {
+        base.EnterState();
+        _gameControllerService.FinishTheGame(_gameController, Player.Instance.PlayerShopping.GetMineObjectFromListByObject(Planet.Instace.PlanetSO.mineObject), Player.Instance);
+    }
+
+    public override void UpdateState()
+    {
+        base.UpdateState();
+        Time.timeScale = 0;
+    }
+
+    public override void ExitState()
+    {
+        base.ExitState();
     }
 }

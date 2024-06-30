@@ -16,4 +16,5 @@ public interface IInputService
 
     public bool MouseLeftKeyDown();
     public bool IsMouseOnAPlane(LayerMask layerMask);
+    public bool IsSpeedUpKeyDown();
 }

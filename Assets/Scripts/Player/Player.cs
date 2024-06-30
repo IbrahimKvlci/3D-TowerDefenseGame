@@ -21,13 +21,21 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null) { 
-            Destroy(this);
-        }
-        Instance= this;
-        DontDestroyOnLoad(this.gameObject);
+        if (Instance == null)
+        {
+            //First run, set the instance
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
 
-        PlayerStateService = new PlayerStateManager();
+        }
+        else if (Instance != this)
+        {
+            //Instance is not the same as the one we have, destroy old one, and reset to newest one
+            Destroy(Instance.gameObject);
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+            PlayerStateService = new PlayerStateManager();
 
         PlayerIdleState = new PlayerIdleState(this, PlayerStateService);
         PlayerMenuState=new PlayerMenuState(this,PlayerStateService);
