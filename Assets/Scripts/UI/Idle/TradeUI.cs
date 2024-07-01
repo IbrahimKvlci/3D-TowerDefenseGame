@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class TradeUI : MonoBehaviour
 {
     public MineObjectTrader CurrentMineObjectTrader { get; set; }
-    [field:SerializeField] public List<MineObjectTrader> MineObjectTraderList {  get; set; }
+    public List<MineObjectTrader> MineObjectTraderList { get; set; }
 
     [SerializeField] private GameObject TradePanel;
     [SerializeField] private Image currentMineObjectIcon;
@@ -20,6 +20,8 @@ public class TradeUI : MonoBehaviour
 
     private void Awake()
     {
+        MineObjectTraderList = MineObjectTraderContainer.Instance.MineObjectTraderList;
+
         _tradingMineObjectService = TradingIoC.Instance.TradingMineObjectService;
 
         sellBtn.onClick.AddListener(() =>
@@ -47,14 +49,13 @@ public class TradeUI : MonoBehaviour
 
     public void ChangeCurrentMineObjectIcon(Sprite sprite)
     {
-        currentMineObjectIcon.sprite= sprite;
+        currentMineObjectIcon.sprite = sprite;
     }
 
-    private void SellMineObject(Player player,MineObject mineObject)
+    private void SellMineObject(Player player, MineObject mineObject)
     {
-        int sellingCount = Int32.Parse(countInputField.text);
-
-        _tradingMineObjectService.SellMineObject(CurrentMineObjectTrader,mineObject, player, sellingCount);
+        int sellingCount = Int32.Parse(countInputField.text); 
+        _tradingMineObjectService.SellMineObject(CurrentMineObjectTrader, mineObject, player, sellingCount);
 
         mineObjectsUI.UpdateVisual();
     }

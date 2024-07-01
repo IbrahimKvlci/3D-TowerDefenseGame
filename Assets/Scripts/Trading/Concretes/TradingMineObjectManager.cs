@@ -25,23 +25,61 @@ public class TradingMineObjectManager : ITradingMineObjectService
 
     public void SetMineObjectPriceUSDParityAccordingToSupplyDemand(MineObjectTrader mineObjectTrader)
     {
-        SetMineObjectPriceUSDParityPercently(mineObjectTrader, -mineObjectTrader.SellingCountEachDay / 100);
+        float total=Player.Instance.PlayerShopping.GetMineObjectFromListByObject(mineObjectTrader.MineObject).Count;
+        float percent = (-mineObjectTrader.SellingCountEachDay / (total + mineObjectTrader.SellingCountEachDay))*100;
+
+        if(percent ==0)
+        {
+            SetMineObjectPriceUSDParityPercently(mineObjectTrader, 20);
+        }
+        else if(percent == -100)
+        {
+            SetMineObjectPriceUSDParityPercently(mineObjectTrader, -20);
+        }
+        else if (percent > -50)
+        {
+            SetMineObjectPriceUSDParityPercently(mineObjectTrader, -5f);
+        }
+        else if(percent<=-50)
+        {
+            SetMineObjectPriceUSDParityPercently(mineObjectTrader, -15f);
+        }
     }
 
     public void SetMineObjectPriceUSDParityPercently(MineObjectTrader mineObjectTrader, float percent)
     {
-        mineObjectTrader.USDParity += mineObjectTrader.USDParity * percent / 100;
+        mineObjectTrader.USDParity += mineObjectTrader.USDParity * percent/100;
     }
 
     public void SetRandomMineObjectPriceUSDParityPercently(MineObjectTrader mineObjectTrader, float percentRange)
     {
-        float randomPercent=Random.Range(-percentRange, percentRange);
+        float randomPercent;
+        float currentPrice = mineObjectTrader.USDParity;
+        float startingPrice=mineObjectTrader.MineObject.MineObjectSO.startingPrice;
+
+        float startingPriceCurrentPricePercent = (currentPrice - startingPrice) / startingPrice * 100;
+
+        if (startingPriceCurrentPricePercent >= 50)
+        {
+            randomPercent = Random.Range(-percentRange * 2, percentRange / 2);
+        }
+        else if(-startingPriceCurrentPricePercent >= 50)
+        {
+            randomPercent = Random.Range(-percentRange / 2, percentRange * 2);
+
+        }
+        else
+        {
+            randomPercent = Random.Range(-percentRange, percentRange);
+        }
+
         SetMineObjectPriceUSDParityPercently(mineObjectTrader, randomPercent);
     }
 
     public void SetMineObjectTraderNextDay(MineObjectTrader mineObjectTrader)
     {
         SetMineObjectPriceUSDParityAccordingToSupplyDemand(mineObjectTrader);
+        SetRandomMineObjectPriceUSDParityPercently(mineObjectTrader, 20);
         mineObjectTrader.PriceHistory.Add(mineObjectTrader.USDParity);
         ResetMineObjectTrader(mineObjectTrader);
     }

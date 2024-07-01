@@ -20,9 +20,7 @@ public class PlayerHoldingObjectState : PlayerStateBase
     public override void EnterState()
     {
         base.EnterState();
-        Debug.Log(_inputService);
-        Debug.Log(_player);
-        Debug.Log(_player.ObjectPlacement);
+
     }
 
     public override void UpdateState()

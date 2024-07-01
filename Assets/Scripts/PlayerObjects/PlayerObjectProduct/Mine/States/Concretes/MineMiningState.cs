@@ -13,7 +13,6 @@ public class MineMiningState : MineStateBase
     public override void EnterState()
     {
         base.EnterState();
-        Debug.Log("Mining State");
     }
 
     public override void UpdateState()

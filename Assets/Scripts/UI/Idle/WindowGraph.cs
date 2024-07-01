@@ -51,7 +51,7 @@ public class WindowGraph : MonoBehaviour
         ClearGraph();
 
         float graphHeight = graphContainer.sizeDelta.y;
-        float yMaximum = 500f;
+        float yMaximum = 1000f;
         float xSize = 70f;
 
         GameObject lastCircleGameObject = null;

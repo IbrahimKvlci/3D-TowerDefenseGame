@@ -8,7 +8,6 @@ public class MineStateManager : IMineStateService
 
     public void Initialize(IMineState state)
     {
-        Debug.Log(state);
 
         CurrentMineState = state;
         state.EnterState();

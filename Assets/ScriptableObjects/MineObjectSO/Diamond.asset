@@ -17,3 +17,4 @@ MonoBehaviour:
   icon: {fileID: 21300030, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
   miningTimerMax: 3
   title: Diamond
+  startingPrice: 300
