@@ -10,5 +10,6 @@ public interface IGameControllerService
     void SpeedUpTheGame(float speed);
     void FinishTheGame(GameController gameController,MineObject mineObject, Player player);
     void PauseTheGame(GameController gameController);
+    void ResumeTheGame(GameController gameController);
     void CountTheHour(GameController gameController,float hourSpeed);
 }

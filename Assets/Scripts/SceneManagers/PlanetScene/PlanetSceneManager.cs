@@ -6,10 +6,23 @@ public class PlanetSceneManager : MonoBehaviour
 {
     [SerializeField] private ObjectPlacement objectPlacement;
 
+    private ObjectPlacement instantiatedObjectPlacement;
+
     private void Start()
     {
-        Instantiate(objectPlacement,Player.Instance.transform);
+        instantiatedObjectPlacement = Instantiate(objectPlacement,Player.Instance.transform);
 
         Player.Instance.PlayerNewDay();
+    }
+
+    private void OnDestroy()
+    {
+        foreach (Transform child in Player.Instance.transform)
+        {
+            if (child == instantiatedObjectPlacement.transform)
+            {
+                Destroy(child.gameObject);
+            }
+        }
     }
 }

@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 2820260108888456473, guid: d9746def66b4d654080984f1ec2692cf,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2820260108888456473, guid: d9746def66b4d654080984f1ec2692cf,
         type: 3}
@@ -95,3 +95,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a334e48de5859447b041de4aad5564c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <MineObject>k__BackingField: {fileID: -3712548057422679155, guid: afd88881ca981884a87e627e54d25d0f,
+    type: 3}

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DiamondTrader : MineObjectTrader
 {
+
+
     protected override void Start()
     {
         base.Start();

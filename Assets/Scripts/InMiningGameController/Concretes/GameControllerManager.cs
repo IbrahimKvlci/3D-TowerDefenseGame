@@ -19,7 +19,7 @@ public class GameControllerManager : IGameControllerService
         gameController.Hour += Time.deltaTime * hourSpeed;
     }
 
-    public void FinishTheGame(GameController gameController,MineObject mineObject, Player player)
+    public void FinishTheGame(GameController gameController, MineObject mineObject, Player player)
     {
         OnGameOver?.Invoke(this, EventArgs.Empty);
 
@@ -29,18 +29,16 @@ public class GameControllerManager : IGameControllerService
 
     public void PauseTheGame(GameController gameController)
     {
-        if(gameController.IsPaused)
-        {
-            Time.timeScale = 1.0f;
-        }
-        else
-        {
-            Time.timeScale = 0.0f;
-        }
+        gameController.IsPaused = true;
+    }
+
+    public void ResumeTheGame(GameController gameController)
+    {
+        gameController.IsPaused = false;
     }
 
     public void SpeedUpTheGame(float speed)
     {
-        Time.timeScale= speed;
+        Time.timeScale = speed;
     }
 }

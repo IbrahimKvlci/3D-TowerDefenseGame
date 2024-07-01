@@ -19,8 +19,16 @@ public class GameController : MonoBehaviour
 
     private IGameStateService _gameStateService;
 
+    public static GameController Instance { get; set; }
+
     private void Awake()
     {
+        if(Instance != null)
+        {
+            Destroy(Instance);
+        }
+        Instance = this;
+
         _inputService=InGameIoC.Instance.InputService;
         _gameControllerService = InGameIoC.Instance.GameControllerService;
 
