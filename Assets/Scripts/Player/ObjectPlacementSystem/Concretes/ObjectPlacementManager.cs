@@ -37,4 +37,9 @@ public class ObjectPlacementManager : IObjectPlacementService
         GameObject.Destroy(player.ObjectPlacement.PlayerObjectToPlace.gameObject);
         player.ObjectPlacement.PlayerObjectToPlace = null;
     }
+
+    public bool HasPlayerPlayerObjectToPlace(Player player)
+    {
+        return player.ObjectPlacement.PlayerObjectToPlace != null;
+    }
 }
