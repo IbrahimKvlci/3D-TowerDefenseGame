@@ -20,8 +20,13 @@ public class MineScannerMovementManager : IMineScannerMovementService
         moveVector.y = 0;
         moveVector.Normalize();
 
-        mineScanner.transform.position+=(moveVector*Time.deltaTime*speed);
-        mineScanner.transform.forward=moveVector;
+
+        mineScanner.transform.forward=Vector3.Lerp(mineScanner.transform.forward, moveVector, Time.deltaTime*5);
+        if (mineScanner.transform.forward == moveVector)
+            mineScanner.transform.position += (mineScanner.transform.forward * Time.deltaTime * speed);
+        else
+            mineScanner.transform.position += (mineScanner.transform.forward * Time.deltaTime * Mathf.Lerp(0,speed,0.7f));
+
     }
 
     public List<MinePoint> CreateScannerPath(MineScanner mineScanner, List<MinePoint> pointList, int minPointCount, int maxPointCount)

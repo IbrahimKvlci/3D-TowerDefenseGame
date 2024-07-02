@@ -40,7 +40,21 @@ public class PlayerHoldingObjectState : PlayerStateBase
                 if (_inputService.MouseLeftKeyDown())
                 {
                     //_objectPalcementService.PlaceObject(ref _playerObjectToPlace);
-                    _shoppingInGameService.BuyPlayerObjectProduct(_player, (PlayerObjectProduct)_player.ObjectPlacement.PlayerObjectToPlace);
+                    bool canPlace=true;
+                    for (int i = 0; i < PlayerObjectPooling.Instance.PlayerObjectList.Count; i++)
+                    {
+                        if (_player.ObjectPlacement.PlayerObjectToPlace.transform.position == PlayerObjectPooling.Instance.PlayerObjectList[i].transform.position)
+                            canPlace=false;
+                    }
+
+                    if (canPlace)
+                    {
+                        _shoppingInGameService.BuyPlayerObjectProduct(_player, (PlayerObjectProduct)_player.ObjectPlacement.PlayerObjectToPlace);
+                    }
+                    else
+                    {
+                        Debug.Log("You cannot place");
+                    }
                 }
             }
             else

@@ -20,7 +20,8 @@ public class MineIdleState : MineStateBase
         {
             if (minePoint.MineScanner != null)
             {
-               _mineScannerService.DestroyMineScanner(minePoint.MineScanner);
+                minePoint.MineScanner.PlayerObjectHealth.IsDead= true;
+               //_mineScannerService.DestroyMineScanner(minePoint.MineScanner);
             }
             _mine.MinePoint=minePoint;
             _mineStateService.SwitchState(_mine.MineMiningState);

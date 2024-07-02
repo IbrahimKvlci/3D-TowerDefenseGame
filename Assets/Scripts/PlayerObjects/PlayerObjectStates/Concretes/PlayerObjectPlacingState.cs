@@ -14,6 +14,8 @@ public class PlayerObjectPlacingState : PlayerObjectStateBase
     {
         base.EnterState();
         timer = 0;
+        PlayerObjectPooling.Instance.PlayerObjectPoolingService.AddPlayerObjectToList(_playerObject, PlayerObjectPooling.Instance.PlayerObjectList);
+
     }
 
     public override void UpdateState()

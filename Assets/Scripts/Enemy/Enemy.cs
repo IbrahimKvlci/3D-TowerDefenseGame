@@ -58,4 +58,9 @@ public abstract class Enemy : MonoBehaviour
     {
         EnemyStateService.CurrentEnemyState.UpdateState();
     }
+
+    public void ClearPlayerObjectTarget()
+    {
+        PlayerObjectTarget = null;
+    }
 }

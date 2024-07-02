@@ -11,7 +11,6 @@ public class PlayerObjectPlacedState : PlayerObjectStateBase
     public override void EnterState()
     {
         base.EnterState();
-        PlayerObjectPooling.Instance.PlayerObjectPoolingService.AddPlayerObjectToList(_playerObject, PlayerObjectPooling.Instance.PlayerObjectList);
         _playerObject.IsPlaced = true;
         //_playerObject.PlayerObjectWorkingService.RunTask(_playerObject, _playerObject.Player);
     }
