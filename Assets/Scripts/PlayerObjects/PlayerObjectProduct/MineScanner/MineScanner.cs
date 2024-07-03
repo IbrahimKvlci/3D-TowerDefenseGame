@@ -6,7 +6,8 @@ public class MineScanner : PlayerObjectProduct
 {
     public MinePoint MinePoint {  get; set; }
 
-    [field:SerializeField] public MineScannerMovementController MineScannerMovementController {  get; set; } 
+    [field:SerializeField] public MineScannerMovementController MineScannerMovementController {  get; set; }
+    [field:SerializeField] public GameObject ScanParticleObject { get; set; }
 
     private IMineScannerService _mineScannerService;
     private IMineScannerMovementService _mineScannerMovementService;

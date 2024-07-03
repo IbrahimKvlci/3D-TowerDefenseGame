@@ -10,6 +10,8 @@ public class MineScannerWaitingState : MineScannerStateBase
 
     public override void EnterState()
     {
+        _mineScanner.ScanParticleObject.transform.GetChild(0).GetComponent<ParticleSystem>().startColor = Color.green;
+        //_mineScanner.ScanParticleObject.SetActive(false);
     }
 
     public override void ExitState()

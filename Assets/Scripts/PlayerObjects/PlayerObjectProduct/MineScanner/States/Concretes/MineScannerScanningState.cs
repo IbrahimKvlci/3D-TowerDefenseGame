@@ -19,6 +19,7 @@ public class MineScannerScanningState : MineScannerStateBase
     {
         _mineScanner.MineScannerMovementController.MinePointPath = _mineScannerMovementService.CreateScannerPath(_mineScanner, MinePointController.Instance.PointList, 3, 6);
         lastPointIndex = 0;
+        _mineScanner.ScanParticleObject.SetActive(true);
     }
 
     public override void ExitState()

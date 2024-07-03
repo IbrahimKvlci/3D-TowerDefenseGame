@@ -126,9 +126,9 @@ namespace CodeMonkey.Utils {
         public void AddTextOutline(Color color, float size) {
             foreach (Transform textComplexTrans in transform) {
                 if (textComplexTrans.GetComponent<Text>() != null) {
-                    Outline outline = textComplexTrans.gameObject.AddComponent<Outline>();
-                    outline.effectColor = color;
-                    outline.effectDistance = new Vector2(size, size);
+                  //  Outline outline = textComplexTrans.gameObject.AddComponent<Outline>();
+                  //  outline.effectColor = color;
+                   // outline.effectDistance = new Vector2(size, size);
                 }
             }
         }
