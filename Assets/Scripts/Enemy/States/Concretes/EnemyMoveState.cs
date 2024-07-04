@@ -27,7 +27,7 @@ public class EnemyMoveState : EnemyStateBase
         {
             Vector2 enemyPos = new Vector2(_enemy.transform.position.x, _enemy.transform.position.z);
             Vector2 playerObjectPos = new Vector2(_enemy.PlayerObjectTarget.transform.position.x, _enemy.PlayerObjectTarget.transform.position.z);
-            Debug.Log(Vector2.Distance(enemyPos, playerObjectPos));
+
             if (Vector2.Distance(enemyPos, playerObjectPos) < 10f&&goAway)
             {
                 _enemyMovementService.MakeObjectGoAway(_enemy, _enemy.PlayerObjectTarget);

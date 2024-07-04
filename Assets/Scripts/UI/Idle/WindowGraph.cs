@@ -1,6 +1,7 @@
 using CodeMonkey.Utils;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -52,6 +53,9 @@ public class WindowGraph : MonoBehaviour
 
         float graphHeight = graphContainer.sizeDelta.y;
         float yMaximum = 1000f;
+        if (valueList.Max()>yMaximum)
+            yMaximum = valueList.Max();
+   
         float xSize = 70f;
 
         GameObject lastCircleGameObject = null;
