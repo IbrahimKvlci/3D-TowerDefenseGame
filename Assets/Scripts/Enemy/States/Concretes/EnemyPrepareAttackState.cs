@@ -20,9 +20,9 @@ public class EnemyPrepareAttackState : EnemyStateBase
     {
         base.UpdateState();
 
-        Debug.Log(_enemy.PlayerObjectTarget);
         if (!_enemy.EnemyTriggerController.IsPlayerObjectTriggeredToBeAttacked())
         {
+            Debug.Log("move");
             _enemyStateService.SwitchState(_enemy.EnemyMoveState);
         }
 

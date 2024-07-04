@@ -16,6 +16,7 @@ public class AttackSpaceShipChaseState : AttackSpaceShipStateBase
     public override void EnterState()
     {
         base.EnterState();
+        Debug.Log("chase");
     }
 
     public override void UpdateState()

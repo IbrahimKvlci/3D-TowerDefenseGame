@@ -10,8 +10,10 @@ public class AttackSpaceShipMovementManager : IAttackSpaceShipMovementService
 
     public void MoveToPoint(AttackSpaceShip attackSpaceShip, Vector3 pointToMove, float speed)
     {
+        attackSpaceShip.GetComponent<NavMeshAgent>().isStopped = false;
         attackSpaceShip.GetComponent<NavMeshAgent>().destination = pointToMove;
         attackSpaceShip.GetComponent<NavMeshAgent>().speed = speed;
+        Debug.Log("move");
     }
 
     public bool RandomPoint(Vector3 center, float range, out Vector3 result)
@@ -26,5 +28,13 @@ public class AttackSpaceShipMovementManager : IAttackSpaceShipMovementService
                 return true;
             }
         }
+    }
+
+    public void Stop(AttackSpaceShip attackSpaceShip)
+    {
+        Debug.Log("stopppp");
+        attackSpaceShip.GetComponent<NavMeshAgent>().isStopped = true;
+        attackSpaceShip.GetComponent<NavMeshAgent>().speed=0;
+        attackSpaceShip.GetComponent<NavMeshAgent>().ResetPath();
     }
 }

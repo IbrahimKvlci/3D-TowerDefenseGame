@@ -17,9 +17,9 @@ MonoBehaviour:
   healthMax: 100
   placingTime: 3
   Price: 12
-  damage: 12
-  fireDuration: 3
-  attackRange: 10
+  damage: 2
+  fireDuration: 0.2
+  attackRange: 20
   idleSpeed: 3
   chaseSpeed: 15
   targetRange: 30

@@ -7,6 +7,7 @@ public abstract class Enemy : MonoBehaviour
 {
     [field:SerializeField] public EnemySO EnemySO {  get; set; }
     [field:SerializeField] public EnemyTriggerController EnemyTriggerController { get; set; }
+    [field:SerializeField] public EnemyHealthController EnemyHealthController {  get; set; }
 
     public PlayerObject PlayerObjectTarget { get; set; }
     public EnemyMovement EnemyMovement { get; set; }

@@ -12,6 +12,13 @@ public class EnemyMovementManager : IEnemyMovementService
         enemy.EnemyMovement.NavMeshAgent.speed = enemy.EnemySO.speed;
     }
 
+    public void MakeObjectGoAway(Enemy enemy,PlayerObject target)
+    {
+
+            enemy.EnemyMovement.NavMeshAgent.destination = target.transform.position + new Vector3(10, 0, 10);
+
+    }
+
     public void SetCanMove(Enemy enemy, bool canMove)
     {
         enemy.EnemyMovement.CanMove = canMove;

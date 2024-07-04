@@ -21,11 +21,9 @@ public class MineScannerMovementManager : IMineScannerMovementService
         moveVector.Normalize();
 
 
-        mineScanner.transform.forward=Vector3.Lerp(mineScanner.transform.forward, moveVector, Time.deltaTime*5);
-        if (mineScanner.transform.forward == moveVector)
-            mineScanner.transform.position += (mineScanner.transform.forward * Time.deltaTime * speed);
-        else
-            mineScanner.transform.position += (mineScanner.transform.forward * Time.deltaTime * Mathf.Lerp(0,speed,0.7f));
+        mineScanner.transform.forward=Vector3.Slerp(mineScanner.transform.forward, moveVector, 0.2f);
+        mineScanner.transform.position += (moveVector * Time.deltaTime * speed);
+
 
     }
 

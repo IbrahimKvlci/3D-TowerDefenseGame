@@ -13,7 +13,7 @@ public class MineScannerIdleState : MineScannerStateBase
     public override void EnterState()
     {
         base.EnterState();
-
+        _mineScanner.EngineParticleObject.gameObject.SetActive(true);
         _mineScannerService.SetMinePointToScanner(_mineScanner, MinePointController.Instance.MinePointList);
         _mineScannerStateService.SwitchState(_mineScanner.MineScannerScanningState);
     }

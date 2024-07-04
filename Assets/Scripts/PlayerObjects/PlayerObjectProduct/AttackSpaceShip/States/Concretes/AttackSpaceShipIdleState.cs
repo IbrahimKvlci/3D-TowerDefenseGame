@@ -18,6 +18,7 @@ public class AttackSpaceShipIdleState : AttackSpaceShipStateBase
     {
         base.EnterState();
         _attackSpaceShip.AttackSpaceShipTrigger.TriggeredEnemy = null;
+        _attackSpaceShip.FireEngineParticleEffect.SetActive(true);
     }
 
     public override void UpdateState()

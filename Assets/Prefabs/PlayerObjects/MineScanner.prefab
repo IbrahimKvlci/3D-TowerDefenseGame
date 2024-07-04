@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1261507919130326986
 Transform:
   m_ObjectHideFlags: 0
@@ -47,7 +47,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6601976322678893911
 Transform:
   m_ObjectHideFlags: 0
@@ -471,6 +471,7 @@ MonoBehaviour:
   <Player>k__BackingField: {fileID: 0}
   <MineScannerMovementController>k__BackingField: {fileID: 4422107391469748606}
   <ScanParticleObject>k__BackingField: {fileID: 5018742619261301438}
+  <EngineParticleObject>k__BackingField: {fileID: 7701105676241763935}
 --- !u!114 &4422107391469748606
 MonoBehaviour:
   m_ObjectHideFlags: 0

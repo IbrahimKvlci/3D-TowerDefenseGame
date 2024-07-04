@@ -8,24 +8,29 @@ public class AttackSpaceShipAttackState : AttackSpaceShipStateBase
 
     private IAttackSpaceShipAttackService _attackSpaceShipAttackService;
     private IAttackSpaceShipTriggerService _attackSpaceShipTriggerService;
+    private IAttackSpaceShipMovementService _attackSpaceShipMovementService;
 
-    public AttackSpaceShipAttackState(AttackSpaceShip attackSpaceShip, IAttackSpaceShipStateService attackSpaceShipStateService, IAttackSpaceShipAttackService attackSpaceShipAttackService,IAttackSpaceShipTriggerService attackSpaceShipTriggerService) : base(attackSpaceShip, attackSpaceShipStateService)
+    public AttackSpaceShipAttackState(AttackSpaceShip attackSpaceShip, IAttackSpaceShipStateService attackSpaceShipStateService, IAttackSpaceShipAttackService attackSpaceShipAttackService,IAttackSpaceShipTriggerService attackSpaceShipTriggerService, IAttackSpaceShipMovementService attackSpaceShipMovementService) : base(attackSpaceShip, attackSpaceShipStateService)
     {
         _attackSpaceShipAttackService = attackSpaceShipAttackService;
         _attackSpaceShipTriggerService = attackSpaceShipTriggerService;
+        _attackSpaceShipMovementService = attackSpaceShipMovementService;
     }
 
     public override void EnterState()
     {
         base.EnterState();
+        _attackSpaceShip.MuzzleFlashParticleEffect.SetActive(true);
         timer = 0f;
     }
 
     public override void UpdateState()
     {
         base.UpdateState();
+       
+        _attackSpaceShipMovementService.Stop(_attackSpaceShip);
 
-        timer+= Time.deltaTime;
+        timer += Time.deltaTime;
         if (timer > ((AttackSpaceShipSO)_attackSpaceShip.PlayerObjectSO).fireDuration)
         {
             timer = 0f;
@@ -36,11 +41,18 @@ public class AttackSpaceShipAttackState : AttackSpaceShipStateBase
         {
             _attackSpaceShipStateService.SwitchState(_attackSpaceShip.AttackSpaceShipChaseState);
         }
+        else
+        {
+            Vector3 attackVector = _attackSpaceShip.AttackSpaceShipTrigger.TriggeredEnemy.transform.position - _attackSpaceShip.transform.position;
+            attackVector.Normalize();
+            _attackSpaceShip.transform.forward = Vector3.Slerp(_attackSpaceShip.transform.forward, attackVector, 1);
+        }
     }
 
     public override void ExitState()
     {
         base.ExitState();
+        _attackSpaceShip.MuzzleFlashParticleEffect.SetActive(false);
     }
 
 

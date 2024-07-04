@@ -5,6 +5,8 @@ using UnityEngine;
 public class AttackSpaceShip : PlayerObjectProduct
 {
     [field: SerializeField] public AttackSpaceShipTrigger AttackSpaceShipTrigger {  get; set; }
+    [field: SerializeField] public GameObject FireEngineParticleEffect { get; set; }
+    [field: SerializeField] public GameObject MuzzleFlashParticleEffect { get; set; }
 
     public IAttackSpaceShipState AttackSpaceShipAttackState { get; set; }
     public IAttackSpaceShipState AttackSpaceShipChaseState { get; set; }
@@ -27,7 +29,7 @@ public class AttackSpaceShip : PlayerObjectProduct
 
         _attackSpaceShipStateService = new AttackSpaceShipStateManager();
 
-        AttackSpaceShipAttackState = new AttackSpaceShipAttackState(this,_attackSpaceShipStateService,_attackSpaceShipAttackService,_attackSpaceShipTriggerService);
+        AttackSpaceShipAttackState = new AttackSpaceShipAttackState(this,_attackSpaceShipStateService,_attackSpaceShipAttackService,_attackSpaceShipTriggerService,_attackSpaceShipMovementService);
         AttackSpaceShipChaseState = new AttackSpaceShipChaseState(this, _attackSpaceShipStateService,_attackSpaceShipMovementService,_attackSpaceShipTriggerService);
         AttackSpaceShipFreezingState = new AttackSpaceShipFreezingState(this, _attackSpaceShipStateService);
         AttackSpaceShipIdleState = new AttackSpaceShipIdleState(this, _attackSpaceShipStateService,_attackSpaceShipMovementService,_attackSpaceShipTriggerService);
