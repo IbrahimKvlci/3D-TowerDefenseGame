@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TurretFireState : TurretStateBase
 {
+    public event EventHandler OnTurretAttacked;
+    public event EventHandler OnTurretAttackedStoped;
+
     private float timer;
 
     private readonly ITurretTriggerService _turretTriggerService;
@@ -18,6 +22,8 @@ public class TurretFireState : TurretStateBase
     public override void EnterState()
     {
         base.EnterState();
+        OnTurretAttacked?.Invoke(this, EventArgs.Empty);
+
         timer = 0;
     }
 
@@ -32,6 +38,7 @@ public class TurretFireState : TurretStateBase
             {
                 timer = 0;
                 _turretAttackService.Attack(_turret.TurretTrigger.TriggeredEnemy, ((TurretSO)_turret.PlayerObjectSO).damage);
+
             }
         }
         else
@@ -44,5 +51,6 @@ public class TurretFireState : TurretStateBase
     public override void ExitState()
     {
         base.ExitState();
+        OnTurretAttackedStoped?.Invoke(this, EventArgs.Empty);
     }
 }
