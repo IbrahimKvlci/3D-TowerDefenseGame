@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6421e51b8e168a40b62b59a25b1c75e, type: 3}
+  m_Name: Turret2
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300058, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
+  title: Turret2
+  healthMax: 50
+  placingTime: 3
+  Price: 0
+  damage: 5
+  fireDuration: 0.2
+  attackRange: 25

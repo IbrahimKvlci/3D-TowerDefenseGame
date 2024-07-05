@@ -4755,6 +4755,7 @@ MonoBehaviour:
   - {fileID: 8650313555942292124, guid: 3c0f29fc88ba27d41ab83ef4b8df13e8, type: 3}
   - {fileID: 213742030029933444, guid: 55d4118a40691b84ca3764266f01e098, type: 3}
   - {fileID: 8396975891312882592, guid: 45f17162312b9e3488f43207bd54cbef, type: 3}
+  - {fileID: 2112475598434735109, guid: e129d4171b45b844ab0ece5eb84b7791, type: 3}
   playerObjectTemplate: {fileID: 173107337}
   container: {fileID: 1347797353}
 --- !u!1 &1384368391
@@ -6494,6 +6495,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5212346882459736082, guid: 24a3f8cdc4ca7ac47ab979558f87fd5a,
+        type: 3}
+      propertyPath: maxMineCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5212346882459736082, guid: 24a3f8cdc4ca7ac47ab979558f87fd5a,
+        type: 3}
+      propertyPath: minMineCount
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6283099938079609426, guid: 24a3f8cdc4ca7ac47ab979558f87fd5a,
         type: 3}
