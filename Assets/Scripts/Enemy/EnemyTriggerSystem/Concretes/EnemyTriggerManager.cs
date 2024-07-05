@@ -8,10 +8,10 @@ public class EnemyTriggerManager : IEnemyTriggerService
     {
         if( Physics.Raycast(transform.position, transform.forward ,out RaycastHit hitInfo, range, layerMask))
         {
-            if (hitInfo.transform.gameObject == playerObject.gameObject)
-            {
+            //if (hitInfo.transform.gameObject == playerObject.gameObject)
+           // {
                 return true;
-            }
+           // }
         }
         return false;
     }
