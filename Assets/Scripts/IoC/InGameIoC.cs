@@ -29,6 +29,7 @@ public class InGameIoC : MonoBehaviour
     public IShoppingInGameService ShoppingInGameService { get; set; }
     public IGameControllerService GameControllerService { get; set; }
     public IMineObjectService MineObjectService { get; set; }
+    public IPlanetEnemySpawnerService PlanetEnemySpawnerService { get; set; }
 
     private void Awake()
     {
@@ -57,7 +58,7 @@ public class InGameIoC : MonoBehaviour
         ShoppingInGameService = new ShoppingInGameManager(ObjectPlacementService);
         MineObjectService= new MineObjectManager();
         GameControllerService = new GameControllerManager(MineObjectService);
-
+        PlanetEnemySpawnerService = new PlanetEnemySpawnerManager();
     }
 
 

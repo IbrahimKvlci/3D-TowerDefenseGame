@@ -18,3 +18,12 @@ MonoBehaviour:
   mineObject: {fileID: -4004277721097816679, guid: 564196238e27c5449a4b53eefe650730,
     type: 3}
   scene: 0
+  enemySpawningRadius: 150
+  planetCenter: {x: 32.3, y: 0, z: -15.2}
+  planetEnemyList:
+  - <Enemy>k__BackingField: {fileID: 7056225264021617858, guid: 4a3b38b7cf5cf714ca15887fcf6c207b,
+      type: 3}
+    <CountMultiplier>k__BackingField: 3
+  - <Enemy>k__BackingField: {fileID: 7649712883692781865, guid: 154c11274bd61904fb65d41457346a1c,
+      type: 3}
+    <CountMultiplier>k__BackingField: 1

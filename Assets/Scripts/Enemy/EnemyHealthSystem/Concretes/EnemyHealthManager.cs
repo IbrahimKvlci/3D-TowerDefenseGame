@@ -14,7 +14,7 @@ public class EnemyHealthManager : IEnemyHealthService
 
     public void TakeDamage(Enemy enemy, float damage)
     {
-        OnEnemyDamaged?.Invoke(this, EventArgs.Empty);
+        OnEnemyDamaged?.Invoke(enemy, EventArgs.Empty);
 
         enemy.EnemyHealth.Health -= damage;
         if (enemy.EnemyHealth.Health <= 0)

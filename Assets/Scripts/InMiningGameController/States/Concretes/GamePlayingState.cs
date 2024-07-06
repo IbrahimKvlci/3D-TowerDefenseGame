@@ -6,16 +6,25 @@ public class GamePlayingState : GameStateBase
 {
     private IGameControllerService _gameControllerService;
     private IInputService _inputService;
+    private IPlanetEnemySpawnerService _planetEnemySpawnerService;
 
-    public GamePlayingState(GameController gameController, IGameStateService gameStateService, IGameControllerService gameControllerService, IInputService inputService) : base(gameController, gameStateService)
+    public GamePlayingState(GameController gameController, IGameStateService gameStateService, IGameControllerService gameControllerService, IInputService inputService, IPlanetEnemySpawnerService planetEnemySpawnerService) : base(gameController, gameStateService)
     {
         _gameControllerService = gameControllerService;
         _inputService = inputService;
+        _planetEnemySpawnerService = planetEnemySpawnerService;
     }
 
     public override void EnterState()
     {
         base.EnterState();
+        for (int i = 0; i < 20; i++)
+        {
+            float randomAngle = Random.Range(0, 360);
+            Vector3 randomPoint=new Vector3(Mathf.Cos(randomAngle)*Planet.Instace.PlanetSO.enemySpawningRadius,0,Mathf.Sin(randomAngle)*Planet.Instace.PlanetSO.enemySpawningRadius)+Planet.Instace.PlanetSO.planetCenter;
+            
+            _planetEnemySpawnerService.SpawnRandomEnemy(Planet.Instace, randomPoint);
+        }
     }
 
     public override void UpdateState()

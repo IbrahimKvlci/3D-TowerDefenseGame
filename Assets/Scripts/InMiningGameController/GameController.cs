@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
 
     private IGameControllerService _gameControllerService;
     private IInputService _inputService;
+    private IPlanetEnemySpawnerService _planerEnemySpawnerService;
 
     public IGameState GamePlayingState { get; set; }
     public IGameState GamePausedState { get; set; }
@@ -31,10 +32,11 @@ public class GameController : MonoBehaviour
 
         _inputService=InGameIoC.Instance.InputService;
         _gameControllerService = InGameIoC.Instance.GameControllerService;
+        _planerEnemySpawnerService = InGameIoC.Instance.PlanetEnemySpawnerService;
 
         _gameStateService = new GameStateManager();
 
-        GamePlayingState = new GamePlayingState(this,_gameStateService,_gameControllerService,_inputService);
+        GamePlayingState = new GamePlayingState(this,_gameStateService,_gameControllerService,_inputService,_planerEnemySpawnerService);
         GamePausedState = new GamePausedState(this, _gameStateService);
         GameOverState=new GameOverState(this, _gameStateService,_gameControllerService);
     }

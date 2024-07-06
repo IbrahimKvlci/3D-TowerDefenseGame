@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyHealthController : MonoBehaviour
 {
     [field: SerializeField] private GameObject enemyDamageVisual;
+    [SerializeField] private Enemy enemy;
 
     private float damagedTimer;
     private bool isDamaged;
@@ -42,8 +43,11 @@ public class EnemyHealthController : MonoBehaviour
 
     private void enemyHealthService_OnEnemyDamaged(object sender, System.EventArgs e)
     {
-        isDamaged=true;
-        Debug.Log(1);
+        if (sender == enemy)
+        {
+            isDamaged = true;
+            Debug.Log(1);
+        }  
     }
 
     public void ShowEnemyDamageVisual()
