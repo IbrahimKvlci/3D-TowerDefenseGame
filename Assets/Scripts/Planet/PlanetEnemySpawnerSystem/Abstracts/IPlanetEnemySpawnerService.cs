@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IPlanetEnemySpawnerService
 {
-    void SpawnRandomEnemy(Planet planet, Vector3 position);
+    void SpawnRandomEnemy(Planet planet, Vector3 position,float timingMultiplier);
 }

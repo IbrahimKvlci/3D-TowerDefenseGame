@@ -8,6 +8,9 @@ public class GamePlayingState : GameStateBase
     private IInputService _inputService;
     private IPlanetEnemySpawnerService _planetEnemySpawnerService;
 
+    private float spawningEnemyTimer;
+    private float multiplierToSpawnEnemy;
+
     public GamePlayingState(GameController gameController, IGameStateService gameStateService, IGameControllerService gameControllerService, IInputService inputService, IPlanetEnemySpawnerService planetEnemySpawnerService) : base(gameController, gameStateService)
     {
         _gameControllerService = gameControllerService;
@@ -18,13 +21,8 @@ public class GamePlayingState : GameStateBase
     public override void EnterState()
     {
         base.EnterState();
-        for (int i = 0; i < 20; i++)
-        {
-            float randomAngle = Random.Range(0, 360);
-            Vector3 randomPoint=new Vector3(Mathf.Cos(randomAngle)*Planet.Instace.PlanetSO.enemySpawningRadius,0,Mathf.Sin(randomAngle)*Planet.Instace.PlanetSO.enemySpawningRadius)+Planet.Instace.PlanetSO.planetCenter;
-            
-            _planetEnemySpawnerService.SpawnRandomEnemy(Planet.Instace, randomPoint);
-        }
+        spawningEnemyTimer = 0;
+        multiplierToSpawnEnemy = 1;
     }
 
     public override void UpdateState()
@@ -49,11 +47,31 @@ public class GamePlayingState : GameStateBase
         {
             _gameControllerService.SpeedUpTheGame(1);
         }
+
+        if (_gameController.Hour >= Planet.Instace.PlanetSO.startingHourToSpawnEnemy)
+        {
+            spawningEnemyTimer += Time.deltaTime;
+            if (spawningEnemyTimer >= 1 / _gameController.Hour * 1/Planet.Instace.PlanetSO.speedToSpawnEnemy)
+            {
+                spawningEnemyTimer = 0;
+
+                _planetEnemySpawnerService.SpawnRandomEnemy(Planet.Instace, RandomCirclePosToSpawnEnemy(), multiplierToSpawnEnemy);
+                multiplierToSpawnEnemy += 0.2f;
+            }
+        }
     }
 
     public override void ExitState()
     {
         base.ExitState();
+    }
+
+    private Vector3 RandomCirclePosToSpawnEnemy()
+    {
+        float randomAngle = Random.Range(0, 360);
+        Vector3 randomPoint = new Vector3(Mathf.Cos(randomAngle) * Planet.Instace.PlanetSO.enemySpawningRadius, 0, Mathf.Sin(randomAngle) * Planet.Instace.PlanetSO.enemySpawningRadius) + Planet.Instace.PlanetSO.planetCenter;
+
+        return randomPoint;
     }
 
 }

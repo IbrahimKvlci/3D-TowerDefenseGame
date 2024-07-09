@@ -4,31 +4,45 @@ using UnityEngine;
 
 public class PlanetEnemySpawnerManager : IPlanetEnemySpawnerService
 {
-    public void SpawnRandomEnemy(Planet planet, Vector3 position)
+    public void SpawnRandomEnemy(Planet planet, Vector3 position, float timingMultiplier)
     {
-        GameObject.Instantiate(GetRandomEnemy(planet),position,Quaternion.identity);
+        GameObject.Instantiate(GetRandomEnemy(planet,timingMultiplier),position,Quaternion.identity);
     }
 
-    private Enemy GetRandomEnemy(Planet planet)
+    private Enemy GetRandomEnemy(Planet planet,float timingMultiplier)
     {
-        int totalEnemyMultiplierCount=0;
+        float totalEnemyMultiplierCount=0;
+        float countMultiplier = timingMultiplier;
+
         foreach (PlanetEnemy planetEnemy in planet.PlanetSO.planetEnemyList)
         {
-            totalEnemyMultiplierCount += planetEnemy.CountMultiplier;
+            float tempCountMultiplier = countMultiplier;
+            tempCountMultiplier *= planetEnemy.CountMultiplier;
+            if(tempCountMultiplier >= planetEnemy.MaxCountMultiplier)
+                tempCountMultiplier = planetEnemy.MaxCountMultiplier;
+
+
+
+            totalEnemyMultiplierCount += tempCountMultiplier;
         }
 
-        int randomValue = Random.Range(1, totalEnemyMultiplierCount+1);
+        float randomValue = Random.Range(1, totalEnemyMultiplierCount);
 
         Enemy enemy = planet.PlanetSO.planetEnemyList[0].Enemy;
 
         foreach (PlanetEnemy planetEnemy in planet.PlanetSO.planetEnemyList)
         {
-            if(planetEnemy.CountMultiplier >= randomValue)
+            float tempCountMultiplier = countMultiplier;
+            tempCountMultiplier *= planetEnemy.CountMultiplier;
+            if (tempCountMultiplier >= planetEnemy.MaxCountMultiplier)
+                tempCountMultiplier = planetEnemy.MaxCountMultiplier;
+
+            if (tempCountMultiplier >= randomValue)
             {
                 enemy=planetEnemy.Enemy;
             }
-        }
 
+        }
         return enemy;
     }
 }

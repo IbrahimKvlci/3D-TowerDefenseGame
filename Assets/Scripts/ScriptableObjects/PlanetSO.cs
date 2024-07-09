@@ -14,6 +14,8 @@ public class PlanetSO : ScriptableObject
     public SceneLoader.Scene scene;
     public float enemySpawningRadius;
     public Vector3 planetCenter;
+    public int startingHourToSpawnEnemy;
+    public float speedToSpawnEnemy;
     public List<PlanetEnemy> planetEnemyList=new List<PlanetEnemy>();
 
 }

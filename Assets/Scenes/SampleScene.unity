@@ -4585,7 +4585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94618d0e31de8df41a27ff375f527569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxHour>k__BackingField: 10
+  <MaxHour>k__BackingField: 24
   <SpeedOfTheGame>k__BackingField: 0.14
 --- !u!4 &1336890001
 Transform:
