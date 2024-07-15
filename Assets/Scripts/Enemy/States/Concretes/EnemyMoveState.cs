@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMoveState : EnemyStateBase
 {
+    public event EventHandler OnEnemyMoveStarted;
+    public event EventHandler OnEnemyMoveFinished;
+
     private bool goAway;
 
     private readonly IEnemyMovementService _enemyMovementService;
@@ -16,6 +20,7 @@ public class EnemyMoveState : EnemyStateBase
     public override void EnterState()
     {
         base.EnterState();
+        OnEnemyMoveStarted?.Invoke(this, EventArgs.Empty);
         goAway = true;
         _enemyMovementService.SetCanMove(_enemy, true);
     }
@@ -48,6 +53,7 @@ public class EnemyMoveState : EnemyStateBase
     public override void ExitState()
     {
         base.ExitState();
+        OnEnemyMoveFinished?.Invoke(this, EventArgs.Empty);
         _enemyMovementService.SetCanMove(_enemy,false);
     }
 

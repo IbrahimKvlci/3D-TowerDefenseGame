@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAttackState : EnemyStateBase
 {
+    public event EventHandler OnEnemyAttacked;
+
     private float timer;
 
     private readonly IEnemyAttackService _enemyAttackService;
@@ -16,6 +19,7 @@ public class EnemyAttackState : EnemyStateBase
     public override void EnterState()
     {
         base.EnterState();
+        OnEnemyAttacked?.Invoke(this, EventArgs.Empty);
         timer = 0;
     }
 

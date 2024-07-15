@@ -21,13 +21,9 @@ MonoBehaviour:
   enemySpawningRadius: 150
   planetCenter: {x: 32.3, y: 0, z: -15.2}
   startingHourToSpawnEnemy: 4
-  speedToSpawnEnemy: 0.2
+  speedToSpawnEnemy: 0.02
   planetEnemyList:
-  - <Enemy>k__BackingField: {fileID: 7056225264021617858, guid: 4a3b38b7cf5cf714ca15887fcf6c207b,
+  - <Enemy>k__BackingField: {fileID: 7973911124584445018, guid: 6b02557d0314dea4fb348ffc979c98f2,
       type: 3}
     <CountMultiplier>k__BackingField: 1
-    <MaxCountMultiplier>k__BackingField: 5
-  - <Enemy>k__BackingField: {fileID: 7649712883692781865, guid: 154c11274bd61904fb65d41457346a1c,
-      type: 3}
-    <CountMultiplier>k__BackingField: 1
-    <MaxCountMultiplier>k__BackingField: 50
+    <MaxCountMultiplier>k__BackingField: 4

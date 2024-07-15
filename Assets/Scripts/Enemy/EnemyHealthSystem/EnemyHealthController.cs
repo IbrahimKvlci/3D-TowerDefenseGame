@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class EnemyHealthController : MonoBehaviour
 {
-    [field: SerializeField] private GameObject enemyDamageVisual;
+    [SerializeField] private SkinnedMeshRenderer enemyMeshRenderer;
+    [SerializeField] private Material enemyDamagedMaterial;
+
+
     [SerializeField] private Enemy enemy;
+
+    private Material enemyMaterial;
 
     private float damagedTimer;
     private bool isDamaged;
@@ -19,6 +24,7 @@ public class EnemyHealthController : MonoBehaviour
 
     private void Start()
     {
+        enemyMaterial = enemyMeshRenderer.material;
         isDamaged = false;
         damagedTimer = 0;
         _enemyHealthService.OnEnemyDamaged += enemyHealthService_OnEnemyDamaged;
@@ -52,11 +58,12 @@ public class EnemyHealthController : MonoBehaviour
 
     public void ShowEnemyDamageVisual()
     {
-        enemyDamageVisual.SetActive(true);
+        enemyMeshRenderer.material = enemyDamagedMaterial;
     }
 
     public void HideEnemyDamageVisual()
     {
-        enemyDamageVisual.SetActive(false);
+        enemyMeshRenderer.material = enemyMaterial;
+
     }
 }
