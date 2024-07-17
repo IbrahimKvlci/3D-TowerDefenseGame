@@ -11,7 +11,8 @@ public class PlanetEnemySpawnerManager : IPlanetEnemySpawnerService
 
     private Enemy GetRandomEnemy(Planet planet,float timingMultiplier)
     {
-        float totalEnemyMultiplierCount=0;
+        List<int> indexOfObjectList = new List<int>();
+
         float countMultiplier = timingMultiplier;
 
         foreach (PlanetEnemy planetEnemy in planet.PlanetSO.planetEnemyList)
@@ -22,27 +23,24 @@ public class PlanetEnemySpawnerManager : IPlanetEnemySpawnerService
                 tempCountMultiplier = planetEnemy.MaxCountMultiplier;
 
 
-
-            totalEnemyMultiplierCount += tempCountMultiplier;
+            for (int i = 0; i < tempCountMultiplier; i++)
+            {
+                indexOfObjectList.Add(planet.PlanetSO.planetEnemyList.IndexOf(planetEnemy));
+                Debug.Log( planetEnemy.Enemy.name);
+            }
+            //totalEnemyMultiplierCount += tempCountMultiplier;
         }
 
-        float randomValue = Random.Range(1, totalEnemyMultiplierCount);
+        int randomValue = Random.Range(0, indexOfObjectList.Count);
 
         Enemy enemy = planet.PlanetSO.planetEnemyList[0].Enemy;
 
         foreach (PlanetEnemy planetEnemy in planet.PlanetSO.planetEnemyList)
         {
-            float tempCountMultiplier = countMultiplier;
-            tempCountMultiplier *= planetEnemy.CountMultiplier;
-            if (tempCountMultiplier >= planetEnemy.MaxCountMultiplier)
-                tempCountMultiplier = planetEnemy.MaxCountMultiplier;
-
-            if (tempCountMultiplier >= randomValue)
-            {
-                enemy=planetEnemy.Enemy;
-            }
-
+            if (planet.PlanetSO.planetEnemyList.IndexOf(planetEnemy) == indexOfObjectList[randomValue])
+                enemy = planetEnemy.Enemy;
         }
+
         return enemy;
     }
 }

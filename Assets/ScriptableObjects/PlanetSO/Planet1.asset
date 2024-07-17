@@ -17,7 +17,7 @@ MonoBehaviour:
   title: Planet1
   mineObject: {fileID: -4004277721097816679, guid: 564196238e27c5449a4b53eefe650730,
     type: 3}
-  scene: 0
+  scene: 2
   enemySpawningRadius: 150
   planetCenter: {x: 32.3, y: 0, z: -15.2}
   startingHourToSpawnEnemy: 4
