@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &841601375161979550
 MonoBehaviour:
@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a51cb6386b80ac745bf020815a98f34b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <PlanetSO>k__BackingField: {fileID: 11400000, guid: aa60fafaadfac794ca978ee922f98f4a,
+  <PlanetSO>k__BackingField: {fileID: 11400000, guid: 8dcaf607cc54a3543ba2bbb35a97af4f,
     type: 2}
