@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a51cb6386b80ac745bf020815a98f34b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <PlanetSO>k__BackingField: {fileID: 11400000, guid: 8dcaf607cc54a3543ba2bbb35a97af4f,
+  <PlanetSO>k__BackingField: {fileID: 11400000, guid: aa60fafaadfac794ca978ee922f98f4a,
     type: 2}

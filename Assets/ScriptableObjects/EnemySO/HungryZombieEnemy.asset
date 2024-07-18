@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b2e5452fe611fe4583ccc483fc835ee, type: 3}
   m_Name: HungryZombieEnemy
   m_EditorClassIdentifier: 
-  prefab: {fileID: 8530864289070241908, guid: eaea6bf5de99e6445a95c77504377263, type: 3}
+  prefab: {fileID: 6370473847356744289, guid: f8a446916ca6fab4691409dda41b3a3c, type: 3}
   icon: {fileID: 0}
-  speed: 3
+  speed: 10
   maxHealth: 200
   attackRange: 4
   attackSpeed: 1

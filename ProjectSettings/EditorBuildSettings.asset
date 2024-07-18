@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HorrorPlanetScene.unity
     guid: 71065143bc2876d43bdb4c323f19609c
+  - enabled: 1
+    path: Assets/Scenes/ZombiePlanetScene.unity
+    guid: 65f9fca257ba1a043b63b5c7c2e1c6fb
   m_configObjects: {}
