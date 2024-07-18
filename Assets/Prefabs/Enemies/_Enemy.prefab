@@ -196,5 +196,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyMeshRenderer: {fileID: 0}
-  enemyDamagedMaterial: {fileID: 0}
+  enemyDamagedMaterial: {fileID: 2100000, guid: aeea39649470b884f81dc5c69d021062,
+    type: 2}
   enemy: {fileID: 0}

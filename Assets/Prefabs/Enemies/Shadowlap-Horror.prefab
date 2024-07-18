@@ -2704,6 +2704,16 @@ PrefabInstance:
       propertyPath: enemyDamagedMaterial
       value: 
       objectReference: {fileID: 2100000, guid: aeea39649470b884f81dc5c69d021062, type: 2}
+    - target: {fileID: 9043146564730474064, guid: 43a3d45a3241fe14fad6eccbe95531b9,
+        type: 3}
+      propertyPath: enemyMeshRenderer.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043146564730474064, guid: 43a3d45a3241fe14fad6eccbe95531b9,
+        type: 3}
+      propertyPath: enemyMeshRenderer.Array.data[0]
+      value: 
+      objectReference: {fileID: 2345656662519275003}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
