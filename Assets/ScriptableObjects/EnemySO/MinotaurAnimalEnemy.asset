@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 1523021434910275915, guid: 28c1a24faa2b9cd489e571654d54c438, type: 3}
   icon: {fileID: 0}
-  speed: 3
+  speed: 5
   maxHealth: 50
   attackRange: 10
   attackSpeed: 1
