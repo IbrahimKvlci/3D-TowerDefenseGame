@@ -11,6 +11,7 @@ public class SceneLoader
         Idle,
         HorrorPlanetScene,
         ZombiePlanetScene,
+        AnimalPlanetScene,
     }
 
     public static void LoadScene(Scene scene)

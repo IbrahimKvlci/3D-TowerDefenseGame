@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ZombiePlanetScene.unity
     guid: 65f9fca257ba1a043b63b5c7c2e1c6fb
+  - enabled: 1
+    path: Assets/Scenes/AnimalPlanetScene.unity
+    guid: 73da6b96daf74314698da19495410874
   m_configObjects: {}
