@@ -12,6 +12,7 @@ public class SceneLoader
         HorrorPlanetScene,
         ZombiePlanetScene,
         AnimalPlanetScene,
+        DragonPlanetScene,
     }
 
     public static void LoadScene(Scene scene)

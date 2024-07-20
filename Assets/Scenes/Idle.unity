@@ -1815,8 +1815,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PlanetList>k__BackingField:
-  - {fileID: 841601375161979550, guid: 333adca0abb371a479f87223c18b9c1d, type: 3}
-  - {fileID: 2224224234993372643, guid: bd039396b5ea18b4e9605232ed8187a0, type: 3}
+  - {fileID: 649499018012855912, guid: 0d0ce6522fc351148b0087f14579e6ea, type: 3}
+  - {fileID: 3587604646408817646, guid: b285fe0e38835e34986a6b30ce95b487, type: 3}
+  - {fileID: 4374762385544489749, guid: 3396493ffb1a25e45955f1c1336ed588, type: 3}
+  - {fileID: 6977577407114408852, guid: 1cfcabdf660930f42a3bbdf109fc20ac, type: 3}
   StartPanel: {fileID: 487554067}
   planetNameText: {fileID: 2005525555}
   planetImage: {fileID: 427805281}

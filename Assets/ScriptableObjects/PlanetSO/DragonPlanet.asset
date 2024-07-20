@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12ba76968a928a04c968cb6d9e43f670, type: 3}
+  m_Name: DragonPlanet
+  m_EditorClassIdentifier: 
+  price: 10
+  icon: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  title: Dragon Planet
+  mineObject: {fileID: -4004277721097816679, guid: 564196238e27c5449a4b53eefe650730,
+    type: 3}
+  scene: 5
+  enemySpawningRadius: 150
+  planetCenter: {x: 32.3, y: 0, z: -15.2}
+  startingHourToSpawnEnemy: 4
+  speedToSpawnEnemy: 0.02
+  planetEnemyList:
+  - <Enemy>k__BackingField: {fileID: 7030254265946383801, guid: 37aaa4110a5869b458e802fd93ebef6e,
+      type: 3}
+    <CountMultiplier>k__BackingField: 3
+    <MaxCountMultiplier>k__BackingField: 3
+  - <Enemy>k__BackingField: {fileID: 8026165773918553244, guid: 2a65d9119022c984a9df5e9011ae9abe,
+      type: 3}
+    <CountMultiplier>k__BackingField: 1
+    <MaxCountMultiplier>k__BackingField: 6
+  - <Enemy>k__BackingField: {fileID: 8962837440803773403, guid: 05d444ed85155c8489c9d0e7e52fa354,
+      type: 3}
+    <CountMultiplier>k__BackingField: 2
+    <MaxCountMultiplier>k__BackingField: 6
+  - <Enemy>k__BackingField: {fileID: 4292696479688866795, guid: 0adc8cb4c82fc934896597dda91e7ebb,
+      type: 3}
+    <CountMultiplier>k__BackingField: 2
+    <MaxCountMultiplier>k__BackingField: 6
