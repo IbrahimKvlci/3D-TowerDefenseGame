@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38b8ccf1ba7f54e4ea610da50baddadc, type: 3}
+  m_Name: InGameSoundEffectsSO
+  m_EditorClassIdentifier: 
+  purchaseFx: {fileID: 8300000, guid: 3469545b70abcc3428a74401e8950f45, type: 3}
+  wrongPutFx: {fileID: 8300000, guid: 1ba8eeef6f5a63d4a814aefe8a2f7b02, type: 3}
+  scannedFx: {fileID: 8300000, guid: 499a05d2c45933d4c961a59e7e3631ae, type: 3}
+  miningFx: {fileID: 8300000, guid: ef035614cb019af42a53d1d99c5644ac, type: 3}
+  trashFx: {fileID: 8300000, guid: cfe9a7de693036d40bdb1efca932089d, type: 3}
+  gunShotFx: {fileID: 8300000, guid: 844f1d60596cd9e42ad819001deee12d, type: 3}
+  laserShotFx: {fileID: 8300000, guid: 002a66784f6b2fa47bfe7d16a2f398d9, type: 3}

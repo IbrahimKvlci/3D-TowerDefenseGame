@@ -10,16 +10,20 @@ public class ShoppingInGameManager : IShoppingInGameService
         _objectPlacementService = objectPlacementService;
     }
 
-    public void BuyPlayerObjectProduct(Player player, PlayerObjectProduct product)
+    public void BuyPlayerObjectProduct(Player player, PlayerObjectProduct product,out bool isObjectPurchased)
     {
         if (player.PlayerShopping.Cash >= ((PlayerObjectProductSO)product.PlayerObjectSO).Price)
         {
+            isObjectPurchased = true;
+
             player.PlayerShopping.Cash -= ((PlayerObjectProductSO)product.PlayerObjectSO).Price;
             player.PlayerShopping.Cost += ((PlayerObjectProductSO)product.PlayerObjectSO).Price;
             _objectPlacementService.PlaceObject( player,player.ObjectPlacement.PlayerObjectToPlace);
         }
         else
         {
+            isObjectPurchased = false;
+
             Debug.LogError("Cash is not enough");
         }
     }

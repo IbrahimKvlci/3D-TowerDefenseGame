@@ -84,7 +84,7 @@ public class InputManager : MonoBehaviour, IInputService
 
     public bool MouseLeftKeyDown()
     {
-        return _inputActions.Player.Place.IsPressed();
+        return _inputActions.Player.Place.WasPressedThisFrame();
     }
 
     public bool IsMouseOnAPlane(LayerMask layerMask)

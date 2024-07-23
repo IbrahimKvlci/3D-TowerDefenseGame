@@ -38,6 +38,7 @@ public class TurretFireState : TurretStateBase
             {
                 timer = 0;
                 _turretAttackService.Attack(_turret.TurretTrigger.TriggeredEnemy, ((TurretSO)_turret.PlayerObjectSO).damage);
+                InGameSoundManager.Instance.PlayAudioNormalized(InGameSoundManager.Instance.InGameSoundEffectsSO.gunShotFx,_turret.transform.position,0.2f);
 
             }
         }

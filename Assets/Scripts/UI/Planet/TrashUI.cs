@@ -17,6 +17,7 @@ public class TrashUI : MonoBehaviour
         trashBtn.onClick.AddListener(() =>
         {
             _objectPlacementService.ClearObjectToPlaceBase(Player.Instance);
+            InGameSoundManager.Instance.PlayAudioOnCamera(InGameSoundManager.Instance.InGameSoundEffectsSO.trashFx);
             Hide();
         });
     }

@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MineScannerScanningState : MineScannerStateBase
 {
+    public event EventHandler OnMineScannerScanned;
+
     private int lastPointIndex;
 
     private IMineScannerMovementService _mineScannerMovementService;
@@ -33,7 +36,10 @@ public class MineScannerScanningState : MineScannerStateBase
         else if (_mineScanner.MinePoint == null)
             _mineScannerService.DestroyMineScanner(_mineScanner);
         else
+        {
+            OnMineScannerScanned?.Invoke(this, EventArgs.Empty);
             _mineScannerStateService.SwitchState(_mineScanner.MineScannerWaitingState);
+        }
     }
 
     private void HandleMovement()

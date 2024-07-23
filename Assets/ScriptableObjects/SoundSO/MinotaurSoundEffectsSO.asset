@@ -9,14 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6421e51b8e168a40b62b59a25b1c75e, type: 3}
-  m_Name: Turret2
+  m_Script: {fileID: 11500000, guid: 0f814c6a19436f345a4eeea11037a3b8, type: 3}
+  m_Name: MinotaurSoundEffectsSO
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300058, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
-  title: Turret2
-  healthMax: 50
-  placingTime: 3
-  Price: 0
-  damage: 0
-  fireDuration: 0.2
-  attackRange: 25
+  hitAudioClip: {fileID: 8300000, guid: cf67ad3315daef148960c92b0c472396, type: 3}

@@ -35,6 +35,8 @@ public class AttackSpaceShipAttackState : AttackSpaceShipStateBase
         {
             timer = 0f;
             _attackSpaceShipAttackService.Attack(_attackSpaceShip.AttackSpaceShipTrigger.TriggeredEnemy, ((AttackSpaceShipSO)_attackSpaceShip.PlayerObjectSO).damage*_attackSpaceShip.Player.PlayerUpgrading.ObjectDamageMultiplier);
+            InGameSoundManager.Instance.PlayAudioNormalized(InGameSoundManager.Instance.InGameSoundEffectsSO.laserShotFx, _attackSpaceShip.transform.position, 0.2f);
+
         }
 
         if (!_attackSpaceShipTriggerService.IsEnemyTriggeredToBeAttacked(_attackSpaceShip, _attackSpaceShip.AttackSpaceShipTrigger.TriggeredEnemy))

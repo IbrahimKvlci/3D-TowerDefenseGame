@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IShoppingInGameService
 {
-    void BuyPlayerObjectProduct(Player player,PlayerObjectProduct product);
+    void BuyPlayerObjectProduct(Player player,PlayerObjectProduct productout,out bool isObjectPurchased);
     void GivePlayerObjectProductToPlayer(Player player,PlayerObjectProduct product);
     void CancelBuying(Player player);
 }

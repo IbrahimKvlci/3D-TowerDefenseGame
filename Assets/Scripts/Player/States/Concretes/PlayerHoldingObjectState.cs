@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerHoldingObjectState : PlayerStateBase
 {
+
     private IGridPlacementService _gridPlacementService;
     private IObjectPlacementService _objectPlacementService;
     private IInputService _inputService;
@@ -49,11 +52,30 @@ public class PlayerHoldingObjectState : PlayerStateBase
 
                     if (canPlace)
                     {
-                        _shoppingInGameService.BuyPlayerObjectProduct(_player, (PlayerObjectProduct)_player.ObjectPlacement.PlayerObjectToPlace);
+                        Vector3 objecPos = _player.ObjectPlacement.PlayerObjectToPlace.transform.position;
+
+                        bool isObjectPurchased;
+                        _shoppingInGameService.BuyPlayerObjectProduct(_player, (PlayerObjectProduct)_player.ObjectPlacement.PlayerObjectToPlace,out isObjectPurchased);
+
+                        if(isObjectPurchased)
+                        {
+                            //OnObjectPlace?.Invoke(this, EventArgs.Empty);
+                            InGameSoundManager.Instance.PlayAudioOnCamera(InGameSoundManager.Instance.InGameSoundEffectsSO.purchaseFx, 1);
+                        }
+                        else
+                        {
+                            //OnCashNotEnough?.Invoke(this, EventArgs.Empty);
+                            InGameSoundManager.Instance.PlayAudioOnCamera(InGameSoundManager.Instance.InGameSoundEffectsSO.wrongPutFx, 1);
+                            Debug.Log(objecPos);
+
+                        }
                     }
                     else
                     {
                         Debug.Log("You cannot place");
+                        InGameSoundManager.Instance.PlayAudioOnCamera(InGameSoundManager.Instance.InGameSoundEffectsSO.wrongPutFx, 1);
+
+                        //OnObjectCannotPlace?.Invoke(this, EventArgs.Empty);
                     }
                 }
             }
