@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f814c6a19436f345a4eeea11037a3b8, type: 3}
   m_Name: MinotaurSoundEffectsSO
   m_EditorClassIdentifier: 
+  hitAnimationAudioClip: {fileID: 8300000, guid: cf67ad3315daef148960c92b0c472396,
+    type: 3}
   hitAudioClip: {fileID: 8300000, guid: cf67ad3315daef148960c92b0c472396, type: 3}

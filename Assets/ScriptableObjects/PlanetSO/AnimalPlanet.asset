@@ -27,3 +27,11 @@ MonoBehaviour:
       type: 3}
     <CountMultiplier>k__BackingField: 2
     <MaxCountMultiplier>k__BackingField: 6
+  - <Enemy>k__BackingField: {fileID: 1818909093197257215, guid: 34a3a4c9a3c5b4146b295840308654ba,
+      type: 3}
+    <CountMultiplier>k__BackingField: 2
+    <MaxCountMultiplier>k__BackingField: 6
+  - <Enemy>k__BackingField: {fileID: 4601916382969988360, guid: c5c71da31f6f4ab43a329b37317a9a90,
+      type: 3}
+    <CountMultiplier>k__BackingField: 2
+    <MaxCountMultiplier>k__BackingField: 6

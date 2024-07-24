@@ -16,12 +16,14 @@ public class InGameSoundManager : MonoBehaviour
 
     public void PlayAudio(AudioClip audioClip,Vector3 position, float volume = 1f)
     {
-        AudioSource.PlayClipAtPoint(audioClip, position,volume);
+        if(audioClip != null) 
+            AudioSource.PlayClipAtPoint(audioClip, position,volume);
     }
 
     public void PlayAudioOnCamera(AudioClip audioClip, float volume = 1f)
     {
-        AudioSource.PlayClipAtPoint(audioClip, Camera.main.transform.position, volume);
+        if (audioClip != null)
+            AudioSource.PlayClipAtPoint(audioClip, Camera.main.transform.position, volume);
     }
 
     public void PlayAudioNormalized(AudioClip audioClip,Vector3 position, float volume = 1f)
@@ -29,6 +31,23 @@ public class InGameSoundManager : MonoBehaviour
         Vector3 pos=position-Camera.main.transform.position;
         pos.Normalize();
 
-        AudioSource.PlayClipAtPoint(audioClip, pos+Camera.main.transform.position, volume);
+        if (audioClip != null)
+            AudioSource.PlayClipAtPoint(audioClip, pos+Camera.main.transform.position, volume);
     }
+
+    public IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
+    {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
+
+            yield return null;
+        }
+
+        audioSource.Stop();
+        audioSource.volume = startVolume;
+    }
+
 }

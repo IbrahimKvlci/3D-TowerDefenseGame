@@ -2654,6 +2654,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2772442271016368509, guid: 43a3d45a3241fe14fad6eccbe95531b9,
+        type: 3}
+      propertyPath: <EnemySoundEffectsSO>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 328a07b717a55ff46a9af7bd0daa4bfc,
+        type: 2}
     - target: {fileID: 3582795632040294803, guid: 43a3d45a3241fe14fad6eccbe95531b9,
         type: 3}
       propertyPath: m_Height
@@ -2731,6 +2737,18 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 7903890109383507164}
   m_SourcePrefab: {fileID: 100100000, guid: 43a3d45a3241fe14fad6eccbe95531b9, type: 3}
+--- !u!114 &455744909177861694 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2772442271016368509, guid: 43a3d45a3241fe14fad6eccbe95531b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 2317823403866197827}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52778b814abccd94a844e04e6db4ce0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1377566086897455281 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3689724715052425202, guid: 43a3d45a3241fe14fad6eccbe95531b9,
@@ -2794,6 +2812,7 @@ MonoBehaviour:
     type: 2}
   <EnemyTriggerController>k__BackingField: {fileID: 1740802882954504615}
   <EnemyHealthController>k__BackingField: {fileID: 6725323372827623699}
+  <EnemySoundController>k__BackingField: {fileID: 455744909177861694}
 --- !u!114 &6725323372827623699 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9043146564730474064, guid: 43a3d45a3241fe14fad6eccbe95531b9,

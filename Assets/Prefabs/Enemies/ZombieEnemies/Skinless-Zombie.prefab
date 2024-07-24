@@ -217,6 +217,7 @@ MonoBehaviour:
     type: 2}
   <EnemyTriggerController>k__BackingField: {fileID: 7448198041369508021}
   <EnemyHealthController>k__BackingField: {fileID: 2459220131388690433}
+  <EnemySoundController>k__BackingField: {fileID: 8729915355256940332}
 --- !u!114 &7448198041369508021 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4035791399888791268, guid: 43a3d45a3241fe14fad6eccbe95531b9,
@@ -235,6 +236,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6872302048153722449}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8729915355256940332 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2772442271016368509, guid: 43a3d45a3241fe14fad6eccbe95531b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 6872302048153722449}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52778b814abccd94a844e04e6db4ce0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7507719698648656380
 PrefabInstance:
   m_ObjectHideFlags: 0

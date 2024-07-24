@@ -167,6 +167,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2772442271016368509, guid: 43a3d45a3241fe14fad6eccbe95531b9,
+        type: 3}
+      propertyPath: <EnemySoundEffectsSO>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: f077bd9246428de4dbe5ec8c27b16d8c,
+        type: 2}
     - target: {fileID: 3582795632040294803, guid: 43a3d45a3241fe14fad6eccbe95531b9,
         type: 3}
       propertyPath: m_Height
@@ -197,6 +203,11 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 4292696479688866795}
+    - target: {fileID: 9043146564730474064, guid: 43a3d45a3241fe14fad6eccbe95531b9,
+        type: 3}
+      propertyPath: enemyMeshRenderer.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9043146564730474064, guid: 43a3d45a3241fe14fad6eccbe95531b9,
         type: 3}
       propertyPath: enemyMeshRenderer.Array.data[0]
@@ -249,6 +260,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 979d5d08a992e4f43a2c84259db3e341, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5822436392641756459 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2772442271016368509, guid: 43a3d45a3241fe14fad6eccbe95531b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 8553675458477212758}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52778b814abccd94a844e04e6db4ce0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8152285556763051841 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 546762977410941719, guid: 43a3d45a3241fe14fad6eccbe95531b9,
@@ -294,3 +317,4 @@ MonoBehaviour:
     type: 2}
   <EnemyTriggerController>k__BackingField: {fileID: 5671932332881240754}
   <EnemyHealthController>k__BackingField: {fileID: 849904216541432326}
+  <EnemySoundController>k__BackingField: {fileID: 5822436392641756459}

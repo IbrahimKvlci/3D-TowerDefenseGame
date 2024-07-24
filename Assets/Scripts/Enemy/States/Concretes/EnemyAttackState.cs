@@ -20,6 +20,7 @@ public class EnemyAttackState : EnemyStateBase
     {
         base.EnterState();
         OnEnemyAttacked?.Invoke(this, EventArgs.Empty);
+        _enemy.EnemySoundController.StartAudio(_enemy.EnemySoundController.EnemySoundEffectsSO.hitAnimationAudioClip);
         timer = 0;
     }
 
@@ -31,7 +32,7 @@ public class EnemyAttackState : EnemyStateBase
         {
             timer = 0;
             _enemyAttackService.Attack(_enemy.PlayerObjectTarget, _enemy.EnemySO.damage);
-            InGameSoundManager.Instance.PlayAudioNormalized(_enemy.EnemySoundController.EnemySoundEffectsSO.hitAudioClip, _enemy.transform.position,0.5f);
+            InGameSoundManager.Instance.PlayAudioNormalized(_enemy.EnemySoundController.EnemySoundEffectsSO.hitAudioClip, _enemy.transform.position);
             _enemyStateService.SwitchState(_enemy.EnemyPrepareAttackState);
         }
     }
@@ -39,6 +40,8 @@ public class EnemyAttackState : EnemyStateBase
     public override void ExitState()
     {
         base.ExitState();
+        _enemy.EnemySoundController.StopAudio();
+
     }
 
 

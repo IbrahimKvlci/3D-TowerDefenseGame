@@ -5,5 +5,6 @@ using UnityEngine;
 [CreateAssetMenu()]
 public class EnemySoundEffectsSO : ScriptableObject
 {
+    public AudioClip hitAnimationAudioClip;
     public AudioClip hitAudioClip;
 }

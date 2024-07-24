@@ -38,6 +38,7 @@ public class MineScannerScanningState : MineScannerStateBase
         else
         {
             OnMineScannerScanned?.Invoke(this, EventArgs.Empty);
+            InGameSoundManager.Instance.PlayAudioNormalized(InGameSoundManager.Instance.InGameSoundEffectsSO.scannedFx, _mineScanner.transform.position);
             _mineScannerStateService.SwitchState(_mineScanner.MineScannerWaitingState);
         }
     }
