@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class EnemyAttackState : EnemyStateBase
 {
-    public event EventHandler OnEnemyAttacked;
+    public event EventHandler OnEnemyAttackStarted;
+    public event EventHandler OnEnemyAttackFinished;
 
     private float timer;
 
@@ -19,7 +20,7 @@ public class EnemyAttackState : EnemyStateBase
     public override void EnterState()
     {
         base.EnterState();
-        OnEnemyAttacked?.Invoke(this, EventArgs.Empty);
+        OnEnemyAttackStarted?.Invoke(this, EventArgs.Empty);
         _enemy.EnemySoundController.StartAudio(_enemy.EnemySoundController.EnemySoundEffectsSO.hitAnimationAudioClip);
         timer = 0;
     }
@@ -28,7 +29,7 @@ public class EnemyAttackState : EnemyStateBase
     {
         base.UpdateState();
         timer += Time.deltaTime;
-        if (timer > _enemy.EnemySO.attackAnimationToAttackTimerMax)
+        if (timer > _enemy.EnemyVisualController.EnemyAnimationSO.attackAnimationToAttackTimerMax)
         {
             timer = 0;
             _enemyAttackService.Attack(_enemy.PlayerObjectTarget, _enemy.EnemySO.damage);
@@ -41,7 +42,7 @@ public class EnemyAttackState : EnemyStateBase
     {
         base.ExitState();
         _enemy.EnemySoundController.StopAudio();
-
+        OnEnemyAttackFinished?.Invoke(this, EventArgs.Empty);
     }
 
 

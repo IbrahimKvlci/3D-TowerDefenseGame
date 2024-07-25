@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class EnemyVisualController : MonoBehaviour
 {
-    [SerializeField] private Enemy enemy;
+    [SerializeField] protected Enemy enemy;
     [SerializeField] private Animator animator;
+    [field:SerializeField] public EnemyAnimationSO EnemyAnimationSO {  get; private set; }
 
     enum EnemyAnimationEnum
     {
@@ -13,14 +14,25 @@ public class EnemyVisualController : MonoBehaviour
         IsWalking
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         ((EnemyMoveState)(enemy.EnemyMoveState)).OnEnemyMoveStarted += EnemyVisualController_OnEnemyMoveStarted;
         ((EnemyMoveState)(enemy.EnemyMoveState)).OnEnemyMoveFinished += EnemyVisualController_OnEnemyMoveFinished;
-        ((EnemyAttackState)(enemy.EnemyAttackState)).OnEnemyAttacked += EnemyVisualController_OnEnemyAttacked;
+        ((EnemyAttackState)(enemy.EnemyAttackState)).OnEnemyAttackStarted += EnemyVisualController_OnEnemyAttackStarted;
+        ((EnemyAttackState)(enemy.EnemyAttackState)).OnEnemyAttackFinished += EnemyVisualController_OnEnemyAttackFinished;
+
     }
 
-    private void EnemyVisualController_OnEnemyAttacked(object sender, System.EventArgs e)
+    protected virtual void Update()
+    {
+        
+    }
+
+    protected virtual void EnemyVisualController_OnEnemyAttackFinished(object sender, System.EventArgs e)
+    {
+    }
+
+    protected virtual void EnemyVisualController_OnEnemyAttackStarted(object sender, System.EventArgs e)
     {
         TriggerEnemyAttackAnim();
     }

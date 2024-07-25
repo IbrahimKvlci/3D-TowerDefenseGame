@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SouleaterDragonSoundEffectsSO
   m_EditorClassIdentifier: 
   hitAnimationAudioClip: {fileID: 0}
-  hitAudioClip: {fileID: 8300000, guid: 1d052364f9afea249a12ec33cc8a8e0e, type: 3}
+  hitAudioClip: {fileID: 0}

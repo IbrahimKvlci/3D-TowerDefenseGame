@@ -23,19 +23,7 @@ MonoBehaviour:
   startingHourToSpawnEnemy: 4
   speedToSpawnEnemy: 0.02
   planetEnemyList:
-  - <Enemy>k__BackingField: {fileID: 4292696479688866795, guid: 0adc8cb4c82fc934896597dda91e7ebb,
-      type: 3}
-    <CountMultiplier>k__BackingField: 3
-    <MaxCountMultiplier>k__BackingField: 3
-  - <Enemy>k__BackingField: {fileID: 7030254265946383801, guid: 37aaa4110a5869b458e802fd93ebef6e,
-      type: 3}
-    <CountMultiplier>k__BackingField: 3
-    <MaxCountMultiplier>k__BackingField: 3
   - <Enemy>k__BackingField: {fileID: 8026165773918553244, guid: 2a65d9119022c984a9df5e9011ae9abe,
-      type: 3}
-    <CountMultiplier>k__BackingField: 3
-    <MaxCountMultiplier>k__BackingField: 3
-  - <Enemy>k__BackingField: {fileID: 8962837440803773403, guid: 05d444ed85155c8489c9d0e7e52fa354,
       type: 3}
     <CountMultiplier>k__BackingField: 3
     <MaxCountMultiplier>k__BackingField: 3

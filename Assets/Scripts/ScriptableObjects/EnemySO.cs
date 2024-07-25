@@ -12,5 +12,4 @@ public class EnemySO : ScriptableObject
     public float attackRange;
     public float attackSpeed;
     public float damage;
-    public float attackAnimationToAttackTimerMax;
 }

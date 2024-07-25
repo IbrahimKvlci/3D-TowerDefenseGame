@@ -99,6 +99,12 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 664406204642321187}
+    - target: {fileID: 8157986383422197186, guid: 43a3d45a3241fe14fad6eccbe95531b9,
+        type: 3}
+      propertyPath: <EnemyAnimationSO>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: fd6885cc8f1c8ee40bc8482291e17bd5,
+        type: 2}
     - target: {fileID: 9043146564730474064, guid: 43a3d45a3241fe14fad6eccbe95531b9,
         type: 3}
       propertyPath: enemy
@@ -177,6 +183,7 @@ MonoBehaviour:
   <EnemyTriggerController>k__BackingField: {fileID: 2396689552083312416}
   <EnemyHealthController>k__BackingField: {fileID: 7223623672117835668}
   <EnemySoundController>k__BackingField: {fileID: 4555799045801984185}
+  <EnemyVisualController>k__BackingField: {fileID: 7527274139426026502}
 --- !u!114 &2396689552083312416 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4035791399888791268, guid: 43a3d45a3241fe14fad6eccbe95531b9,
@@ -217,6 +224,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95594db2e27a51f458845f5951252ba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7527274139426026502 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8157986383422197186, guid: 43a3d45a3241fe14fad6eccbe95531b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1819668200118450628}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99a5ee105c79fa840b29b658257aa35d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &8405236157092920425
