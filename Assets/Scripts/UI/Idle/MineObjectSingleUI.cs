@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -16,11 +17,11 @@ public class MineObjectSingleUI : MonoBehaviour
         this.mineObject = mineObject;
 
         icon.sprite=mineObject.MineObjectSO.icon;
-        countText.text = mineObject.Count.ToString();
+        countText.text = (Math.Truncate(mineObject.Count * 100) / 100).ToString();
     }
 
     private void MineObject_OnMineObjectCountChanged(object sender, System.EventArgs e)
     {
-        countText.text = mineObject.Count.ToString();
+        countText.text = (Math.Truncate(mineObject.Count*100)/100).ToString();
     }
 }

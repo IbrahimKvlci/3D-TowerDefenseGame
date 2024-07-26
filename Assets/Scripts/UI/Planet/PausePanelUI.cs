@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -45,7 +46,7 @@ public class PausePanelUI : MonoBehaviour
     {
         remainingHoursTxt.text = $"{(int)(GameController.Instance.MaxHour - GameController.Instance.Hour)} Hours";
         collectedMineObjectTitleTxt.text = $"Collected {Planet.Instace.PlanetSO.mineObject.MineObjectSO.title}";
-        collectedMineObjectValueTxt.text = $"{Player.Instance.PlayerShopping.GetMineObjectFromListByObject(Planet.Instace.PlanetSO.mineObject).CurrentCollectedCount}";
+        collectedMineObjectValueTxt.text = $"{(Math.Truncate(Player.Instance.PlayerShopping.GetMineObjectFromListByObject(Planet.Instace.PlanetSO.mineObject).CurrentCollectedCount * 100) / 100)}";
         costTxt.text = $"${Player.Instance.PlayerShopping.Cost}";
     }
 

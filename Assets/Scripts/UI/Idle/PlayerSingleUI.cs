@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -18,11 +19,11 @@ public class PlayerSingleUI : MonoBehaviour
 
         playerAvatar.sprite=player.PlayerInfo.Avatar;
         nameText.text=player.PlayerInfo.Name;
-        cashText.text = $"${player.PlayerShopping.Cash}" ;
+        cashText.text = $"${Math.Truncate(player.PlayerShopping.Cash*100)/100}" ;
     }
 
     private void PlayerShopping_OnCashChanged(object sender, System.EventArgs e)
     {
-        cashText.text = $"${player.PlayerShopping.Cash}";
+        cashText.text = $"${Math.Truncate(player.PlayerShopping.Cash * 100) / 100}";
     }
 }

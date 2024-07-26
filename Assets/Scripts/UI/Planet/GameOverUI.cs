@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -50,7 +51,7 @@ public class GameOverUI : MonoBehaviour
     {
         costText.text = $"${Player.Instance.PlayerShopping.Cost}";
         collectedTitleText.text = $"Collected {Planet.Instace.PlanetSO.mineObject.MineObjectSO.title}";
-        collectedValueText.text=$"{Player.Instance.PlayerShopping.GetMineObjectFromListByObject(Planet.Instace.PlanetSO.mineObject).CurrentCollectedCount}";
+        collectedValueText.text=$"{(Math.Truncate(Player.Instance.PlayerShopping.GetMineObjectFromListByObject(Planet.Instace.PlanetSO.mineObject).CurrentCollectedCount * 100) / 100)}";
     }
 
 }

@@ -7,7 +7,7 @@ public class TradingMineObjectManager : ITradingMineObjectService
 {
     
 
-    public void SellMineObject<T>(MineObjectTrader mineObjectTrader, Player player,int sellingCount)
+    public void SellMineObject<T>(MineObjectTrader mineObjectTrader, Player player,float sellingCount)
     {
         if (player.PlayerShopping.GetMineObjectFromListByType<T>().Count >= sellingCount)
         {
@@ -89,11 +89,11 @@ public class TradingMineObjectManager : ITradingMineObjectService
         mineObjectTrader.SellingCountEachDay = 0;
     }
 
-    public void SellMineObject(MineObjectTrader mineObjectTrader,MineObject mineObject, Player player, int sellingCount)
+    public void SellMineObject(MineObjectTrader mineObjectTrader,MineObject mineObject, Player player, float sellingCount)
     {
         if (player.PlayerShopping.GetMineObjectFromListByObject(mineObject).Count >= sellingCount)
         {
-            player.PlayerShopping.Cash += (int)(sellingCount * mineObjectTrader.USDParity);
+            player.PlayerShopping.Cash += sellingCount * mineObjectTrader.USDParity;
             player.PlayerShopping.GetMineObjectFromListByObject(mineObject).Count -= sellingCount;
             mineObjectTrader.SellingCountEachDay += sellingCount;
         }

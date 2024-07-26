@@ -54,7 +54,7 @@ public class TradeUI : MonoBehaviour
 
     private void SellMineObject(Player player, MineObject mineObject)
     {
-        int sellingCount = Int32.Parse(countInputField.text); 
+        float sellingCount = float.Parse(countInputField.text); 
         _tradingMineObjectService.SellMineObject(CurrentMineObjectTrader, mineObject, player, sellingCount);
 
         mineObjectsUI.UpdateVisual();

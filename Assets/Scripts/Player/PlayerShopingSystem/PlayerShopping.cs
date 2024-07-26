@@ -12,8 +12,8 @@ public class PlayerShopping : MonoBehaviour
 
     public int Cost { get; set; }
 
-    private int cash = 100;
-    public int Cash
+    private float cash = 100;
+    public float Cash
     {
         get { return cash; }
         set { cash = value; OnCashChanged?.Invoke(this, EventArgs.Empty); }

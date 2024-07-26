@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -18,20 +19,20 @@ public class PlayerInfoUI : MonoBehaviour
 
     private void PlayerShopping_OnCashChanged(object sender, System.EventArgs e)
     {
-        cashText.text = $"${Player.Instance.PlayerShopping.Cash}";
+        cashText.text = $"${Math.Truncate(Player.Instance.PlayerShopping.Cash * 100) / 100}";
     }
 
     private void PlayerInfoUI_OnMineObjectCurrentCollectedCountChanged(object sender, System.EventArgs e)
     {
-        mineObjectText.text = Player.Instance.PlayerShopping.GetMineObjectFromListByObject(Planet.Instace.PlanetSO.mineObject).CurrentCollectedCount.ToString();
+        mineObjectText.text = (Math.Truncate(Player.Instance.PlayerShopping.GetMineObjectFromListByObject(Planet.Instace.PlanetSO.mineObject).CurrentCollectedCount * 100) / 100).ToString();
     }
 
     private void UpdateVisual()
     {
         Player.Instance.PlayerShopping.GetMineObjectFromListByObject(Planet.Instace.PlanetSO.mineObject).OnMineObjectCurrentCollectedCountChanged += PlayerInfoUI_OnMineObjectCurrentCollectedCountChanged;
 
-        cashText.text = $"${Player.Instance.PlayerShopping.Cash}";
-        mineObjectText.text = Player.Instance.PlayerShopping.GetMineObjectFromListByObject(Planet.Instace.PlanetSO.mineObject).CurrentCollectedCount.ToString();
+        cashText.text = $"${Math.Truncate(Player.Instance.PlayerShopping.Cash * 100) / 100}";
+        mineObjectText.text = (Math.Truncate(Player.Instance.PlayerShopping.GetMineObjectFromListByObject(Planet.Instace.PlanetSO.mineObject).CurrentCollectedCount*100)/100).ToString();
         mineObjectImage.sprite = Planet.Instace.PlanetSO.mineObject.MineObjectSO.icon;
     }
 }
