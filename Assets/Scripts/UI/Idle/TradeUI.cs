@@ -27,6 +27,7 @@ public class TradeUI : MonoBehaviour
         sellBtn.onClick.AddListener(() =>
         {
             SellMineObject(Player.Instance, CurrentMineObjectTrader.MineObject);
+            UIAudioEffectController.Instance.PlayAudio(UIAudioEffectController.Instance.UISoundEffectsSO.sellSound);
         });
     }
 
@@ -40,11 +41,13 @@ public class TradeUI : MonoBehaviour
     public void OpenTradePanelUI()
     {
         TradePanel.SetActive(true);
+        UIAudioEffectController.Instance.PlayAudio(UIAudioEffectController.Instance.UISoundEffectsSO.openPanelound);
     }
 
     public void CloseTradePanelUI()
     {
         TradePanel.SetActive(false);
+        UIAudioEffectController.Instance.PlayAudio(UIAudioEffectController.Instance.UISoundEffectsSO.closePanelSound);
     }
 
     public void ChangeCurrentMineObjectIcon(Sprite sprite)

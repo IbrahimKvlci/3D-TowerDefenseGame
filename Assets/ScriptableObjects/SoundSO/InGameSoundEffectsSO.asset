@@ -18,4 +18,4 @@ MonoBehaviour:
   miningFx: {fileID: 8300000, guid: ef035614cb019af42a53d1d99c5644ac, type: 3}
   trashFx: {fileID: 8300000, guid: cfe9a7de693036d40bdb1efca932089d, type: 3}
   gunShotFx: {fileID: 8300000, guid: 249ac83c32a15cc42bfaf9af1323ca1c, type: 3}
-  laserShotFx: {fileID: 8300000, guid: 002a66784f6b2fa47bfe7d16a2f398d9, type: 3}
+  laserShotFx: {fileID: 8300000, guid: 11f7fe257d181bf488ec5b3f199260d2, type: 3}

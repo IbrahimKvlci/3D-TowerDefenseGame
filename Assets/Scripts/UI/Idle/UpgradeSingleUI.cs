@@ -29,6 +29,8 @@ public class UpgradeSingleUI : MonoBehaviour
         {
             _shoppingUpgradeService.Upgrade(player, playerUpgradeSO, price);
             SetUpgrade(playerUpgradeSO, player);
+            UIAudioEffectController.Instance.PlayAudio(UIAudioEffectController.Instance.UISoundEffectsSO.upgradeSound);
+
         });
     }
 

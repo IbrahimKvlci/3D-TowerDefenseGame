@@ -26,11 +26,14 @@ public class UpgradeUI : MonoBehaviour
     {
         upgradePanel.SetActive(true);
         UpdateVisual();
+        UIAudioEffectController.Instance.PlayAudio(UIAudioEffectController.Instance.UISoundEffectsSO.openPanelound);
     }
 
     public void CloseUpgradePanelUI()
     {
         upgradePanel.SetActive(false);
+        UIAudioEffectController.Instance.PlayAudio(UIAudioEffectController.Instance.UISoundEffectsSO.closePanelSound);
+
     }
 
     private void UpdateVisual()

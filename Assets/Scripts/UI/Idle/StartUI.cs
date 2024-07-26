@@ -28,10 +28,12 @@ public class StartUI : MonoBehaviour
         rightBtn.onClick.AddListener(() =>
         {
             ChangePage(true);
+            UIAudioEffectController.Instance.PlayAudio(UIAudioEffectController.Instance.UISoundEffectsSO.openPanelound);
         });
         leftBtn.onClick.AddListener(() => 
         { 
-            ChangePage(false); 
+            ChangePage(false);
+            UIAudioEffectController.Instance.PlayAudio(UIAudioEffectController.Instance.UISoundEffectsSO.openPanelound);
         });
 
         startBtn.onClick.AddListener(() =>
@@ -50,11 +52,15 @@ public class StartUI : MonoBehaviour
     public void OpenStartPanelUI()
     {
         StartPanel.SetActive(true);
+        UIAudioEffectController.Instance.PlayAudio(UIAudioEffectController.Instance.UISoundEffectsSO.openPanelound);
+
     }
 
     public void CloseStartPanelUI()
     {
         StartPanel.SetActive(false);
+        UIAudioEffectController.Instance.PlayAudio(UIAudioEffectController.Instance.UISoundEffectsSO.closePanelSound);
+
     }
 
     private void SetPlanetUI(Planet planet)

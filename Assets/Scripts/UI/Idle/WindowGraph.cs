@@ -23,9 +23,13 @@ public class WindowGraph : MonoBehaviour
         rightBtn.onClick.AddListener(() =>
         {
             ChangePage(true);
+            UIAudioEffectController.Instance.PlayAudio(UIAudioEffectController.Instance.UISoundEffectsSO.openPanelound);
+
         });
         leftBtn.onClick.AddListener(() => { 
-            ChangePage(false); 
+            ChangePage(false);
+            UIAudioEffectController.Instance.PlayAudio(UIAudioEffectController.Instance.UISoundEffectsSO.openPanelound);
+
         });
     }
 

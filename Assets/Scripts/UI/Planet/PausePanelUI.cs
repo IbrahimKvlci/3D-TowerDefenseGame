@@ -25,15 +25,21 @@ public class PausePanelUI : MonoBehaviour
         pauseBtn.onClick.AddListener(() =>
         {
             Show();
+            UIAudioEffectController.Instance.PlayAudio(UIAudioEffectController.Instance.UISoundEffectsSO.openPanelound);
+
         });
         closeBtn.onClick.AddListener(() =>
         {
             Hide();
+            UIAudioEffectController.Instance.PlayAudio(UIAudioEffectController.Instance.UISoundEffectsSO.closePanelSound);
+
         });
         finishTheDayBtn.onClick.AddListener(() =>
         {
             _gameControllerService.FinishTheGame(GameController.Instance, Planet.Instace.PlanetSO.mineObject, Player.Instance);
             Hide();
+            UIAudioEffectController.Instance.PlayAudio(UIAudioEffectController.Instance.UISoundEffectsSO.openPanelound);
+
         });
     }
 

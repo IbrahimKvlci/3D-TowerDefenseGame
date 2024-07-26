@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e6557a672c27e94a806bbeab378c0c2, type: 3}
+  m_Name: UISoundEffects
+  m_EditorClassIdentifier: 
+  openPanelound: {fileID: 8300000, guid: 5e29bea54c3e4594c9f41c8f4ad570bf, type: 3}
+  closePanelSound: {fileID: 8300000, guid: fb80a53c5c95ed248a4da4057cd75dc8, type: 3}
+  upgradeSound: {fileID: 8300000, guid: 11c0821a349d63048bdf0e5ac2b30cb8, type: 3}
+  sellSound: {fileID: 8300000, guid: ca880d2d72315b541ba7737f7c51fa7c, type: 3}
+  onBtnSound: {fileID: 8300000, guid: ec4fb39fa0104b7418529922e8c12179, type: 3}

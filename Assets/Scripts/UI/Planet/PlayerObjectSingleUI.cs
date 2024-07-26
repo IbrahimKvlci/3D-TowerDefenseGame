@@ -23,6 +23,8 @@ public class PlayerObjectSingleUI : MonoBehaviour
         playerObjectProductBtn.onClick.AddListener(() =>
         {
             _shoppingInGameService.GivePlayerObjectProductToPlayer(Player.Instance, PlayerObject);
+            UIAudioEffectController.Instance.PlayAudio(UIAudioEffectController.Instance.UISoundEffectsSO.openPanelound);
+
         });
     }
 
