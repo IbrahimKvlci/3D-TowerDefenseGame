@@ -17,6 +17,6 @@ MonoBehaviour:
   healthMax: 50
   placingTime: 3
   Price: 0
-  damage: 0
+  damage: 3
   fireDuration: 0.2
   attackRange: 25

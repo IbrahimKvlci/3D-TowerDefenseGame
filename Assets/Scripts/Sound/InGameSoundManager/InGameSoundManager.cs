@@ -35,6 +35,12 @@ public class InGameSoundManager : MonoBehaviour
             AudioSource.PlayClipAtPoint(audioClip, pos+Camera.main.transform.position, volume);
     }
 
+    public void PlayAudioFromPool(AudioClip audioClip,float volume = 1f)
+    {
+        if (audioClip != null)
+            AudioPool.Instance.PlayAudio(audioClip);
+    }
+
     public IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
     {
         float startVolume = audioSource.volume;

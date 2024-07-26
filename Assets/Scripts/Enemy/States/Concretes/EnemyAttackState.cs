@@ -33,7 +33,7 @@ public class EnemyAttackState : EnemyStateBase
         {
             timer = 0;
             _enemyAttackService.Attack(_enemy.PlayerObjectTarget, _enemy.EnemySO.damage);
-            InGameSoundManager.Instance.PlayAudioNormalized(_enemy.EnemySoundController.EnemySoundEffectsSO.hitAudioClip, _enemy.transform.position);
+            InGameSoundManager.Instance.PlayAudioFromPool(_enemy.EnemySoundController.EnemySoundEffectsSO.hitAudioClip);
             _enemyStateService.SwitchState(_enemy.EnemyPrepareAttackState);
         }
     }
