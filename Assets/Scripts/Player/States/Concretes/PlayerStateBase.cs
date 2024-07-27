@@ -23,5 +23,9 @@ public class PlayerStateBase : IPlayerState
 
     public virtual void UpdateState()
     {
+        if (_playerStateService.CurrentPlayerState != _player.PlayerBankruptcyState&&_player.PlayerWentBankrupt)
+        {
+            _playerStateService.SwitchState(_player.PlayerBankruptcyState);
+        }
     }
 }

@@ -11,4 +11,6 @@ public interface ITradingMineObjectService
     void SetMineObjectPriceUSDParityAccordingToSupplyDemand(MineObjectTrader mineObjectTrader);
     void SellMineObject<T>(MineObjectTrader mineObjectTrader, Player player,float sellingCount);
     void SellMineObject(MineObjectTrader mineObjectTrader,MineObject mineObject, Player player, float sellingCount);
+
+    MineObjectTrader GetMineObjectTraderByMineObject(List<MineObjectTrader> mineObjectTraderList, MineObject mineObject);
 }

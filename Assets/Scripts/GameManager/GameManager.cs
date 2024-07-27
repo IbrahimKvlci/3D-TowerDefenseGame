@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private List<PlanetSO> planetSOList;
+
     public List<MineObjectTrader> MineObjectTraderList { get; set; }
     public int Day { get; set; }
 
@@ -40,6 +42,47 @@ public class GameManager : MonoBehaviour
         {
             _tradingMineObjectService.SetMineObjectTraderNextDay(mineObjectTrader);
         }
+    }
+
+    public void EndOfTheDay()
+    {
+        if (!Player.Instance.PlayerWentBankrupt)
+        {
+            if (CheckPlayerHasMoneyBelowBankruptcy(Player.Instance))
+            {
+                Player.Instance.PlayerBankruptcy();
+                Debug.Log("bankruptcy");
+            }
+        }
+    }
+
+    private bool CheckPlayerHasMoneyBelowBankruptcy(Player player)
+    {
+        float minMoney = planetSOList[0].price;
+        foreach (PlanetSO planetSO in planetSOList)
+        {
+            if (minMoney > planetSO.price)
+            {
+                minMoney = planetSO.price;
+            }
+        }
+
+        float playerTotalMoney=player.PlayerShopping.Cash;
+        foreach (MineObject mineObject in player.PlayerShopping.MineObjects)
+        {
+
+            playerTotalMoney += mineObject.Count * _tradingMineObjectService.GetMineObjectTraderByMineObject(MineObjectTraderContainer.Instance.MineObjectTraderList, mineObject).USDParity;
+        }
+
+        Debug.Log(playerTotalMoney);
+        Debug.Log(minMoney);
+
+        if(playerTotalMoney < minMoney)
+        {
+            return true;
+        }
+        return false;
+
     }
 
 }

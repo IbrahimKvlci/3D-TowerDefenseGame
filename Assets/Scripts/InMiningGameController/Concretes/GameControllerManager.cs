@@ -25,6 +25,7 @@ public class GameControllerManager : IGameControllerService
 
         gameController.IsGameOver = true;
         _mineObjectService.GiveCollectedMineObjectToPlayer(mineObject, player);
+        GameManager.Instance.EndOfTheDay();
     }
 
     public void PauseTheGame(GameController gameController)

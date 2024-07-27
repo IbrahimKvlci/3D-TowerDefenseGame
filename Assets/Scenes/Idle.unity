@@ -8042,6 +8042,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c5116fc8777fa54289efa962bcf36b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planetSOList:
+  - {fileID: 11400000, guid: 18e5f6ab422487f4f852eec4db8bfe9b, type: 2}
+  - {fileID: 11400000, guid: edc47afd92204ac4f9a12f6110bb0270, type: 2}
+  - {fileID: 11400000, guid: 766d179035a937a40a6fc2c98e070359, type: 2}
+  - {fileID: 11400000, guid: aa60fafaadfac794ca978ee922f98f4a, type: 2}
 --- !u!4 &1752954902
 Transform:
   m_ObjectHideFlags: 0

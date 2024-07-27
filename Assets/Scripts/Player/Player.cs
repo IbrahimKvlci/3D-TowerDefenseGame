@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    event EventHandler OnPlayerBankruptcy;
+
     public static Player Instance { get; private set; }
 
     [field:SerializeField] public PlayerInfo PlayerInfo { get; set; }
@@ -14,10 +17,11 @@ public class Player : MonoBehaviour
     public IPlayerState PlayerMenuState { get; set; }
     public IPlayerState PlayerIdleState {  get; set; }
     public IPlayerState PlayerHoldingObjectState {  get; set; }
+    public IPlayerState PlayerBankruptcyState { get; set; }
 
     public IPlayerStateService PlayerStateService { get; set; }
 
-
+    public bool PlayerWentBankrupt { get; set; }
 
     private void Awake()
     {
@@ -39,10 +43,12 @@ public class Player : MonoBehaviour
 
         PlayerIdleState = new PlayerIdleState(this, PlayerStateService);
         PlayerMenuState=new PlayerMenuState(this,PlayerStateService);
+        PlayerBankruptcyState = new PlayerBankruptcyState(this, PlayerStateService);
     }
 
     private void Start()
     {
+        PlayerWentBankrupt = false;
         PlayerStateService.Initialize(PlayerMenuState);
     }
 
@@ -55,5 +61,12 @@ public class Player : MonoBehaviour
     {
         PlayerStateService.SwitchState(PlayerIdleState);
         PlayerShopping.PlayerShoppingNewDay();
+    }
+
+    public void PlayerBankruptcy()
+    {
+        OnPlayerBankruptcy?.Invoke(this, EventArgs.Empty);
+        PlayerWentBankrupt=true;
+
     }
 }

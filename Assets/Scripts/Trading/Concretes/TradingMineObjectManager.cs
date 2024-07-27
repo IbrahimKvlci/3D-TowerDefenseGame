@@ -98,4 +98,10 @@ public class TradingMineObjectManager : ITradingMineObjectService
             mineObjectTrader.SellingCountEachDay += sellingCount;
         }
     }
+
+    public MineObjectTrader GetMineObjectTraderByMineObject(List<MineObjectTrader> mineObjectTraderList,MineObject mineObject)
+    {
+        return mineObjectTraderList.FirstOrDefault(obj => obj.MineObject.GetType() == mineObject.GetType());
+
+    }
 }

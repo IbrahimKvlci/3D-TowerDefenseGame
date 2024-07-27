@@ -39,7 +39,6 @@ public class StartUI : MonoBehaviour
         startBtn.onClick.AddListener(() =>
         {
             _shoppingPlanetService.PayToTravelThePlanet(Player.Instance, CurrentPlanet);
-            GameManager.Instance.NextDay();
         });
     }
 

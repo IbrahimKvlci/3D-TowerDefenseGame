@@ -18,6 +18,7 @@ public class ShoppingPlanetManager : IShoppingPlanetService
             player.PlayerShopping.Cash-=planet.PlanetSO.price;
 
            _planetTravelService.TravelToThePlanet(player, planet);
+            GameManager.Instance.NextDay();
         }
         else
         {
