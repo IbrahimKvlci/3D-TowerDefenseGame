@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d224dc1df8f40214a91a00e88561c69a, type: 3}
-  m_Name: SkinlessAnimation
+  m_Script: {fileID: 11500000, guid: 0f814c6a19436f345a4eeea11037a3b8, type: 3}
+  m_Name: HungryZombieSoundEffectsSO
   m_EditorClassIdentifier: 
-  attackAnimationToAttackTimerMax: 1
-  attackAnimationPreparingTimerMax: 0
-  attackAnimationDurationTimerMax: 2.18
+  hitAnimationAudioClip: {fileID: 0}
+  hitAudioClip: {fileID: 0}

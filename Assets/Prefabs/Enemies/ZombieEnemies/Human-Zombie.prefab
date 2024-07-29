@@ -266,7 +266,7 @@ PrefabInstance:
         type: 3}
       propertyPath: <EnemySoundEffectsSO>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: 328a07b717a55ff46a9af7bd0daa4bfc,
+      objectReference: {fileID: 11400000, guid: 7ec8efe568075f445b8fae74e52a21b5,
         type: 2}
     - target: {fileID: 3582795632040294803, guid: 43a3d45a3241fe14fad6eccbe95531b9,
         type: 3}

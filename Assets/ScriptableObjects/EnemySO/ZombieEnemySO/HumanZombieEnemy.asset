@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b2e5452fe611fe4583ccc483fc835ee, type: 3}
-  m_Name: CreepHorrorEnemy
+  m_Name: HumanZombieEnemy
   m_EditorClassIdentifier: 
-  prefab: {fileID: 2522070496263080835, guid: ebaa42aa6024ba54fab874b7d63203da, type: 3}
+  prefab: {fileID: 7029157021431351270, guid: 3bdbfb53c8dd0eb4681c65c2ee3f935b, type: 3}
   icon: {fileID: 0}
-  speed: 7
+  speed: 2
   maxHealth: 200
-  attackRange: 10
-  attackSpeed: 1
-  damage: 50
-  attackAnimationToAttackTimerMax: 1
+  attackRange: 4
+  attackSpeed: 5
+  damage: 25

@@ -12,26 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12ba76968a928a04c968cb6d9e43f670, type: 3}
   m_Name: ZombiePlanet
   m_EditorClassIdentifier: 
-  price: 10
-  icon: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  price: 0
+  planetMaterial: {fileID: 2100000, guid: 44fb9715290ee1348b79cbf58cdf9cff, type: 2}
   title: Zombie Planet
   mineObject: {fileID: -4004277721097816679, guid: 564196238e27c5449a4b53eefe650730,
     type: 3}
   scene: 3
   enemySpawningRadius: 150
   planetCenter: {x: 32.3, y: 0, z: -15.2}
-  startingHourToSpawnEnemy: 4
-  speedToSpawnEnemy: 0.02
+  startingHourToSpawnEnemy: 0
+  speedToSpawnEnemy: 0.01
   planetEnemyList:
   - <Enemy>k__BackingField: {fileID: 3488133004073972470, guid: f8a446916ca6fab4691409dda41b3a3c,
       type: 3}
-    <CountMultiplier>k__BackingField: 3
-    <MaxCountMultiplier>k__BackingField: 3
+    <CountMultiplier>k__BackingField: 5
+    <MaxCountMultiplier>k__BackingField: 5
+  - <Enemy>k__BackingField: {fileID: 3326038199873663003, guid: 6a3d8a43317cb254686bebce299c287d,
+      type: 3}
+    <CountMultiplier>k__BackingField: 1
+    <MaxCountMultiplier>k__BackingField: 8
   - <Enemy>k__BackingField: {fileID: 7242583195717488876, guid: 3bdbfb53c8dd0eb4681c65c2ee3f935b,
       type: 3}
     <CountMultiplier>k__BackingField: 1
-    <MaxCountMultiplier>k__BackingField: 6
-  - <Enemy>k__BackingField: {fileID: 3326038199873663003, guid: 6a3d8a43317cb254686bebce299c287d,
-      type: 3}
-    <CountMultiplier>k__BackingField: 2
-    <MaxCountMultiplier>k__BackingField: 6
+    <MaxCountMultiplier>k__BackingField: 9

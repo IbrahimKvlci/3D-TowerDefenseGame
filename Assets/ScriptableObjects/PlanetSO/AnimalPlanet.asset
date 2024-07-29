@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AnimalPlanet
   m_EditorClassIdentifier: 
   price: 10
-  icon: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  planetMaterial: {fileID: 2100000, guid: aa71c55501fcb3f4f8880514d6c0cf18, type: 2}
   title: Animal Planet
   mineObject: {fileID: -4004277721097816679, guid: 564196238e27c5449a4b53eefe650730,
     type: 3}
@@ -23,15 +23,15 @@ MonoBehaviour:
   startingHourToSpawnEnemy: 4
   speedToSpawnEnemy: 0.02
   planetEnemyList:
-  - <Enemy>k__BackingField: {fileID: 8184308413136516296, guid: 28c1a24faa2b9cd489e571654d54c438,
-      type: 3}
-    <CountMultiplier>k__BackingField: 2
-    <MaxCountMultiplier>k__BackingField: 6
-  - <Enemy>k__BackingField: {fileID: 1818909093197257215, guid: 34a3a4c9a3c5b4146b295840308654ba,
-      type: 3}
-    <CountMultiplier>k__BackingField: 2
-    <MaxCountMultiplier>k__BackingField: 6
   - <Enemy>k__BackingField: {fileID: 4601916382969988360, guid: c5c71da31f6f4ab43a329b37317a9a90,
       type: 3}
-    <CountMultiplier>k__BackingField: 2
-    <MaxCountMultiplier>k__BackingField: 6
+    <CountMultiplier>k__BackingField: 10
+    <MaxCountMultiplier>k__BackingField: 11
+  - <Enemy>k__BackingField: {fileID: 1818909093197257215, guid: 34a3a4c9a3c5b4146b295840308654ba,
+      type: 3}
+    <CountMultiplier>k__BackingField: 1
+    <MaxCountMultiplier>k__BackingField: 15
+  - <Enemy>k__BackingField: {fileID: 8184308413136516296, guid: 28c1a24faa2b9cd489e571654d54c438,
+      type: 3}
+    <CountMultiplier>k__BackingField: 1
+    <MaxCountMultiplier>k__BackingField: 20

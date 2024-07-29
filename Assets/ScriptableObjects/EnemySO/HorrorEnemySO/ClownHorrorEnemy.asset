@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b2e5452fe611fe4583ccc483fc835ee, type: 3}
-  m_Name: MinotaurAnimalEnemy
+  m_Name: ClownHorrorEnemy
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1523021434910275915, guid: 28c1a24faa2b9cd489e571654d54c438, type: 3}
+  prefab: {fileID: 3944452313200010398, guid: 1ab7afc717928054f9494e116543fca3, type: 3}
   icon: {fileID: 0}
-  speed: 5
-  maxHealth: 50
+  speed: 15
+  maxHealth: 30
   attackRange: 10
   attackSpeed: 1
   damage: 10
-  attackAnimationToAttackTimerMax: 1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DragonPlanet
   m_EditorClassIdentifier: 
   price: 10
-  icon: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  planetMaterial: {fileID: 2100000, guid: 1290c1444fae99840bc08b3e7953549f, type: 2}
   title: Dragon Planet
   mineObject: {fileID: -4004277721097816679, guid: 564196238e27c5449a4b53eefe650730,
     type: 3}
@@ -25,5 +25,17 @@ MonoBehaviour:
   planetEnemyList:
   - <Enemy>k__BackingField: {fileID: 8026165773918553244, guid: 2a65d9119022c984a9df5e9011ae9abe,
       type: 3}
-    <CountMultiplier>k__BackingField: 3
-    <MaxCountMultiplier>k__BackingField: 3
+    <CountMultiplier>k__BackingField: 20
+    <MaxCountMultiplier>k__BackingField: 21
+  - <Enemy>k__BackingField: {fileID: 8962837440803773403, guid: 05d444ed85155c8489c9d0e7e52fa354,
+      type: 3}
+    <CountMultiplier>k__BackingField: 1
+    <MaxCountMultiplier>k__BackingField: 30
+  - <Enemy>k__BackingField: {fileID: 7030254265946383801, guid: 37aaa4110a5869b458e802fd93ebef6e,
+      type: 3}
+    <CountMultiplier>k__BackingField: 1
+    <MaxCountMultiplier>k__BackingField: 35
+  - <Enemy>k__BackingField: {fileID: 4292696479688866795, guid: 0adc8cb4c82fc934896597dda91e7ebb,
+      type: 3}
+    <CountMultiplier>k__BackingField: 1
+    <MaxCountMultiplier>k__BackingField: 40

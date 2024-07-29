@@ -10,7 +10,7 @@ public class StartUI : MonoBehaviour
 
     [SerializeField] private GameObject StartPanel;
     [SerializeField] private TextMeshProUGUI planetNameText;
-    [SerializeField] private Image planetImage;
+    [SerializeField] private GameObject planetObject;
     [SerializeField] private TextMeshProUGUI priceText;
     [SerializeField] private Button rightBtn, leftBtn;
     [SerializeField] private Button startBtn;
@@ -67,8 +67,8 @@ public class StartUI : MonoBehaviour
         CurrentPlanet=planet;
 
         planetNameText.text = planet.PlanetSO.title;
-        planetImage.sprite = planet.PlanetSO.icon;
-        priceText.text = planet.PlanetSO.price.ToString();
+        planetObject.GetComponent<Renderer>().material = planet.PlanetSO.planetMaterial;
+        priceText.text = $"${planet.PlanetSO.price.ToString()}";
     }
 
     private void ChangePage(bool goRight)

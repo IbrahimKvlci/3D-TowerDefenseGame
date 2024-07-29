@@ -22,9 +22,12 @@ public class EnemySoundController : MonoBehaviour
 
     public void StartAudio(AudioClip audioClip)
     {
-        EnemyAudioSource.clip = audioClip;
+        if (audioClip != null)
+        {
+            EnemyAudioSource.clip = audioClip;
 
-        EnemyAudioSource.Play();
+            EnemyAudioSource.Play();
+        }
     }
 
     public void StopAudio()

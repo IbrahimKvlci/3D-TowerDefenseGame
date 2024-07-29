@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d224dc1df8f40214a91a00e88561c69a, type: 3}
   m_Name: TerrorBringerAnimation
   m_EditorClassIdentifier: 
-  attackAnimationToAttackTimerMax: 0
-  attackAnimationPreparingTimerMax: 0
+  attackAnimationToAttackTimerMax: 1
+  attackAnimationPreparingTimerMax: 1
+  attackAnimationDurationTimerMax: 1.5

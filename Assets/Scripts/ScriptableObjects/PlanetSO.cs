@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class PlanetSO : ScriptableObject
 {
     public int price;
-    public Sprite icon;
+    public Material planetMaterial;
     public string title;
     public MineObject mineObject;
     public SceneLoader.Scene scene;

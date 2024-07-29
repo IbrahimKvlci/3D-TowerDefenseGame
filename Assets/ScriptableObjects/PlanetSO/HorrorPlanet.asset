@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HorrorPlanet
   m_EditorClassIdentifier: 
   price: 10
-  icon: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  planetMaterial: {fileID: 2100000, guid: ce6167acb9e95274297959370920f9dc, type: 2}
   title: Horror Planet
   mineObject: {fileID: -4004277721097816679, guid: 564196238e27c5449a4b53eefe650730,
     type: 3}
@@ -25,17 +25,13 @@ MonoBehaviour:
   planetEnemyList:
   - <Enemy>k__BackingField: {fileID: 2166583374780962248, guid: 1ab7afc717928054f9494e116543fca3,
       type: 3}
-    <CountMultiplier>k__BackingField: 3
-    <MaxCountMultiplier>k__BackingField: 3
+    <CountMultiplier>k__BackingField: 10
+    <MaxCountMultiplier>k__BackingField: 11
   - <Enemy>k__BackingField: {fileID: 7973911124584445018, guid: 6b02557d0314dea4fb348ffc979c98f2,
       type: 3}
     <CountMultiplier>k__BackingField: 1
-    <MaxCountMultiplier>k__BackingField: 6
-  - <Enemy>k__BackingField: {fileID: 1916521450655572213, guid: ebaa42aa6024ba54fab874b7d63203da,
-      type: 3}
-    <CountMultiplier>k__BackingField: 2
-    <MaxCountMultiplier>k__BackingField: 6
+    <MaxCountMultiplier>k__BackingField: 15
   - <Enemy>k__BackingField: {fileID: 7903890109383507164, guid: b5bccd95e03d0d645bd648b77c5aa3b7,
       type: 3}
-    <CountMultiplier>k__BackingField: 2
-    <MaxCountMultiplier>k__BackingField: 6
+    <CountMultiplier>k__BackingField: 1
+    <MaxCountMultiplier>k__BackingField: 20

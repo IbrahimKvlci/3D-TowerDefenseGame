@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300058, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
   title: Turret2
-  healthMax: 50
+  healthMax: 100
   placingTime: 3
   Price: 0
   damage: 3

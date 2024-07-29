@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b2e5452fe611fe4583ccc483fc835ee, type: 3}
-  m_Name: ClownHorrorEnemy
+  m_Name: CrawlerHorrorEnemy
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3944452313200010398, guid: 1ab7afc717928054f9494e116543fca3, type: 3}
+  prefab: {fileID: 4595655749985145369, guid: 6b02557d0314dea4fb348ffc979c98f2, type: 3}
   icon: {fileID: 0}
-  speed: 15
+  speed: 7
   maxHealth: 50
   attackRange: 10
   attackSpeed: 1
-  damage: 10
-  attackAnimationToAttackTimerMax: 1
+  damage: 25

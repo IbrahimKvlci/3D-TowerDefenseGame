@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b2e5452fe611fe4583ccc483fc835ee, type: 3}
-  m_Name: UsurperDragonEnemy
+  m_Name: LizardAnimalEnemy
   m_EditorClassIdentifier: 
-  prefab: {fileID: 8742606766302475629, guid: 0adc8cb4c82fc934896597dda91e7ebb, type: 3}
+  prefab: {fileID: 3273203447131128755, guid: c5c71da31f6f4ab43a329b37317a9a90, type: 3}
   icon: {fileID: 0}
-  speed: 6
-  maxHealth: 50
+  speed: 12
+  maxHealth: 30
   attackRange: 10
   attackSpeed: 1
   damage: 10
-  attackAnimationToAttackTimerMax: 3

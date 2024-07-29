@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b2e5452fe611fe4583ccc483fc835ee, type: 3}
-  m_Name: NigtmareDragonEnemy
+  m_Name: TerrorBringerDragonEnemy
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4091452999550071146, guid: 37aaa4110a5869b458e802fd93ebef6e, type: 3}
+  prefab: {fileID: 4472873741969354809, guid: 05d444ed85155c8489c9d0e7e52fa354, type: 3}
   icon: {fileID: 0}
   speed: 6
-  maxHealth: 50
+  maxHealth: 100
   attackRange: 10
-  attackSpeed: 1
+  attackSpeed: 3
   damage: 10
-  attackAnimationToAttackTimerMax: 1

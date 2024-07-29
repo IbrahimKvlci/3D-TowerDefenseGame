@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b2e5452fe611fe4583ccc483fc835ee, type: 3}
-  m_Name: SkinlessZombieEnemy
+  m_Name: CreepHorrorEnemy
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5816515773124063082, guid: 6a3d8a43317cb254686bebce299c287d, type: 3}
+  prefab: {fileID: 2522070496263080835, guid: ebaa42aa6024ba54fab874b7d63203da, type: 3}
   icon: {fileID: 0}
-  speed: 1
-  maxHealth: 200
-  attackRange: 4
+  speed: 7
+  maxHealth: 10000
+  attackRange: 10
   attackSpeed: 1
   damage: 50
-  attackAnimationToAttackTimerMax: 1

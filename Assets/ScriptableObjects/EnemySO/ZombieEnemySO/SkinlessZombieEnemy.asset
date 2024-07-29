@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b2e5452fe611fe4583ccc483fc835ee, type: 3}
-  m_Name: HumanZombieEnemy
+  m_Name: SkinlessZombieEnemy
   m_EditorClassIdentifier: 
-  prefab: {fileID: 7029157021431351270, guid: 3bdbfb53c8dd0eb4681c65c2ee3f935b, type: 3}
+  prefab: {fileID: 5816515773124063082, guid: 6a3d8a43317cb254686bebce299c287d, type: 3}
   icon: {fileID: 0}
   speed: 3
-  maxHealth: 200
+  maxHealth: 150
   attackRange: 4
-  attackSpeed: 1
+  attackSpeed: 2
   damage: 50
-  attackAnimationToAttackTimerMax: 1
