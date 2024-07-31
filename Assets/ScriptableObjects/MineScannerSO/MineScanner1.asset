@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb344db4cb7d394aa86ab32889f9bbf, type: 3}
   m_Name: MineScanner1
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300066, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
+  icon: {fileID: 21300000, guid: 59dbac0a801a26a4090f40535ae2f6b4, type: 3}
   title: 
   healthMax: 100
   placingTime: 1
-  Price: 133
+  Price: 50
   speed: 13.45

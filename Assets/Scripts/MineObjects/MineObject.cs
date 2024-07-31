@@ -11,7 +11,7 @@ public class MineObject : MonoBehaviour
 
     [field:SerializeField] public MineObjectSO MineObjectSO { get; set; }
 
-    private float _count = 0;
+    private float _count;
     public float Count { 
         get { return _count; } 
         set { _count = value; OnMineObjectCountChanged?.Invoke(this, EventArgs.Empty); }

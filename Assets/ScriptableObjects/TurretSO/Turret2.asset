@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6421e51b8e168a40b62b59a25b1c75e, type: 3}
   m_Name: Turret2
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300058, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
-  title: Turret2
+  icon: {fileID: 21300000, guid: f1394e815f69c26469862663ad8e5e4c, type: 3}
+  title: Turret
   healthMax: 100
   placingTime: 3
-  Price: 0
+  Price: 100
   damage: 3
   fireDuration: 0.2
   attackRange: 25

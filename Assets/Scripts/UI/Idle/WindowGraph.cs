@@ -56,7 +56,7 @@ public class WindowGraph : MonoBehaviour
         ClearGraph();
 
         float graphHeight = graphContainer.sizeDelta.y;
-        float yMaximum = 1000f;
+        float yMaximum = 20f;
         if (valueList.Max()>yMaximum)
             yMaximum = valueList.Max();
    

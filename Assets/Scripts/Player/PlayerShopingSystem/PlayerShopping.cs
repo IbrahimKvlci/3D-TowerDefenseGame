@@ -12,7 +12,7 @@ public class PlayerShopping : MonoBehaviour
 
     public int Cost { get; set; }
 
-    private float cash = 20;
+    private float cash = 1000;
     public float Cash
     {
         get { return cash; }

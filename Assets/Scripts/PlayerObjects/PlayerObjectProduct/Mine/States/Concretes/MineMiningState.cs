@@ -26,7 +26,7 @@ public class MineMiningState : MineStateBase
             float miningCountPerTime = 0.1f*Time.deltaTime*_mine.Player.PlayerUpgrading.MiningSpeedMultiplier;
 
             //_mine.Player.PlayerShopping.MineObjects.Find(p => p.MineObjectSO.id == _mine.MineObject.MineObjectSO.id).Count+= miningCountPerTime;
-            _mine.Player.PlayerShopping.MineObjects.Find(p => p.MineObjectSO.id == _mine.MineObject.MineObjectSO.id).CurrentCollectedCount += miningCountPerTime;
+            _mine.Player.PlayerShopping.MineObjects.Find(p => p.MineObjectSO.id == Planet.Instace.PlanetSO.mineObject.MineObjectSO.id).CurrentCollectedCount += miningCountPerTime;
             _mine.MinePoint.MineCount-= miningCountPerTime;
         }
         else

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,11 +6,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private List<PlanetSO> planetSOList;
+    [SerializeField] private float cashPerSecond;
 
     public List<MineObjectTrader> MineObjectTraderList { get; set; }
     public int Day { get; set; }
 
     private ITradingMineObjectService _tradingMineObjectService;
+
 
     public static GameManager Instance { get; set; }
 
@@ -33,6 +36,16 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Day = 1;
+    }
+
+    private void Update()
+    {
+        HandlePlayerCashPerSecond();
+    }
+
+    private void HandlePlayerCashPerSecond()
+    {
+        Player.Instance.PlayerShopping.Cash += cashPerSecond * Time.unscaledDeltaTime;
     }
 
     public void NextDay() 

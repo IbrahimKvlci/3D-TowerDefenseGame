@@ -5,6 +5,7 @@ using UnityEngine;
 public class MinePointController : MonoBehaviour
 {
     [SerializeField] private float minMineCount, maxMineCount;
+    [SerializeField] private int minMinePointCount, maxMinePointCount;
 
 
     [field: SerializeField] public List<MinePoint> PointList { get; set; }
@@ -25,7 +26,7 @@ public class MinePointController : MonoBehaviour
 
         _minePointService = InGameIoC.Instance.MinePointService;
 
-        _minePointService.SetMinePointList(PointList, MinePointList, 155);
+        _minePointService.SetMinePointList(PointList, MinePointList, Random.Range(minMinePointCount,maxMinePointCount+1));
     }
 
     private void Start()

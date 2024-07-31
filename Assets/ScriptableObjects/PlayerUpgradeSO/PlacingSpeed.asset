@@ -15,4 +15,4 @@ MonoBehaviour:
   PlayerUpgradeEnum: 3
   icon: {fileID: 21300000, guid: e959dfc1459e8234a8b0869ee5cb6944, type: 3}
   text: PlacingSpeed
-  levelPrices: 1e000000280000002d000000
+  levelPrices: fa000000f4010000dc050000

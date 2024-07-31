@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12ba76968a928a04c968cb6d9e43f670, type: 3}
   m_Name: DragonPlanet
   m_EditorClassIdentifier: 
-  price: 10
+  price: 450
   planetMaterial: {fileID: 2100000, guid: 1290c1444fae99840bc08b3e7953549f, type: 2}
   title: Dragon Planet
-  mineObject: {fileID: -4004277721097816679, guid: 564196238e27c5449a4b53eefe650730,
+  mineObject: {fileID: 3767853152041770049, guid: 9c475c1ffa1e6414794bf58cf28ea733,
     type: 3}
   scene: 5
   enemySpawningRadius: 150
   planetCenter: {x: 32.3, y: 0, z: -15.2}
   startingHourToSpawnEnemy: 4
-  speedToSpawnEnemy: 0.02
+  speedToSpawnEnemy: 0.03
   planetEnemyList:
   - <Enemy>k__BackingField: {fileID: 8026165773918553244, guid: 2a65d9119022c984a9df5e9011ae9abe,
       type: 3}
