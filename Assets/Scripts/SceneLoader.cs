@@ -7,7 +7,8 @@ public class SceneLoader
 {
     public enum Scene
     {
-        SampleScene,
+        MainMenu,
+        LoadingScene,
         Idle,
         HorrorPlanetScene,
         ZombiePlanetScene,
@@ -15,8 +16,17 @@ public class SceneLoader
         DragonPlanetScene,
     }
 
+    private static Scene targetScene;
+
     public static void LoadScene(Scene scene)
     {
-        SceneManager.LoadScene(scene.ToString());
+        SceneLoader.targetScene = scene;
+
+        SceneManager.LoadScene(Scene.LoadingScene.ToString());
+    }
+
+    public static void LoaderCallback()
+    {
+        SceneManager.LoadScene(targetScene.ToString());
     }
 }

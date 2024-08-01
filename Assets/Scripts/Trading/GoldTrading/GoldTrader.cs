@@ -5,8 +5,5 @@ using UnityEngine;
 public class GoldTrader : MineObjectTrader
 {
 
-    protected override void Start()
-    {
-        base.Start();
-    }
+
 }

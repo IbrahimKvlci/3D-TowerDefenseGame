@@ -80,7 +80,7 @@ public class TradingMineObjectManager : ITradingMineObjectService
     {
         SetMineObjectPriceUSDParityAccordingToSupplyDemand(mineObjectTrader);
         SetRandomMineObjectPriceUSDParityPercently(mineObjectTrader, 20);
-        mineObjectTrader.PriceHistory.Add(mineObjectTrader.USDParity);
+        mineObjectTrader.AddNewPrice(mineObjectTrader.USDParity);
         ResetMineObjectTrader(mineObjectTrader);
     }
 

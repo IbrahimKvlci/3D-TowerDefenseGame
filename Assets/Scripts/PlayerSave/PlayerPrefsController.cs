@@ -10,6 +10,9 @@ public class PlayerPrefsController : MonoBehaviour
     {
         PlayerCash,
         MineObjectById,
+        MineObjectTraderPriceCountById,
+        MineObjectTraderByIdPriceValueByIndex,
+        MineObjectTraderByIdUSDParity,
         MineScannerUpgrade,
         MiningSpeedUpgrade,
         ObjectDamageUpgrade,
@@ -41,6 +44,10 @@ public class PlayerPrefsController : MonoBehaviour
         Player.Instance.PlayerUpgrading.OnMiningSpeedUpgrade += PlayerUpgrading_OnMiningSpeedUpgrade;
         Player.Instance.PlayerUpgrading.OnObjectDamageUpgrade += PlayerUpgrading_OnObjectDamageUpgrade;
         Player.Instance.PlayerUpgrading.OnPlacingSpeedUpgrade += PlayerUpgrading_OnPlacingSpeedUpgrade;
+        foreach (MineObjectTrader mineObjectTrader in MineObjectTraderContainer.Instance.MineObjectTraderList)
+        {
+            mineObjectTrader.OnAddingNewPrice += MineObjectTrader_OnAddingNewPrice;
+        }
 
         foreach (MineObject mineObject in Player.Instance.PlayerShopping.MineObjects)
         {
@@ -52,7 +59,38 @@ public class PlayerPrefsController : MonoBehaviour
         Player.Instance.PlayerUpgrading.MiningSpeedMultiplier = GetFloatByPlayerPrefsEnum(PlayerPrefsEnum.MiningSpeedUpgrade, 1);
         Player.Instance.PlayerUpgrading.ObjectDamageMultiplier = GetFloatByPlayerPrefsEnum(PlayerPrefsEnum.ObjectDamageUpgrade, 1);
         Player.Instance.PlayerUpgrading.PlacingSpeedMultiplier = GetFloatByPlayerPrefsEnum(PlayerPrefsEnum.PlacingSpeedUpgrade, 1);
+        foreach (MineObjectTrader mineObjectTrader in MineObjectTraderContainer.Instance.MineObjectTraderList)
+        {
+            mineObjectTrader.PriceHistory = GetFloatListByPlayerPrefsEnumId(PlayerPrefsEnum.MineObjectTraderByIdPriceValueByIndex, mineObjectTrader.MineObject.MineObjectSO.id,mineObjectTrader.MineObject.MineObjectSO.startingPrice);
+            mineObjectTrader.USDParity = GetFloatByPlayerPrefsEnumId(PlayerPrefsEnum.MineObjectTraderByIdUSDParity,mineObjectTrader.MineObject.MineObjectSO.id,mineObjectTrader.MineObject.MineObjectSO.startingPrice);
+        }
+    }
 
+    private void MineObjectTrader_OnAddingNewPrice(object sender, System.EventArgs e)
+    {
+        SetFloatListByPlayerPrefsEnumId(PlayerPrefsEnum.MineObjectTraderByIdPriceValueByIndex, ((MineObjectTrader)sender).MineObject.MineObjectSO.id, ((MineObjectTrader)sender).PriceHistory);
+        SetFloatByPlayerPrefsEnumId(PlayerPrefsEnum.MineObjectTraderByIdUSDParity, ((MineObjectTrader)sender).MineObject.MineObjectSO.id, ((MineObjectTrader)sender).USDParity);
+    }
+
+    public void ResetProgress()
+    {
+        foreach (MineObject mineObject in Player.Instance.PlayerShopping.MineObjects)
+        {
+            Player.Instance.PlayerShopping.GetMineObjectFromListByObject(mineObject).Count = 0;
+        }
+        Player.Instance.PlayerShopping.Cash =1000;
+
+        Player.Instance.PlayerUpgrading.MineScannerSpeedMultiplier = 1;
+        Player.Instance.PlayerUpgrading.MiningSpeedMultiplier = 1;
+        Player.Instance.PlayerUpgrading.ObjectDamageMultiplier = 1;
+        Player.Instance.PlayerUpgrading.PlacingSpeedMultiplier = 1;
+
+        foreach (MineObjectTrader mineObjectTrader in MineObjectTraderContainer.Instance.MineObjectTraderList)
+        {
+            mineObjectTrader.PriceHistory.Clear();
+            mineObjectTrader.PriceHistory.Add(mineObjectTrader.MineObject.MineObjectSO.startingPrice);
+            mineObjectTrader.USDParity = mineObjectTrader.MineObject.MineObjectSO.startingPrice;
+        }
     }
 
     private void PlayerUpgrading_OnPlacingSpeedUpgrade(object sender, System.EventArgs e)
@@ -96,6 +134,15 @@ public class PlayerPrefsController : MonoBehaviour
     {
         PlayerPrefs.SetFloat(playerPrefsEnum.ToString()+id, value);
     }
+    private void SetIntByPlayerPrefsEnumId(PlayerPrefsEnum playerPrefsEnum, int id, int value)
+    {
+        PlayerPrefs.SetInt(playerPrefsEnum.ToString() + id, value);
+    }
+
+    private float GetIntByPlayerPrefsEnumId(PlayerPrefsEnum playerPrefsEnum, int id, int defaultValue)
+    {
+        return PlayerPrefs.GetInt(playerPrefsEnum.ToString() + id, defaultValue);
+    }
 
     private float GetFloatByPlayerPrefsEnumId(PlayerPrefsEnum playerPrefsEnum, int id,float defaultValue)
     {
@@ -105,5 +152,27 @@ public class PlayerPrefsController : MonoBehaviour
     private float GetFloatByPlayerPrefsEnum(PlayerPrefsEnum playerPrefsEnum,float defaultValue)
     {
         return PlayerPrefs.GetFloat(playerPrefsEnum.ToString(),defaultValue);
+    }
+
+    private void SetFloatListByPlayerPrefsEnumId(PlayerPrefsEnum playerPrefsEnum,int id,List<float> valueList)
+    {
+        SetIntByPlayerPrefsEnumId(PlayerPrefsEnum.MineObjectTraderPriceCountById, id, valueList.Count);
+
+        for (int i = 0; i < valueList.Count; i++)
+        {
+            PlayerPrefs.SetFloat(playerPrefsEnum.ToString()+id+i, valueList[i]);
+        }
+    }
+
+    private List<float> GetFloatListByPlayerPrefsEnumId(PlayerPrefsEnum playerPrefsEnum,int id,float defaultValue)
+    {
+        List<float> value = new List<float>();
+
+        for (int i = 0; i < GetIntByPlayerPrefsEnumId(PlayerPrefsEnum.MineObjectTraderPriceCountById, id,1); i++)
+        {
+            value.Add(PlayerPrefs.GetFloat(playerPrefsEnum.ToString() + id + i,defaultValue));
+        }
+
+        return value;
     }
 }

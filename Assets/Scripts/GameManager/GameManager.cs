@@ -87,9 +87,6 @@ public class GameManager : MonoBehaviour
             playerTotalMoney += mineObject.Count * _tradingMineObjectService.GetMineObjectTraderByMineObject(MineObjectTraderContainer.Instance.MineObjectTraderList, mineObject).USDParity;
         }
 
-        Debug.Log(playerTotalMoney);
-        Debug.Log(minMoney);
-
         if(playerTotalMoney < minMoney)
         {
             return true;
