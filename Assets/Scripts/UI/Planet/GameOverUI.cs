@@ -19,7 +19,13 @@ public class GameOverUI : MonoBehaviour
     {
         homeBtn.onClick.AddListener(() =>
         {
-            SceneLoader.LoadScene(SceneLoader.Scene.Idle);
+            if (Player.Instance.PlayerFirstPlay)
+            {
+                IdleTutorial.Step = 3;
+                SceneLoader.LoadScene(SceneLoader.Scene.IdleTutorial);
+            }
+            else
+                SceneLoader.LoadScene(SceneLoader.Scene.Idle);
         });
 
         _gameControllerService = InGameIoC.Instance.GameControllerService;

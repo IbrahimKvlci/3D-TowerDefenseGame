@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public event EventHandler OnPlayerFirstPlayChanged;
     event EventHandler OnPlayerBankruptcy;
 
     public static Player Instance { get; private set; }
@@ -22,6 +23,17 @@ public class Player : MonoBehaviour
     public IPlayerStateService PlayerStateService { get; set; }
 
     public bool PlayerWentBankrupt { get; set; }
+
+    private bool _playerFirstPlay;
+    public bool PlayerFirstPlay
+    {
+        get { return _playerFirstPlay; }
+        set
+        {
+            _playerFirstPlay = value;
+            OnPlayerFirstPlayChanged?.Invoke(this, EventArgs.Empty);
+        }
+    }
 
     private void Awake()
     {

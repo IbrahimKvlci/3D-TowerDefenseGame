@@ -7,6 +7,8 @@ public class SceneLoader
 {
     public enum Scene
     {
+        IdleTutorial,
+        TutorialPlanetScene,
         MainMenu,
         LoadingScene,
         Idle,

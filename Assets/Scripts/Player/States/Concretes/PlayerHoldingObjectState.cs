@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class PlayerHoldingObjectState : PlayerStateBase
 {
+    public event EventHandler OnObjectPlace;
 
     private IGridPlacementService _gridPlacementService;
     private IObjectPlacementService _objectPlacementService;
@@ -61,6 +62,8 @@ public class PlayerHoldingObjectState : PlayerStateBase
                         {
                             //OnObjectPlace?.Invoke(this, EventArgs.Empty);
                             InGameSoundManager.Instance.PlayAudioOnCamera(InGameSoundManager.Instance.InGameSoundEffectsSO.purchaseFx, 1);
+
+                            OnObjectPlace?.Invoke(this, EventArgs.Empty);
                         }
                         else
                         {

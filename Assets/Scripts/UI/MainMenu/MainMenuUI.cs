@@ -12,11 +12,24 @@ public class MainMenuUI : MonoBehaviour
     {
         playBtn.onClick.AddListener(() =>
         {
-            SceneLoader.LoadScene(SceneLoader.Scene.Idle);
+            if (Player.Instance.PlayerFirstPlay)
+            {
+                SceneLoader.LoadScene(SceneLoader.Scene.IdleTutorial);
+            }
+            else
+            {
+                SceneLoader.LoadScene(SceneLoader.Scene.Idle);
+
+            }
         });
         resetProgressBtn.onClick.AddListener(() =>
         {
             PlayerPrefsController.Instance.ResetProgress();
         });
+    }
+
+    private void Start()
+    {
+        IdleTutorial.Step = 1;
     }
 }

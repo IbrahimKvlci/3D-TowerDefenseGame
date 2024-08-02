@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,7 @@ public class PlayerPrefsController : MonoBehaviour
         MiningSpeedUpgrade,
         ObjectDamageUpgrade,
         PlacingSpeedUpgrade,
+        PlayerFirstPlay,
     }
 
     private void Awake()
@@ -48,6 +50,7 @@ public class PlayerPrefsController : MonoBehaviour
         {
             mineObjectTrader.OnAddingNewPrice += MineObjectTrader_OnAddingNewPrice;
         }
+        Player.Instance.OnPlayerFirstPlayChanged += Instance_OnPlayerFirstPlayChanged;
 
         foreach (MineObject mineObject in Player.Instance.PlayerShopping.MineObjects)
         {
@@ -64,6 +67,13 @@ public class PlayerPrefsController : MonoBehaviour
             mineObjectTrader.PriceHistory = GetFloatListByPlayerPrefsEnumId(PlayerPrefsEnum.MineObjectTraderByIdPriceValueByIndex, mineObjectTrader.MineObject.MineObjectSO.id,mineObjectTrader.MineObject.MineObjectSO.startingPrice);
             mineObjectTrader.USDParity = GetFloatByPlayerPrefsEnumId(PlayerPrefsEnum.MineObjectTraderByIdUSDParity,mineObjectTrader.MineObject.MineObjectSO.id,mineObjectTrader.MineObject.MineObjectSO.startingPrice);
         }
+
+        Player.Instance.PlayerFirstPlay = GetBoolByPlayerPrefsEnum(PlayerPrefsEnum.PlayerFirstPlay);
+    }
+
+    private void Instance_OnPlayerFirstPlayChanged(object sender, EventArgs e)
+    {
+        SetBoolByPlayerPrefsEnum(PlayerPrefsEnum.PlayerFirstPlay,Player.Instance.PlayerFirstPlay);
     }
 
     private void MineObjectTrader_OnAddingNewPrice(object sender, System.EventArgs e)
@@ -147,6 +157,16 @@ public class PlayerPrefsController : MonoBehaviour
     private float GetFloatByPlayerPrefsEnumId(PlayerPrefsEnum playerPrefsEnum, int id,float defaultValue)
     {
         return PlayerPrefs.GetFloat(playerPrefsEnum.ToString()+id,defaultValue);
+    }
+
+    private bool GetBoolByPlayerPrefsEnum(PlayerPrefsEnum playerPrefsEnum)
+    {
+        return Convert.ToBoolean(PlayerPrefs.GetInt(playerPrefsEnum.ToString(), 1));
+    }
+
+    private void SetBoolByPlayerPrefsEnum( PlayerPrefsEnum playerPrefsEnum,bool value)
+    {
+        PlayerPrefs.SetInt(playerPrefsEnum.ToString(), Convert.ToInt32(value));
     }
 
     private float GetFloatByPlayerPrefsEnum(PlayerPrefsEnum playerPrefsEnum,float defaultValue)

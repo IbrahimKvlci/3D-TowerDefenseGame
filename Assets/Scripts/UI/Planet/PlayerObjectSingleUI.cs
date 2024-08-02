@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerObjectSingleUI : MonoBehaviour
 {
-    public PlayerObjectProduct PlayerObject { get; set; }
+    [field:SerializeField] public PlayerObjectProduct PlayerObject { get; set; }
 
     [SerializeField] private Image icon;
     [SerializeField] private TextMeshProUGUI priceText;
