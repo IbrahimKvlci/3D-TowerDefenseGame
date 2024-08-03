@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AttackSpaceShipChaseState : AttackSpaceShipStateBase
 {
+    public event EventHandler OnAttackSpaceShipChase;
+    public event EventHandler OnAttackSpaceShipChaseFinished;
+
     private IAttackSpaceShipMovementService _attackSpaceShipMovementService;
     private IAttackSpaceShipTriggerService _attackSpaceShipTriggerService;
 
@@ -16,7 +20,7 @@ public class AttackSpaceShipChaseState : AttackSpaceShipStateBase
     public override void EnterState()
     {
         base.EnterState();
-        Debug.Log("chase");
+        OnAttackSpaceShipChase?.Invoke(this,EventArgs.Empty);
     }
 
     public override void UpdateState()
@@ -40,6 +44,7 @@ public class AttackSpaceShipChaseState : AttackSpaceShipStateBase
     public override void ExitState()
     {
         base.ExitState();
+        OnAttackSpaceShipChaseFinished?.Invoke(this,EventArgs.Empty);   
     }
 
     private void HandleMovement()

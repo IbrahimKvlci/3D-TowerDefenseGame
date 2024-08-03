@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AttackSpaceShipFreezingState : AttackSpaceShipStateBase
 {
+    public event EventHandler OnFreezingFinished;
+
     public AttackSpaceShipFreezingState(AttackSpaceShip attackSpaceShip, IAttackSpaceShipStateService attackSpaceShipStateService) : base(attackSpaceShip, attackSpaceShipStateService)
     {
     }
@@ -26,5 +29,7 @@ public class AttackSpaceShipFreezingState : AttackSpaceShipStateBase
     public override void ExitState()
     {
         base.ExitState();
+
+        OnFreezingFinished?.Invoke(this, EventArgs.Empty);
     }
 }

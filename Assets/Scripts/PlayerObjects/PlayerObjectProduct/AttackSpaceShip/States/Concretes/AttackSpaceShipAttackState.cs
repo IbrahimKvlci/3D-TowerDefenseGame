@@ -1,9 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AttackSpaceShipAttackState : AttackSpaceShipStateBase
 {
+    public event EventHandler OnAttackSpaceShipTarget;
+    public event EventHandler OnAttackSpaceShipAttackFinished;
+    public event EventHandler OnAttackSpaceShipAttack;
+
     private float timer;
 
     private IAttackSpaceShipAttackService _attackSpaceShipAttackService;
@@ -20,8 +25,9 @@ public class AttackSpaceShipAttackState : AttackSpaceShipStateBase
     public override void EnterState()
     {
         base.EnterState();
-        _attackSpaceShip.MuzzleFlashParticleEffect.SetActive(true);
         timer = 0f;
+
+        OnAttackSpaceShipTarget?.Invoke(this, EventArgs.Empty);
     }
 
     public override void UpdateState()
@@ -37,6 +43,7 @@ public class AttackSpaceShipAttackState : AttackSpaceShipStateBase
             _attackSpaceShipAttackService.Attack(_attackSpaceShip.AttackSpaceShipTrigger.TriggeredEnemy, ((AttackSpaceShipSO)_attackSpaceShip.PlayerObjectSO).damage*_attackSpaceShip.Player.PlayerUpgrading.ObjectDamageMultiplier);
             InGameSoundManager.Instance.PlayAudioFromPool(InGameSoundManager.Instance.InGameSoundEffectsSO.laserShotFx);
 
+            OnAttackSpaceShipAttack?.Invoke(this, EventArgs.Empty);
         }
 
         if (!_attackSpaceShipTriggerService.IsEnemyTriggeredToBeAttacked(_attackSpaceShip, _attackSpaceShip.AttackSpaceShipTrigger.TriggeredEnemy))
@@ -55,6 +62,8 @@ public class AttackSpaceShipAttackState : AttackSpaceShipStateBase
     {
         base.ExitState();
         _attackSpaceShip.MuzzleFlashParticleEffect.SetActive(false);
+
+        OnAttackSpaceShipAttackFinished?.Invoke(this, EventArgs.Empty);
     }
 
 

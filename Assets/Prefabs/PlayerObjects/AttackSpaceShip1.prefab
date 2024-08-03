@@ -377,8 +377,58 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7337349584292053787}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 272585407061325957, guid: c920568513a37554da59f0107283c00d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4450228507906295401}
+    - targetCorrespondingSourceObject: {fileID: 272585407061325957, guid: c920568513a37554da59f0107283c00d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3801078913571003049}
   m_SourcePrefab: {fileID: 100100000, guid: c920568513a37554da59f0107283c00d, type: 3}
+--- !u!1 &4695503245277322640 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 272585407061325957, guid: c920568513a37554da59f0107283c00d,
+    type: 3}
+  m_PrefabInstance: {fileID: 4819324018272937237}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4450228507906295401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4695503245277322640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ab1f1da020b17f42a0faec1954b55d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 3801078913571003049}
+  attackSpaceShip: {fileID: 8674747965091989697}
+  muzzleFlashTimer: 1
+--- !u!95 &3801078913571003049
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4695503245277322640}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 99c52cc90fcfa19418c5706d6a5f35c4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &5359872888273012522 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 613538858627768895, guid: c920568513a37554da59f0107283c00d,
