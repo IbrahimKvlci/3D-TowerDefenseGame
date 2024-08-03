@@ -25,35 +25,35 @@ public class IdleTutorial : MonoBehaviour
     {
         startBtn.onClick.AddListener(() =>
         {
-            NextStep();
-            startBtn.interactable = false;
+            if(Step==1)
+                NextStep();
         });
         travelBtn.onClick.AddListener(() =>
         {
-            travelBtn.interactable = false;
 
         });
         sellBtn.onClick.AddListener(() =>
         {
-            NextStep();
-            startBtn.interactable = false;
+            if(Step==6)
+                NextStep();
 
         });
         changePageBtn.onClick.AddListener(() =>
         {
-            NextStep();
-            startBtn.interactable = false;
+            if(Step==4)
+                NextStep();
 
         });
         tradeBtn.onClick.AddListener(() =>
         {
-            NextStep();
-            startBtn.interactable = false;
+            if(Step==3)
+                NextStep();
 
         });
         exitTutorialBtn.onClick.AddListener(() =>
         {
             Player.Instance.PlayerFirstPlay = false;
+            PlayerPrefsController.Instance.ResetProgress();
             SceneLoader.LoadScene(SceneLoader.Scene.Idle);
         });
         enterNumberField.onValueChanged.AddListener(delegate{
@@ -85,28 +85,38 @@ public class IdleTutorial : MonoBehaviour
         {
             case 1:
                 CloseAllStepObjects();
+                CloseAllInteractables();
                 stepObjectList[0].SetActive(true);
+                startBtn.interactable= true;
                 break;
             case 2:
                 CloseAllStepObjects();
+                CloseAllInteractables();
                 stepObjectList[1].SetActive(true);
+                travelBtn.interactable = true;
                 break;
             case 3:
                 CloseAllStepObjects();
+                CloseAllInteractables();
                 stepObjectList[2].SetActive(true);
-                Debug.Log("worked");
+                tradeBtn.interactable = true;
                 break;
             case 4:
                 CloseAllStepObjects();
+                CloseAllInteractables();
                 stepObjectList[3].SetActive(true);
+                changePageBtn.interactable = true;
                 break;
             case 5:
                 CloseAllStepObjects();
+                CloseAllInteractables();
                 stepObjectList[4].SetActive(true);
                 break;
             case 6:
                 CloseAllStepObjects();
+                CloseAllInteractables();
                 stepObjectList[5].SetActive(true);
+                sellBtn.interactable = true;
                 break;
             case 7:
                 CloseAllStepObjects();
@@ -129,6 +139,13 @@ public class IdleTutorial : MonoBehaviour
         {
             item.SetActive(false);
         }
+    }
+    private void CloseAllInteractables()
+    {
+        startBtn.interactable= false;
+        tradeBtn.interactable= false;
+        sellBtn.interactable= false;
+        changePageBtn.interactable= false;
     }
 
 }

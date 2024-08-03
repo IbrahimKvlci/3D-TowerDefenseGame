@@ -17,7 +17,7 @@ MonoBehaviour:
   title: Zombie Planet
   mineObject: {fileID: -4467650383286660519, guid: dacad57bfdaad9a45b9001dfe9349839,
     type: 3}
-  scene: 3
+  scene: 6
   enemySpawningRadius: 150
   planetCenter: {x: 32.3, y: 0, z: -15.2}
   startingHourToSpawnEnemy: 0
