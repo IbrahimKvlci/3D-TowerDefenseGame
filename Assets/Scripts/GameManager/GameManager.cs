@@ -35,7 +35,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        Day = 1;
+        Day = MineObjectTraderList[0].PriceHistory.Count;
+        Debug.Log(Day);
     }
 
     private void Update()

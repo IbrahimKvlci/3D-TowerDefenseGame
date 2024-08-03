@@ -19,8 +19,8 @@ MonoBehaviour:
   Price: 175
   damage: 12
   fireDuration: 0.5
-  attackRange: 20
-  idleSpeed: 3
+  attackRange: 30
+  idleSpeed: 5
   chaseSpeed: 15
-  targetRange: 30
+  targetRange: 40
   maxMoveRange: 50

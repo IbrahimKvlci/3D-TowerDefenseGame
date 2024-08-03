@@ -12,7 +12,7 @@ public class MineObjectTrader : MonoBehaviour
 
     public float USDParity { get; set; }
     public float SellingCountEachDay { get; set; } = 0;
-    public List<float> PriceHistory { get; set; }/*= new List<float>();*/
+    [field:SerializeField] public List<float> PriceHistory { get; set; }/*= new List<float>();*/
 
     //virtual protected void Start()
     //{

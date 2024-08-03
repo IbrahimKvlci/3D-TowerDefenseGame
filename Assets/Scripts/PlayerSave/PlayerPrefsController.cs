@@ -97,9 +97,11 @@ public class PlayerPrefsController : MonoBehaviour
 
         foreach (MineObjectTrader mineObjectTrader in MineObjectTraderContainer.Instance.MineObjectTraderList)
         {
+            
             mineObjectTrader.PriceHistory.Clear();
             mineObjectTrader.PriceHistory.Add(mineObjectTrader.MineObject.MineObjectSO.startingPrice);
             mineObjectTrader.USDParity = mineObjectTrader.MineObject.MineObjectSO.startingPrice;
+            SetFloatListByPlayerPrefsEnumId(PlayerPrefsEnum.MineObjectTraderByIdPriceValueByIndex, mineObjectTrader.MineObject.MineObjectSO.id, mineObjectTrader.PriceHistory);
         }
     }
 

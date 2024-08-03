@@ -35,7 +35,13 @@ public class WindowGraph : MonoBehaviour
 
     private void Start()
     {
-        ShowGraph(tradeUI.CurrentMineObjectTrader.PriceHistory);
+        int maxDay = 19;
+
+        List<float> values = tradeUI.CurrentMineObjectTrader.PriceHistory.TakeLast(maxDay).ToList();
+        int startingDay = 0;
+        if (GameManager.Instance.Day - maxDay > 0)
+            startingDay = GameManager.Instance.Day - maxDay;
+        ShowGraph(values,startingDay,maxDay);
     }
 
     private GameObject CreateCircle(Vector2 anchoredPosition)
@@ -51,7 +57,7 @@ public class WindowGraph : MonoBehaviour
         return gameObject;
     }
 
-    private void ShowGraph(List<float> valueList)
+    private void ShowGraph(List<float> valueList,int startingDay,int endDay)
     {
         ClearGraph();
 
@@ -74,19 +80,19 @@ public class WindowGraph : MonoBehaviour
             lastCircleGameObject = circleGameObject;
         }
 
-        for (int i = 0; i < 15; i++) 
+        for (int i = 0; i < endDay; i++) 
         {
             float xPosition = xSize + i * xSize;
             RectTransform labelX = Instantiate(labelXTemplate);
             labelX.SetParent(graphContainer, false);
             labelX.gameObject.SetActive(true);
             labelX.anchoredPosition = new Vector2(xPosition, 0);
-            labelX.GetComponent<TextMeshProUGUI>().text = $"Day {i + 1}";
+            labelX.GetComponent<TextMeshProUGUI>().text = $"Day {startingDay+i + 1}";
 
             RectTransform labelY = Instantiate(labelYTemplate);
             labelY.SetParent(graphContainer,false);
             labelY.gameObject.SetActive(true);
-            float normalizedValue = i * 1f / 15;
+            float normalizedValue = i * 1f / endDay;
             labelY.anchoredPosition=new Vector2(-7,normalizedValue*graphHeight);
             labelY.GetComponent<TextMeshProUGUI>().text=Mathf.RoundToInt(normalizedValue*yMaximum).ToString();
         }
@@ -142,7 +148,13 @@ public class WindowGraph : MonoBehaviour
         }
 
         tradeUI.CurrentMineObjectTrader = tradeUI.MineObjectTraderList[newIndex];
-        ShowGraph(tradeUI.CurrentMineObjectTrader.PriceHistory);
+
+        int maxDay = 19;
+        List<float> values = tradeUI.CurrentMineObjectTrader.PriceHistory.TakeLast(maxDay).ToList();
+        int startingDay = 0;
+        if (GameManager.Instance.Day - maxDay > 0)
+            startingDay = GameManager.Instance.Day - maxDay;
+        ShowGraph(values, startingDay, maxDay);
 
         tradeUI.ChangeCurrentMineObjectIcon(tradeUI.CurrentMineObjectTrader.MineObject.MineObjectSO.icon);
     }
