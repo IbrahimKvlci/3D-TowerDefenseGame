@@ -30,6 +30,8 @@ public class InGameIoC : MonoBehaviour
     public IGameControllerService GameControllerService { get; set; }
     public IMineObjectService MineObjectService { get; set; }
     public IPlanetEnemySpawnerService PlanetEnemySpawnerService { get; set; }
+    public IRadarRocketLauncherTriggerService RadarRocketLauncherTriggerService { get; set; }
+    public IRadarRocketLauncherAttackService RadarRocketLauncherAttackService {  get; set; }
 
     private void Awake()
     {
@@ -59,6 +61,8 @@ public class InGameIoC : MonoBehaviour
         MineObjectService= new MineObjectManager();
         GameControllerService = new GameControllerManager(MineObjectService);
         PlanetEnemySpawnerService = new PlanetEnemySpawnerManager();
+        RadarRocketLauncherTriggerService= new RadarRocketLauncherTriggerManager();
+        RadarRocketLauncherAttackService = new RadarRocketLauncherAttackManager(EnemyHealthService);
     }
 
 

@@ -1432,13 +1432,19 @@ PrefabInstance:
     - target: {fileID: 433271132490110917, guid: 3b247fcb6e3857e41a4f5d7b55701e24,
         type: 3}
       propertyPath: playerObjectList.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 433271132490110917, guid: 3b247fcb6e3857e41a4f5d7b55701e24,
         type: 3}
       propertyPath: playerObjectList.Array.data[4]
       value: 
       objectReference: {fileID: 5602649395493147431, guid: 2d025440569a9434e9cbbe0eb487de6d,
+        type: 3}
+    - target: {fileID: 433271132490110917, guid: 3b247fcb6e3857e41a4f5d7b55701e24,
+        type: 3}
+      propertyPath: playerObjectList.Array.data[5]
+      value: 
+      objectReference: {fileID: 8020837174924339568, guid: e15c338427d0b8046a5b29447a3f94f7,
         type: 3}
     - target: {fileID: 4878012197064418617, guid: 3b247fcb6e3857e41a4f5d7b55701e24,
         type: 3}

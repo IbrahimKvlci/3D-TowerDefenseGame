@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae6c5933c5b4c0b41a0d78f0bbbc0a97, type: 3}
+  m_Name: RadarRocketLauncherSO
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300038, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
+  title: radar
+  healthMax: 100
+  placingTime: 2
+  Price: 100
+  damage: 100
+  rocketArrivalTime: 1
+  rocketCreatingTime: 5
+  triggerRange: 100

@@ -2686,6 +2686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3982d7e46905b07479863a2e45dcb6a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <PlayerObject>k__BackingField: {fileID: 0}
   icon: {fileID: 9164504310940153274}
   priceText: {fileID: 4279530521173029221}
   playerObjectProductBtn: {fileID: 343534993516854329}
@@ -3204,7 +3205,7 @@ RectTransform:
   - {fileID: 7379821880788098187}
   - {fileID: 5717362388807256168}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3563,6 +3564,7 @@ MonoBehaviour:
   - {fileID: 8650313555942292124, guid: 3c0f29fc88ba27d41ab83ef4b8df13e8, type: 3}
   - {fileID: 213742030029933444, guid: 55d4118a40691b84ca3764266f01e098, type: 3}
   - {fileID: 2112475598434735109, guid: e129d4171b45b844ab0ece5eb84b7791, type: 3}
+  - {fileID: 8020837174924339568, guid: e15c338427d0b8046a5b29447a3f94f7, type: 3}
   playerObjectTemplate: {fileID: 1841804259670868611}
   container: {fileID: 1566329121397982305}
 --- !u!1 &7302374826522869281
