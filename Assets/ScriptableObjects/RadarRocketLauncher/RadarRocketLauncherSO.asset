@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae6c5933c5b4c0b41a0d78f0bbbc0a97, type: 3}
   m_Name: RadarRocketLauncherSO
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300038, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
+  icon: {fileID: 21300000, guid: ff328fb5287f8224b80dfb8fbce159fa, type: 3}
   title: radar
-  healthMax: 100
+  healthMax: 300
   placingTime: 2
-  Price: 100
-  damage: 100
+  Price: 2500
+  damage: 500
   rocketArrivalTime: 1
   rocketCreatingTime: 5
   triggerRange: 100

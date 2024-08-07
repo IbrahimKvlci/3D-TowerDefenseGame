@@ -8,6 +8,8 @@ public class Rocket : MonoBehaviour
     [field: SerializeField] public RocketSO RocketSO { get; set; }
 
     [SerializeField] private LayerMask layerMask;
+    [SerializeField] private ParticleSystem explosionParticle;
+    [SerializeField] private AudioClip explosionSound;
 
     public Enemy EnemyTarget { get; set; }
 
@@ -41,6 +43,8 @@ public class Rocket : MonoBehaviour
             {
                 _enemyHealthService.TakeDamage(enemy, RocketSO.damage);
             }
+            Instantiate(explosionParticle.gameObject, transform.position, Quaternion.identity);
+            InGameSoundManager.Instance.PlayAudioFromPool(explosionSound);
             Destroy(gameObject);
         }
     }

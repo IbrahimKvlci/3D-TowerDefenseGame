@@ -1,12 +1,28 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    public event EventHandler OnHourChanged;
+
     [field: SerializeField] public float MaxHour { get; set; }
     [field:SerializeField] public float SpeedOfTheGame { get; set; }
-    public float Hour { get; set; }
+
+    private float _hour;
+    public float Hour
+    {
+        get
+        {
+            return _hour;
+        }
+        set
+        {
+            _hour = value;
+            OnHourChanged?.Invoke(this,EventArgs.Empty);
+        }
+    }
     public bool IsPaused { get; set; }
     public bool IsGameOver { get; set; }
 

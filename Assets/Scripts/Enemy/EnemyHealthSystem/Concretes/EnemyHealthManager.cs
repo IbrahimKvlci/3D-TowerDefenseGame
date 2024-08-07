@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyHealthManager : IEnemyHealthService
 {
     public event EventHandler OnEnemyDamaged;
+    public event EventHandler OnEnemyDead;
 
     public void DestroySelf(Enemy enemy)
     {
@@ -20,6 +21,8 @@ public class EnemyHealthManager : IEnemyHealthService
         if (enemy.EnemyHealth.Health <= 0)
         {
             enemy.EnemyHealth.IsDead = true;
+
+            OnEnemyDead?.Invoke(this, EventArgs.Empty);
         }
     }
 }

@@ -16,5 +16,5 @@ MonoBehaviour:
   title: Mine
   healthMax: 100
   placingTime: 3
-  Price: 50
+  Price: 25
   prefab: {fileID: 3472182564185262402, guid: eaac7c46e3b01b849aabc767e3e30bed, type: 3}

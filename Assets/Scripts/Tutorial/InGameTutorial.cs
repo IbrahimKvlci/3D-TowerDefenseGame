@@ -35,10 +35,17 @@ public class InGameTutorial : MonoBehaviour
     private void Start()
     {
         ((PlayerHoldingObjectState)Player.Instance.PlayerHoldingObjectState).OnObjectPlace += InGameTutorial_OnObjectPlace;
+        InGameIoC.Instance.EnemyHealthService.OnEnemyDead += EnemyHealthService_OnEnemyDead;
 
         Step = 1;
         CloseAllStepObjects();
         RunStep();
+    }
+
+    private void EnemyHealthService_OnEnemyDead(object sender, System.EventArgs e)
+    {
+        GameController.Instance.IsGameOver = true;
+        Debug.Log("finish");
     }
 
     private void InGameTutorial_OnObjectPlace(object sender, System.EventArgs e)

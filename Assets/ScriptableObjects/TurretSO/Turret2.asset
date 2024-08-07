@@ -16,7 +16,7 @@ MonoBehaviour:
   title: Turret
   healthMax: 100
   placingTime: 3
-  Price: 100
+  Price: 75
   damage: 3
   fireDuration: 0.2
   attackRange: 25

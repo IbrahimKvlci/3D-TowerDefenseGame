@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4d7574b6f9e4f8438ea319b7e04abb5, type: 3}
   m_Name: WarriorAttackSpaceShip
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 06309a65cbcdd6843b4a3110de9ec5a5, type: 3}
+  icon: {fileID: 21300000, guid: 0d46deb6a566fb841a03e2b6112fc65e, type: 3}
   title: Warrior
   healthMax: 300
   placingTime: 3
-  Price: 175
-  damage: 12
+  Price: 750
+  damage: 15
   fireDuration: 0.5
   attackRange: 30
   idleSpeed: 5
   chaseSpeed: 15
-  targetRange: 40
+  targetRange: 35
   maxMoveRange: 50

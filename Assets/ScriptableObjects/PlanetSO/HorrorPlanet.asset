@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12ba76968a928a04c968cb6d9e43f670, type: 3}
   m_Name: HorrorPlanet
   m_EditorClassIdentifier: 
-  price: 700
+  price: 1300
   planetMaterial: {fileID: 2100000, guid: ce6167acb9e95274297959370920f9dc, type: 2}
   title: Horror Planet
   mineObject: {fileID: 1476358216589224749, guid: fa8b9db822516fd47ab8ac31fe783dd3,
     type: 3}
-  scene: 2
+  scene: 5
   enemySpawningRadius: 150
   planetCenter: {x: 32.3, y: 0, z: -15.2}
-  startingHourToSpawnEnemy: 4
+  startingHourToSpawnEnemy: 0
   speedToSpawnEnemy: 0.04
   planetEnemyList:
   - <Enemy>k__BackingField: {fileID: 2166583374780962248, guid: 1ab7afc717928054f9494e116543fca3,

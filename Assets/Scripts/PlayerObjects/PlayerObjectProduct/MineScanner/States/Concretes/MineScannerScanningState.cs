@@ -34,7 +34,7 @@ public class MineScannerScanningState : MineScannerStateBase
         if (lastPointIndex < _mineScanner.MineScannerMovementController.MinePointPath.Count)
             HandleMovement();
         else if (_mineScanner.MinePoint == null)
-            _mineScannerService.DestroyMineScanner(_mineScanner);
+            _mineScanner.PlayerObjectHealth.IsDead = true;
         else
         {
             OnMineScannerScanned?.Invoke(this, EventArgs.Empty);

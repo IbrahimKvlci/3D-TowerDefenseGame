@@ -16,4 +16,4 @@ MonoBehaviour:
   prefab: {fileID: 6273562047812298317, guid: dacad57bfdaad9a45b9001dfe9349839, type: 3}
   icon: {fileID: 21300000, guid: e33deb7c9abc9e440ab94d00b676c4ac, type: 3}
   title: Ghoulstone
-  startingPrice: 0.75
+  startingPrice: 8

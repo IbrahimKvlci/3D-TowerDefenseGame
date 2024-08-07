@@ -35,7 +35,7 @@ public class GamePlayingState : GameStateBase
             _gameStateService.SwitchState(_gameController.GamePausedState);
         }
 
-        if (_gameController.Hour >= _gameController.MaxHour||_gameController.IsGameOver)
+        if (_gameController.IsGameOver)
         {
             _gameStateService.SwitchState(_gameController.GameOverState);
         }

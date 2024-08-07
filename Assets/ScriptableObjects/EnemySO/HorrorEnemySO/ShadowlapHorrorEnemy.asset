@@ -15,7 +15,7 @@ MonoBehaviour:
   prefab: {fileID: 3444594080865615480, guid: b5bccd95e03d0d645bd648b77c5aa3b7, type: 3}
   icon: {fileID: 0}
   speed: 7
-  maxHealth: 100
+  maxHealth: 200
   attackRange: 10
   attackSpeed: 1
   damage: 30

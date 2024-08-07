@@ -15,4 +15,4 @@ MonoBehaviour:
   PlayerUpgradeEnum: 2
   icon: {fileID: 21300000, guid: 452eaa38b55d92d499606713254c29c4, type: 3}
   text: Mining Speed
-  levelPrices: fa000000f4010000dc050000
+  levelPrices: f4010000dc050000a00f0000
