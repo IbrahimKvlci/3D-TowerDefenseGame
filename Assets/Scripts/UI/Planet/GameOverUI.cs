@@ -12,6 +12,10 @@ public class GameOverUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI collectedValueText;
     [SerializeField] private Button homeBtn;
 
+    [SerializeField] private TextMeshProUGUI resultsTxt;
+    [SerializeField] private TextMeshProUGUI costTxt;
+    [SerializeField] private TextMeshProUGUI homeTxt;
+
 
     private IGameControllerService _gameControllerService;
 
@@ -35,6 +39,10 @@ public class GameOverUI : MonoBehaviour
     {
         _gameControllerService.OnGameOver += gameControllerService_OnGameOver;
         Hide();
+
+        resultsTxt.text = GameLanguageController.ResultsText;
+        costTxt.text = GameLanguageController.CostText;
+        homeTxt.text=GameLanguageController.HomeText;
     }
 
     private void gameControllerService_OnGameOver(object sender, System.EventArgs e)
@@ -56,7 +64,7 @@ public class GameOverUI : MonoBehaviour
     private void UpdateVisual()
     {
         costText.text = $"${Player.Instance.PlayerShopping.Cost}";
-        collectedTitleText.text = $"Collected {Planet.Instace.PlanetSO.mineObject.MineObjectSO.title}";
+        collectedTitleText.text = $"{GameLanguageController.CollectedText} {Planet.Instace.PlanetSO.mineObject.MineObjectSO.title}";
         collectedValueText.text=$"{(Math.Truncate(Player.Instance.PlayerShopping.GetMineObjectFromListByObject(Planet.Instace.PlanetSO.mineObject).CurrentCollectedCount * 100) / 100)}";
     }
 

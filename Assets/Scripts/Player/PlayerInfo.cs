@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PlayerInfo:MonoBehaviour
 {
-    [field:SerializeField] public string Name { get; set; }
+    public string Name
+    {
+        get
+        {
+            return GameLanguageController.NameText;
+        }
+    }
     [field:SerializeField] public Sprite Avatar { get; set; }
 }

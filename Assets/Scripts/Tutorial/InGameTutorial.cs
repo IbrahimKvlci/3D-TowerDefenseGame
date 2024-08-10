@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +12,8 @@ public class InGameTutorial : MonoBehaviour
     [SerializeField] private Button mineScannerBtn;
     [SerializeField] private Button mineBtn;
     [SerializeField] private Button turretBtn;
+
+    [SerializeField] private TextMeshProUGUI speedUpText;
 
     private MineScanner mineScanner;
 
@@ -40,6 +43,8 @@ public class InGameTutorial : MonoBehaviour
         Step = 1;
         CloseAllStepObjects();
         RunStep();
+
+        speedUpText.text = GameLanguageController.SpeedUpText;
     }
 
     private void EnemyHealthService_OnEnemyDead(object sender, System.EventArgs e)

@@ -15,6 +15,9 @@ public class StartUI : MonoBehaviour
     [SerializeField] private Button rightBtn, leftBtn;
     [SerializeField] private Button startBtn;
 
+    [SerializeField] private TextMeshProUGUI startTxt;
+    [SerializeField] private TextMeshProUGUI startPanelTxt;
+
     public Planet CurrentPlanet { get; set; }
 
     private IShoppingPlanetService _shoppingPlanetService;
@@ -46,6 +49,9 @@ public class StartUI : MonoBehaviour
     {
         StartPanel.SetActive(false);
         SetPlanetUI(PlanetList[0]);
+
+        startTxt.text = GameLanguageController.StartText;
+        startPanelTxt.text = GameLanguageController.StartText;
     }
 
     public void OpenStartPanelUI()

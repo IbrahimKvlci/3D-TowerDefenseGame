@@ -14,6 +14,8 @@ public class UpgradeSingleUI : MonoBehaviour
     [SerializeField] private Button upgradeBtn;
     [SerializeField] private Player player;
 
+    [SerializeField] private TextMeshProUGUI upgradeTxt;
+
     private PlayerUpgradeSO playerUpgradeSO;
     private int price;
 
@@ -40,73 +42,78 @@ public class UpgradeSingleUI : MonoBehaviour
 
         icon.sprite = playerUpgradeSO.icon;
         title.text = playerUpgradeSO.text;
+        upgradeTxt.text = GameLanguageController.UpgradeText;
 
         switch (playerUpgradeSO.PlayerUpgradeEnum)
         {
             case PlayerUpgrading.PlayerUpgradeEnum.MiningSpeed:
+                title.text = GameLanguageController.MiningSpeedText;
 
                 if (playerUpgradeSO.levelPrices.Length + 1 == player.PlayerUpgrading.MiningSpeedMultiplier)
                 {
-                    levelTitle.text = "Max Level";
-                    priceText.text = "Max";
+                    levelTitle.text = $"{GameLanguageController.MaxText} {GameLanguageController.LevelText}";
+                    priceText.text = $"{GameLanguageController.MaxText}";
                     price = 10000000;
 
                     upgradeBtn.interactable = false;
                     break;
                 }
 
-                levelTitle.text = $"Level {player.PlayerUpgrading.MiningSpeedMultiplier}";
+                levelTitle.text = $"{GameLanguageController.LevelText} {player.PlayerUpgrading.MiningSpeedMultiplier}";
                 priceText.text = playerUpgradeSO.levelPrices[(int)player.PlayerUpgrading.MiningSpeedMultiplier - 1].ToString();
                 price = playerUpgradeSO.levelPrices[(int)player.PlayerUpgrading.MiningSpeedMultiplier - 1];
 
                 break;
             case PlayerUpgrading.PlayerUpgradeEnum.Damage:
+                title.text = GameLanguageController.DamageText;
 
                 if (playerUpgradeSO.levelPrices.Length + 1 == player.PlayerUpgrading.ObjectDamageMultiplier)
                 {
-                    levelTitle.text = "Max Level";
-                    priceText.text = "Max";
+                    levelTitle.text = $"{GameLanguageController.MaxText} {GameLanguageController.LevelText}";
+                    priceText.text = $"{GameLanguageController.MaxText}";
                     price = 10000000;
 
                     upgradeBtn.interactable = false;
                     break;
                 }
 
-                levelTitle.text = $"Level {player.PlayerUpgrading.ObjectDamageMultiplier}";
+                levelTitle.text = $"{GameLanguageController.LevelText} {player.PlayerUpgrading.ObjectDamageMultiplier}";
                 priceText.text = playerUpgradeSO.levelPrices[(int)player.PlayerUpgrading.ObjectDamageMultiplier - 1].ToString();
                 price = playerUpgradeSO.levelPrices[(int)player.PlayerUpgrading.ObjectDamageMultiplier - 1];
 
                 break;
             case PlayerUpgrading.PlayerUpgradeEnum.MineScannerSpeed:
+                title.text = GameLanguageController.MineScannerSpeedText;
 
                 if (playerUpgradeSO.levelPrices.Length + 1 == player.PlayerUpgrading.MineScannerSpeedMultiplier)
                 {
-                    levelTitle.text = "Max Level";
-                    priceText.text = "Max";
+                    levelTitle.text = $"{GameLanguageController.MaxText} {GameLanguageController.LevelText}";
+                    priceText.text = $"{GameLanguageController.MaxText}";
                     price = 10000000;
 
                     upgradeBtn.interactable = false;
                     break;
                 }
 
-                levelTitle.text = $"Level {player.PlayerUpgrading.MineScannerSpeedMultiplier}";
+                levelTitle.text = $"{GameLanguageController.LevelText} {player.PlayerUpgrading.MineScannerSpeedMultiplier}";
                 priceText.text = playerUpgradeSO.levelPrices[(int)player.PlayerUpgrading.MineScannerSpeedMultiplier - 1].ToString();
                 price = playerUpgradeSO.levelPrices[(int)player.PlayerUpgrading.MineScannerSpeedMultiplier - 1];
 
                 break;
             case PlayerUpgrading.PlayerUpgradeEnum.PlacingSpeed:
+                title.text = GameLanguageController.PlacingSpeedText;
 
                 if (playerUpgradeSO.levelPrices.Length + 1 == player.PlayerUpgrading.PlacingSpeedMultiplier)
                 {
-                    levelTitle.text = "Max Level";
-                    priceText.text = "Max";
+                    levelTitle.text = $"{GameLanguageController.MaxText} {GameLanguageController.LevelText}";
+                    priceText.text = $"{GameLanguageController.MaxText}";
                     price = 10000000;
 
                     upgradeBtn.interactable = false;
                     break;
                 }
 
-                levelTitle.text = $"Level {player.PlayerUpgrading.PlacingSpeedMultiplier}";
+                levelTitle.text = $"{GameLanguageController.LevelText}  {player.PlayerUpgrading.PlacingSpeedMultiplier}";
                 priceText.text = playerUpgradeSO.levelPrices[(int)player.PlayerUpgrading.PlacingSpeedMultiplier - 1].ToString();
                 price = playerUpgradeSO.levelPrices[(int)player.PlayerUpgrading.PlacingSpeedMultiplier - 1];
 

@@ -87,7 +87,7 @@ public class WindowGraph : MonoBehaviour
             labelX.SetParent(graphContainer, false);
             labelX.gameObject.SetActive(true);
             labelX.anchoredPosition = new Vector2(xPosition, 0);
-            labelX.GetComponent<TextMeshProUGUI>().text = $"Day {startingDay+i + 1}";
+            labelX.GetComponent<TextMeshProUGUI>().text = $"{GameLanguageController.DayText} {startingDay+i + 1}";
 
             RectTransform labelY = Instantiate(labelYTemplate);
             labelY.SetParent(graphContainer,false);

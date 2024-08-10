@@ -22,6 +22,6 @@ public class HourUI : MonoBehaviour
 
     private void UpdateHourText()
     {
-        hourText.text = $"{Convert.ToInt32(GameController.Instance.Hour)} Hours";
+        hourText.text = $"{Convert.ToInt32(GameController.Instance.Hour)} {GameLanguageController.HoursText}";
     }
 }

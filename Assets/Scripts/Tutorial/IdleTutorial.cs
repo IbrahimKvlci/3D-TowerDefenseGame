@@ -16,6 +16,9 @@ public class IdleTutorial : MonoBehaviour
     [SerializeField] private Button exitTutorialBtn;
 
     [SerializeField] private TMP_InputField enterNumberField;
+    [SerializeField] private TextMeshProUGUI finishedTxt;
+    [SerializeField] private TextMeshProUGUI exitTxt;
+
 
     public static int Step { get; set; }
 
@@ -72,6 +75,9 @@ public class IdleTutorial : MonoBehaviour
         CloseAllStepObjects();
         RunStep();
         Debug.Log(Step);
+
+        finishedTxt.text = GameLanguageController.FinishedTutorialText;
+        exitTxt.text = GameLanguageController.ExitTutorialText;
     }
 
     private void Update()

@@ -16,6 +16,11 @@ public class TradeUI : MonoBehaviour
     [SerializeField] private Button sellBtn;
     [SerializeField] private MineObjectsUI mineObjectsUI;
 
+    [SerializeField] private TextMeshProUGUI sellTxt;
+    [SerializeField] private TextMeshProUGUI enterCountTxt;
+    [SerializeField] private TextMeshProUGUI tradeTxt;
+
+
     private ITradingMineObjectService _tradingMineObjectService;
 
     private void Awake()
@@ -36,6 +41,10 @@ public class TradeUI : MonoBehaviour
         CurrentMineObjectTrader = MineObjectTraderList[0];
         ChangeCurrentMineObjectIcon(CurrentMineObjectTrader.MineObject.MineObjectSO.icon);
         TradePanel.SetActive(false);
+
+        sellTxt.text = GameLanguageController.SellText;
+        enterCountTxt.text = GameLanguageController.EnterCountText;
+        tradeTxt.text = GameLanguageController.TradeText;
     }
 
     public void OpenTradePanelUI()

@@ -19,6 +19,7 @@ public class PlayerPrefsController : MonoBehaviour
         ObjectDamageUpgrade,
         PlacingSpeedUpgrade,
         PlayerFirstPlay,
+        Language,
     }
 
     private void Awake()
@@ -51,6 +52,7 @@ public class PlayerPrefsController : MonoBehaviour
             mineObjectTrader.OnAddingNewPrice += MineObjectTrader_OnAddingNewPrice;
         }
         Player.Instance.OnPlayerFirstPlayChanged += Instance_OnPlayerFirstPlayChanged;
+        GameLanguageController.OnLanguageChanged += GameLanguageController_OnLanguageChanged;
 
         foreach (MineObject mineObject in Player.Instance.PlayerShopping.MineObjects)
         {
@@ -69,6 +71,12 @@ public class PlayerPrefsController : MonoBehaviour
         }
 
         Player.Instance.PlayerFirstPlay = GetBoolByPlayerPrefsEnum(PlayerPrefsEnum.PlayerFirstPlay);
+        GameLanguageController.Language = (GameLanguageController.LanguagesEnum)GetIntByPlayerPrefsEnum(PlayerPrefsEnum.Language, 0);
+    }
+
+    private void GameLanguageController_OnLanguageChanged(object sender, EventArgs e)
+    {
+        SetIntByPlayerPrefsEnum(PlayerPrefsEnum.Language, (Int32)GameLanguageController.Language);
     }
 
     private void Instance_OnPlayerFirstPlayChanged(object sender, EventArgs e)
@@ -150,10 +158,18 @@ public class PlayerPrefsController : MonoBehaviour
     {
         PlayerPrefs.SetInt(playerPrefsEnum.ToString() + id, value);
     }
+    private void SetIntByPlayerPrefsEnum(PlayerPrefsEnum playerPrefsEnum, int value)
+    {
+        PlayerPrefs.SetInt(playerPrefsEnum.ToString(), value);
+    }
 
     private float GetIntByPlayerPrefsEnumId(PlayerPrefsEnum playerPrefsEnum, int id, int defaultValue)
     {
         return PlayerPrefs.GetInt(playerPrefsEnum.ToString() + id, defaultValue);
+    }
+    private float GetIntByPlayerPrefsEnum(PlayerPrefsEnum playerPrefsEnum, int defaultValue)
+    {
+        return PlayerPrefs.GetInt(playerPrefsEnum.ToString(), defaultValue);
     }
 
     private float GetFloatByPlayerPrefsEnumId(PlayerPrefsEnum playerPrefsEnum, int id,float defaultValue)

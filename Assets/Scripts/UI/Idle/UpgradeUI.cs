@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -11,6 +12,8 @@ public class UpgradeUI : MonoBehaviour
     [SerializeField] private Transform upgradeTemplate;
     [SerializeField] private Transform container;
 
+    [SerializeField] private TextMeshProUGUI upgradeTxt;
+
     private void Awake()
     {
         player = Player.Instance;
@@ -20,6 +23,8 @@ public class UpgradeUI : MonoBehaviour
     {
         upgradeTemplate.gameObject.SetActive(false);
         upgradePanel.SetActive(false);
+
+        upgradeTxt.text=GameLanguageController.UpgradeText;
     }
 
     public void OpenUpgradePanelUI()

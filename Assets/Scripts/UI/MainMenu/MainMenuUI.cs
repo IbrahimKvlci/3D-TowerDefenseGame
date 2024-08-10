@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,8 @@ public class MainMenuUI : MonoBehaviour
 {
     [SerializeField] private Button playBtn;
     [SerializeField] private Button resetProgressBtn;
+    [SerializeField] private TextMeshProUGUI playTxt;
+    [SerializeField] private TextMeshProUGUI resetProgressTxt;
 
     private void Awake()
     {
@@ -31,5 +34,7 @@ public class MainMenuUI : MonoBehaviour
     private void Start()
     {
         IdleTutorial.Step = 1;
+        playTxt.text = GameLanguageController.PlayText;
+        resetProgressTxt.text=GameLanguageController.ResetProgressText;
     }
 }
