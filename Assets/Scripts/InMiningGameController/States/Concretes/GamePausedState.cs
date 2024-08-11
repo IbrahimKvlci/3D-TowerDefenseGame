@@ -12,6 +12,7 @@ public class GamePausedState : GameStateBase
     {
         base.EnterState();
 
+        BasicIoC.Instance.GameReadyService.GameStop();
     }
 
     public override void UpdateState()

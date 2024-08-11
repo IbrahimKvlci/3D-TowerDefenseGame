@@ -514,13 +514,13 @@ public class GameLanguageController
             switch (Language)
             {
                 case LanguagesEnum.Russian:
-                    return "ВЫ ЗАВЕРШИЛИ ОБУЧЕНИЕ";
+                    return "Вы завершили обучение";
                     break;
                 case LanguagesEnum.English:
-                    return "YOU FINISHED THE TUTORIAL";
+                    return "You finished the tutorial";
                     break;
                 default:
-                    return "YOU FINISHED THE TUTORIAL";
+                    return "You finished the tutorial";
                     break;
             }
         }

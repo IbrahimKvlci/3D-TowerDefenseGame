@@ -4,12 +4,22 @@ using UnityEngine;
 
 public class PlayerInfo:MonoBehaviour
 {
+    [SerializeField] private Sprite defaultAvatar;
+
     public string Name
     {
         get
         {
-            return GameLanguageController.NameText;
+            return BasicIoC.Instance.PlayerDataService.GetPlayerName();
         }
     }
-    [field:SerializeField] public Sprite Avatar { get; set; }
+     public Sprite Avatar
+    {
+        get
+        {
+            if(BasicIoC.Instance.PlayerDataService.GetPlayerAvatar()!=null)
+                return BasicIoC.Instance.PlayerDataService.GetPlayerAvatar();
+            return defaultAvatar;
+        }
+    }
 }

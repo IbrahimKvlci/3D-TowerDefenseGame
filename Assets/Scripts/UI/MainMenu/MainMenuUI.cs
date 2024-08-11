@@ -33,8 +33,16 @@ public class MainMenuUI : MonoBehaviour
 
     private void Start()
     {
+        GameLanguageController.OnLanguageChanged += GameLanguageController_OnLanguageChanged;
+
         IdleTutorial.Step = 1;
         playTxt.text = GameLanguageController.PlayText;
         resetProgressTxt.text=GameLanguageController.ResetProgressText;
+    }
+
+    private void GameLanguageController_OnLanguageChanged(object sender, System.EventArgs e)
+    {
+        playTxt.text = GameLanguageController.PlayText;
+        resetProgressTxt.text = GameLanguageController.ResetProgressText;
     }
 }

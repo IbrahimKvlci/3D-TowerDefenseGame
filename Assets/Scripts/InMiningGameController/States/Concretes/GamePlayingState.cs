@@ -23,6 +23,8 @@ public class GamePlayingState : GameStateBase
         base.EnterState();
         spawningEnemyTimer = 0;
         multiplierToSpawnEnemy = 1;
+
+        BasicIoC.Instance.GameReadyService.GameStart();
     }
 
     public override void UpdateState()
