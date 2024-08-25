@@ -9,7 +9,8 @@ public class PlanetSO : ScriptableObject
 {
     public int price;
     public Material planetMaterial;
-    public string title;
+    public string titleEN;
+    public string titleRU;
     public MineObject mineObject;
     public SceneLoader.Scene scene;
     public float enemySpawningRadius;

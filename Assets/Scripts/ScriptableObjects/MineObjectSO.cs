@@ -8,6 +8,7 @@ public class MineObjectSO : ScriptableObject
     public int id;
     public Transform prefab;
     public Sprite icon;
-    public string title;
+    public string titleEN;
+    public string titleRU;
     public float startingPrice;
 }

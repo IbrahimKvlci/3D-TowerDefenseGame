@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 public class GameOverUI : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class GameOverUI : MonoBehaviour
             }
             else
                 SceneLoader.LoadScene(SceneLoader.Scene.Idle);
+            YandexGame.FullscreenShow();
         });
 
         _gameControllerService = InGameIoC.Instance.GameControllerService;
@@ -64,7 +66,19 @@ public class GameOverUI : MonoBehaviour
     private void UpdateVisual()
     {
         costText.text = $"${Player.Instance.PlayerShopping.Cost}";
-        collectedTitleText.text = $"{GameLanguageController.CollectedText} {Planet.Instace.PlanetSO.mineObject.MineObjectSO.title}";
+
+        switch (GameLanguageController.Language)
+        {
+            case GameLanguageController.LanguagesEnum.Russian:
+                collectedTitleText.text = $"{GameLanguageController.CollectedText} {Planet.Instace.PlanetSO.mineObject.MineObjectSO.titleRU}";
+                break;
+            case GameLanguageController.LanguagesEnum.English:
+                collectedTitleText.text = $"{GameLanguageController.CollectedText} {Planet.Instace.PlanetSO.mineObject.MineObjectSO.titleEN}";
+                break;
+            default:
+                break;
+        }
+
         collectedValueText.text=$"{(Math.Truncate(Player.Instance.PlayerShopping.GetMineObjectFromListByObject(Planet.Instace.PlanetSO.mineObject).CurrentCollectedCount * 100) / 100)}";
     }
 

@@ -15,5 +15,6 @@ MonoBehaviour:
   id: 3
   prefab: {fileID: 6273562047812298317, guid: 9c475c1ffa1e6414794bf58cf28ea733, type: 3}
   icon: {fileID: 21300000, guid: 4589f484e95a88749aa760afecee2960, type: 3}
-  title: Wingite
+  titleEN: Wingite
+  titleRU: "\u0412\u0438\u043D\u0433\u0438\u0442"
   startingPrice: 16

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   price: 500
   planetMaterial: {fileID: 2100000, guid: aa71c55501fcb3f4f8880514d6c0cf18, type: 2}
-  title: Animal Planet
+  titleEN: Animal Planet
+  titleRU: "\u042D\u043D\u0438\u043C\u0430\u043B \u041F\u043B\u0430\u043D\u0435\u0442"
   mineObject: {fileID: 4040155191068706138, guid: fec1cf4a9d5d9e54b820c3812c2e5dee,
     type: 3}
   scene: 7

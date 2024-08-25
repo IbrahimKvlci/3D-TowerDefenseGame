@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   price: 750
   planetMaterial: {fileID: 2100000, guid: 1290c1444fae99840bc08b3e7953549f, type: 2}
-  title: Dragon Planet
+  titleEN: Dragon Planet
+  titleRU: "\u0414\u0440\u0430\u043A\u043E\u043D \u041F\u043B\u0430\u043D\u0435\u0442\u0430"
   mineObject: {fileID: 3767853152041770049, guid: 9c475c1ffa1e6414794bf58cf28ea733,
     type: 3}
   scene: 8

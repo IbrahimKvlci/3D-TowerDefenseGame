@@ -72,7 +72,18 @@ public class StartUI : MonoBehaviour
     {
         CurrentPlanet=planet;
 
-        planetNameText.text = planet.PlanetSO.title;
+        switch (GameLanguageController.Language)
+        {
+            case GameLanguageController.LanguagesEnum.Russian:
+                planetNameText.text = planet.PlanetSO.titleRU;
+                break;
+            case GameLanguageController.LanguagesEnum.English:
+                planetNameText.text = planet.PlanetSO.titleEN;
+                break;
+            default:
+                break;
+        }
+        
         planetObject.GetComponent<Renderer>().material = planet.PlanetSO.planetMaterial;
         priceText.text = $"${planet.PlanetSO.price.ToString()}";
     }

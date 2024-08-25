@@ -58,7 +58,17 @@ public class PausePanelUI : MonoBehaviour
 
     private void UpdateVisual()
     {
-        collectedMineObjectTitleTxt.text = $"{GameLanguageController.CollectedText} {Planet.Instace.PlanetSO.mineObject.MineObjectSO.title}";
+        switch (GameLanguageController.Language)
+        {
+            case GameLanguageController.LanguagesEnum.Russian:
+                collectedMineObjectTitleTxt.text = $"{GameLanguageController.CollectedText} {Planet.Instace.PlanetSO.mineObject.MineObjectSO.titleRU}";
+                break;
+            case GameLanguageController.LanguagesEnum.English:
+                collectedMineObjectTitleTxt.text = $"{GameLanguageController.CollectedText} {Planet.Instace.PlanetSO.mineObject.MineObjectSO.titleEN}";
+                break;
+            default:
+                break;
+        }
         collectedMineObjectValueTxt.text = $"{(Math.Truncate(Player.Instance.PlayerShopping.GetMineObjectFromListByObject(Planet.Instace.PlanetSO.mineObject).CurrentCollectedCount * 100) / 100)}";
         costTxt.text = $"${Player.Instance.PlayerShopping.Cost}";
     }

@@ -1,2 +1,2 @@
-Build path: C:/Users/kimze/Desktop/GameReadyAndAdsTestBuild
-Build number: 3
+Build path: C:/Users/kimze/Desktop/Build1250
+Build number: 9

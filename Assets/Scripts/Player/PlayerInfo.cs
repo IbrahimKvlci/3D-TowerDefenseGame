@@ -10,16 +10,34 @@ public class PlayerInfo:MonoBehaviour
     {
         get
         {
-            return BasicIoC.Instance.PlayerDataService.GetPlayerName();
+            try
+            {
+                return BasicIoC.Instance.PlayerDataService.GetPlayerName();
+            }
+            catch (System.Exception)
+            {
+
+                return "Player";
+            }
+            
         }
     }
      public Sprite Avatar
     {
         get
         {
-            if(BasicIoC.Instance.PlayerDataService.GetPlayerAvatar()!=null)
-                return BasicIoC.Instance.PlayerDataService.GetPlayerAvatar();
-            return defaultAvatar;
+            try
+            {
+                if (BasicIoC.Instance.PlayerDataService.GetPlayerAvatar() != null)
+                    return BasicIoC.Instance.PlayerDataService.GetPlayerAvatar();
+                return defaultAvatar;
+            }
+            catch (System.Exception)
+            {
+
+                return defaultAvatar;
+            }
+            
         }
     }
 }

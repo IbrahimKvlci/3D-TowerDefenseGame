@@ -15,5 +15,6 @@ MonoBehaviour:
   id: 4
   prefab: {fileID: 6273562047812298317, guid: fa8b9db822516fd47ab8ac31fe783dd3, type: 3}
   icon: {fileID: 21300000, guid: 21738135c1821da42a432aaefe77ecbd, type: 3}
-  title: Fearite
+  titleEN: Fearite
+  titleRU: "\u0424\u0435\u0430\u0440\u0438\u0442"
   startingPrice: 20

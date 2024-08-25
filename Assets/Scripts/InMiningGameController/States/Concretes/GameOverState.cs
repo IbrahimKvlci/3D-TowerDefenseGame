@@ -18,7 +18,6 @@ public class GameOverState : GameStateBase
         _gameControllerService.FinishTheGame(_gameController, Player.Instance.PlayerShopping.GetMineObjectFromListByObject(Planet.Instace.PlanetSO.mineObject), Player.Instance);
 
         BasicIoC.Instance.GameReadyService.GameStop();
-        YandexGame.FullscreenShow();
     }
 
     public override void UpdateState()

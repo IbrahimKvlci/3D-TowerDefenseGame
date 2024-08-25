@@ -15,5 +15,6 @@ MonoBehaviour:
   id: 2
   prefab: {fileID: 6273562047812298317, guid: fec1cf4a9d5d9e54b820c3812c2e5dee, type: 3}
   icon: {fileID: 21300000, guid: b170e976a1cf9224c8da302c67a7271d, type: 3}
-  title: Clawite
+  titleEN: Clawite
+  titleRU: "\u041A\u043B\u043E\u0443\u0430\u0439\u0442"
   startingPrice: 12
